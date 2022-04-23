@@ -6,9 +6,10 @@ import "./App.css";
 
 import NavBar from "./components/NavBar/NavBar";
 import SideBar from "./components/SideBar/SideBar";
+import Booking from "./components/Booking/Booking";
 
 function App() {
-  const topics = ["First topic", "Second topic", "Third topic"];
+  const topics = ["Dashboard", "Booking", "Setting"];
   const [contentIndex, setContentIndex] = useState(0);
   const [selectedKey, setSelectedKey] = useState("0");
   const changeSelectedKey = (event) => {
@@ -29,7 +30,8 @@ function App() {
       <Layout>
         <SideBar menu={Menu} />
         <Layout.Content className="content">
-          {topics[contentIndex]}
+          {/* {topics[contentIndex]} */}
+          <Booking/>
         </Layout.Content>
       </Layout>
     </div>

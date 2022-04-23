@@ -1,9 +1,8 @@
 import React, { useState } from "react";
 import { Drawer, Button } from "antd";
-import { MenuOutlined } from "@ant-design/icons";
+import { DiffOutlined, MenuOutlined } from "@ant-design/icons";
 import "./NavBar.css";
 import logo from "./../../logo.svg";
-
 const NavBar = ({ menu }) => {
   const [visible, setVisible] = useState(false);
   return (
@@ -23,9 +22,15 @@ const NavBar = ({ menu }) => {
       >
         {menu}
       </Drawer>
-      <a href="/">
+      <div className="navbarStyling">
+        <h1 className="logoStyling"> Smoobu</h1>
+        <Button className="bookingBtn"> <DiffOutlined />Enter Booking</Button>
+        <Button>Balwinder Singh
+        </Button>
+      </div>
+      {/* <a href="/">
         <img src={logo} className="logo" alt="logo" />
-      </a>
+      </a> */}
     </nav>
   );
 };

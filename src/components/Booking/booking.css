@@ -1,0 +1,17 @@
+.bookingHeader {
+    font-weight: 800;
+}
+
+.bookingElement {
+    display: flex!important;
+    justify-content: flex-end!important;
+}
+
+.datesetter {
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.bookingTable {
+    margin-top: 20px!important;
+}
