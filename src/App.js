@@ -8,6 +8,11 @@ import NavBar from "./components/NavBar/NavBar"
 import SideBar from "./components/SideBar/SideBar"
 import Booking from "./components/Booking/Booking"
 import { DashboardOutlined, CalendarOutlined, SettingOutlined } from "@ant-design/icons"
+import Form from "./components/popoverForm/BookingForm"
+import BookingForm from "./components/popoverForm/BookingForm"
+import Upcoming from "./components/Upcoming/Upcoming"
+import Testing from "./components/testing/Testing"
+import DirectBookingTesting from "./components/testing/DirectBookingTesting"
 
 function App() {
   const topics = [
@@ -30,7 +35,12 @@ function App() {
         <SideBar menu={Menu} />
         <Layout.Content className="content">
           {/* {topics[contentIndex]} */}
-          <Booking />
+          {/* <Booking /> */}
+          {/* <BookingForm /> */}
+           {/* <Upcoming/>  */}
+          {/* <Testing/> */}        
+           {/* <DirectBookingTesting/> */}
+
         </Layout.Content>
       </Layout>
     </div>

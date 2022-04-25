@@ -1,0 +1,32 @@
+.ant-card-head-title {
+    font-size: 19px!important;
+    color: blue!important;
+    font-weight: 900!important;
+}
+
+.UpcomingHeaders {
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.popoverData {
+    width: 250px!important;
+    text-align: start;
+}
+
+.testingData {
+    font-size: 17px!important;
+    padding: 6px;
+}
+
+.detailsBtn {
+    color: #007bff;
+    cursor: pointer;
+    font-size: large;
+}
+
+.cancelBtn {
+    color: red;
+    cursor: pointer;
+    font-size: large;
+}
