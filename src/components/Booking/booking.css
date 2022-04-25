@@ -15,3 +15,7 @@
 .bookingTable {
     margin-top: 20px!important;
 }
+
+.td-portal > mark{
+    background-color:#41F7936b
+}

@@ -2,3 +2,17 @@
     height: 1000px;
     margin-right: 24px;
 }
+
+.sidebar .ant-menu-item-selected{
+    background-color: inherit !important;
+    color: #3b4aff;
+    border-color: #3b4aff
+}
+
+.sidebar .ant-menu-item-selected::after{
+    border-right: 3px solid #3b4aff
+}
+
+.sidebar .ant-menu-item:hover{
+    color: #3b4aff;
+}

@@ -1,12 +1,14 @@
 import React from "react";
-import {Menu} from "antd";
+import {Menu, Row, Col} from "antd";
+import {DashboardOutlined} from "@ant-design/icons"
+import './TopicMenu.css'
 
 const TopicMenu = ({ topics, selectedKey, changeSelectedKey }) => {
   const styledTopics = [];
   topics.forEach((topic, index) =>
     styledTopics.push(
-      <Menu.Item style={{ width: 200,height:75 }} key={index} onClick={changeSelectedKey}>
-        {topic}
+      <Menu.Item className="topics" key={index} onClick={changeSelectedKey}>
+        {topic.icon}{topic.text}
       </Menu.Item>
     )
   );

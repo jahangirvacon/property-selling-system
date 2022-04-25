@@ -1,151 +1,186 @@
-import React from "react";
-import { Row, Col } from 'antd';
-import './booking.css'
-import { Input, Space } from 'antd';
-import { AudioOutlined } from '@ant-design/icons';
-import { Table } from 'antd';
+import React from "react"
+import { Row, Col } from "antd"
+import "./booking.css"
+import { Input, Space, Typography, Button } from "antd"
+import { AudioOutlined } from "@ant-design/icons"
+import { Table } from "antd"
 
+const { Text } = Typography
 
-const { Search } = Input;
+const { Search } = Input
 const suffix = (
-    <AudioOutlined
-        style={{
-            fontSize: 20,
-            color: '#1890ff',
-            margin: 6
-        
-        }}
-    />
-);
+  <AudioOutlined
+    style={{
+      fontSize: 20,
+      color: "#1890ff",
+      margin: 6,
+    }}
+  />
+)
 
-
-const onSearch = value => console.log(value);
-
+const onSearch = (value) => console.log(value)
 
 // Table
 const columns = [
-    {
-      title: 'Arrival',
-      dataIndex: 'name',
+  {
+    title: "Arrival",
+    dataIndex: "name",
+  },
+  {
+    title: "Departure",
+    dataIndex: "chinese",
+    sorter: {
+      compare: (a, b) => a.chinese - b.chinese,
+      multiple: 3,
     },
-    {
-      title: 'Departure',
-      dataIndex: 'chinese',
-      sorter: {
-        compare: (a, b) => a.chinese - b.chinese,
-        multiple: 3,
-      },
+  },
+  {
+    title: "Property",
+    dataIndex: "math",
+    sorter: {
+      compare: (a, b) => a.math - b.math,
+      multiple: 2,
     },
-    {
-      title: 'Property',
-      dataIndex: 'math',
-      sorter: {
-        compare: (a, b) => a.math - b.math,
-        multiple: 2,
-      },
+  },
+  {
+    title: "Guest",
+    dataIndex: "english",
+    sorter: {
+      compare: (a, b) => a.english - b.english,
+      multiple: 1,
     },
-    {
-      title: 'Guest',
-      dataIndex: 'english',
-      sorter: {
-        compare: (a, b) => a.english - b.english,
-        multiple: 1,
-      },
+    render: (guest) => (
+      <Space size="middle">
+        <a>{guest}</a>
+      </Space>
+    ),
+  },
+  {
+    title: "Portal",
+    dataIndex: "abc",
+    sorter: {
+      compare: (a, b) => a.name - b.english,
+      multiple: 1,
     },
-  ];
-  
-  const data = [
-    {
-      key: '1',
-      name: '22/2/17',
-      chinese: 98,
-      math: 'Ali',
-      english: 70,
+    render: (portal) => (
+      <Space size="middle">
+        <Text className="td-portal" mark>
+          {portal}
+        </Text>
+      </Space>
+    ),
+  },
+  {
+    title: "Created",
+    dataIndex: "def",
+    sorter: {
+      compare: (a, b) => a.name - b.english,
+      multiple: 1,
     },
-    {
-      key: '2',
-      name: '22/2/17',
-      chinese: 98,
-      math: 'Ahmad',
-      english: 89,
+  },
+  {
+    title: "Status",
+    dataIndex: "xyz",
+    sorter: {
+      compare: (a, b) => a.name - b.english,
+      multiple: 1,
     },
-    {
-      key: '3',
-      name: '22/2/17',
-      chinese: 98,
-      math:'Ahmad',
-      english: 70,
-    },
-    {
-      key: '4',
-      name: '22/2/17',
-      chinese: 88,
-      math:'Ahmad',
-      english: 89,
-    },
-  ];
-  
-  function onChange(pagination, filters, sorter, extra) {
-    console.log('params', pagination, filters, sorter, extra);
-  } 
+    render: (statusText) => (
+      <Space size="middle">
+        <Button type="primary" size="small">
+          {statusText}
+        </Button>
+      </Space>
+    ),
+  },
+]
 
+const data = [
+  {
+    key: "1",
+    name: "22/2/17",
+    chinese: 98,
+    math: "Ali",
+    english: 70,
+    abc: "Portal1",
+    def: "22/2/17",
+    xyz: "Booked",
+  },
+  {
+    key: "2",
+    name: "22/2/17",
+    chinese: 98,
+    math: "Ahmad",
+    english: 89,
+    abc: "Portal2",
+    def: "22/2/17",
+    xyz: "Booked",
+  },
+  {
+    key: "3",
+    name: "22/2/17",
+    chinese: 98,
+    math: "Ahmad",
+    english: 70,
+    abc: "Portal3",
+    def: "22/2/17",
+    xyz: "Booked",
+  },
+  {
+    key: "4",
+    name: "22/2/17",
+    chinese: 88,
+    math: "Ahmad",
+    english: 89,
+    abc: "Portal1",
+    def: "22/2/17",
+    xyz: "Booked",
+  },
+]
 
-
-
+function onChange(pagination, filters, sorter, extra) {
+  console.log("params", pagination, filters, sorter, extra)
+}
 
 const Booking = () => {
-    return (
-        <div>
-            <Row>
-                <Col span={24}>
-                    <h1 className="bookingHeader">Bookings</h1>
-                </Col>
-            </Row>
-            <Row >
-                <Col span={24}>
-                    <div className="bookingElement">
-                    <div className="searc">
-                        <Space direction="vertical">
-                            <Search placeholder="input search text" onSearch={onSearch} style={{ width: 200 }} />
-                        </Space>
-                    </div>
-                    <div className="datesetter">
-                        <label for="start">Start date:</label>
-
-                        <input type="date" id="start" name="trip-start"
-                            value="2018-07-22"
-                            min="2018-01-01" max="2018-12-31" />
-
-
-                    </div>
-                    <div  className="datesetter">
-                        <label for="start">End Date:</label>
-
-                        <input type="date" id="start" name="trip-start"
-                            value="2018-07-22"
-                            min="2018-01-01" max="2018-12-31" />
-
-
-                    </div>
-                    {/* <div>
+  return (
+    <div>
+      <Row>
+        <Col span={24}>
+          <h1 className="bookingHeader">Bookings</h1>
+        </Col>
+      </Row>
+      <Row>
+        <Col span={24}>
+          <div className="bookingElement">
+            <div className="searc">
+              <Space direction="vertical">
+                <Search placeholder="Search here..." onSearch={onSearch} style={{ width: 200 }} />
+              </Space>
+            </div>
+            <div className="datesetter">
+              <input type="date" id="start" name="trip-start" placeholder="Start Date" />
+            </div>
+            <div className="datesetter">
+              <input type="date" id="start" name="trip-start" placeholder="End Date" />
+            </div>
+            {/* <div>
                         <Dropdown overlay={menu}>
                             <a className="ant-dropdown-link" onClick={e => e.preventDefault()}>
                                 Hover me <DownOutlined />
                             </a>
                         </Dropdown>
                     </div> */}
-                    </div>
-                </Col>
-            </Row>
+          </div>
+        </Col>
+      </Row>
 
-            <Row className="bookingTable">
-                <Col span={24}>
-                <Table columns={columns} dataSource={data} onChange={onChange} />
-                </Col>
-            </Row>
-
-
-        </div>
-    );
+      <Row className="bookingTable">
+        <Col span={24}>
+          <Table columns={columns} dataSource={data} onChange={onChange} />
+        </Col>
+      </Row>
+    </div>
+  )
 }
-export default Booking;
+export default Booking
