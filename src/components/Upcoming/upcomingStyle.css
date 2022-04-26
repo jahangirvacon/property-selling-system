@@ -1,32 +1,55 @@
-.ant-card-head-title {
-    font-size: 19px!important;
-    color: blue!important;
-    font-weight: 900!important;
-}
-
-.UpcomingHeaders {
-    font-size: 18px;
-    cursor: pointer;
-}
-
-.popoverData {
-    width: 250px!important;
-    text-align: start;
-}
-
-.testingData {
-    font-size: 17px!important;
-    padding: 6px;
-}
-
-.detailsBtn {
-    color: #007bff;
-    cursor: pointer;
-    font-size: large;
-}
-
-.cancelBtn {
-    color: red;
-    cursor: pointer;
-    font-size: large;
-}
+        .ant-card-head-title {
+            font-size: 19px!important;
+            color: blue!important;
+            font-weight: 900!important;
+        }
+        
+        .UpcomingHeaders {
+            font-size: 18px;
+            cursor: pointer;
+        }
+        
+        .popoverData {
+            width: 300px!important;
+            text-align: start;
+        }
+        
+        .popoverDesign {
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        .testingData {
+            font-size: 17px!important;
+            padding: 6px;
+        }
+        
+        .detailsBtn {
+            color: #007bff;
+            cursor: pointer;
+            font-size: large;
+        }
+        
+        .editBtn {
+            cursor: pointer;
+            font-size: large;
+        }
+        
+        .cancelBtn {
+            color: red;
+            cursor: pointer;
+            font-size: large;
+        }
+        
+        .Testing {
+            background-color: #41F7936b;
+            font-weight: 800;
+        }
+        
+        .upcomingEvents {
+            border-top: red;
+        }
+        
+        .ant-card {
+            border-left: 8px solid #41F7936b;
+        }

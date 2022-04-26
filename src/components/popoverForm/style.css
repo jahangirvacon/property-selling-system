@@ -12,3 +12,13 @@
     font-weight: 500;
     height: 45px;
 }
+
+.bookingform {
+    width: 300px!important;
+}
+
+.formHeader {
+    font-size: 15px!important;
+    font-weight: 700;
+    padding: 3px;
+}

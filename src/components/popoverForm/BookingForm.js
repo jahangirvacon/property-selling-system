@@ -1,34 +1,27 @@
 import React from "react";
-import "./style.css"
-import { Modal } from 'antd';
-import { Row, Col } from 'antd';
-import { useState } from 'react';
-import {
-  Form,
-  Input,
-  Button,
-  Radio,
-  Select,
-  Cascader,
-  DatePicker,
-  InputNumber,
-  TreeSelect,
-  Switch,
-} from 'antd';
+import "./style.css";
+import { Button, Input } from "antd";
+import { Modal } from "antd";
+import { Row, Col } from "antd";
+import { useState } from "react";
+import { Select, Spin } from "antd";
+import debounce from "lodash/debounce";
 import { DownOutlined } from "@ant-design/icons";
+
+//
+const { Option } = Select;
+
+function handleChange(value) {
+  console.log(`selected ${value}`);
+}
+
 const BookingForm = () => {
-  const [componentSize, setComponentSize] = useState('default');
   const [data, setData] = useState();
   const myfunction = () => {
-
-    setData(<p>Create an offer/Quatation (Does not block calendar)</p>)
+    setData(<p>Create an offer/Quatation (Does not block calendar)</p>);
   };
 
-  const onFormLayoutChange = ({ size }) => {
-    setComponentSize(size);
-  };
-
-  // Modal 
+  // Modal
   const [isModalVisible, setIsModalVisible] = useState(false);
 
   const showModal = () => {
@@ -45,127 +38,125 @@ const BookingForm = () => {
 
   return (
     <div>
-
-<Button type="primary" onClick={showModal}>
+      <Button type="primary" onClick={showModal}>
         Open Modal
       </Button>
-      <Modal  visible={isModalVisible} onOk={handleOk} onCancel={handleCancel}>
-      <Row>
-        <Col span={12}>
-          <h2 className="bookingFormHeading">Enter Booking</h2>
-        </Col>
-      </Row>
-      <Row>
-        <Col span={24} >
-
-
-          <Form
-            labelCol={{
-              span: 4,
-            }}
-            wrapperCol={{
-              span: 14,
-            }}
-            layout="horizontal"
-            initialValues={{
-              size: componentSize,
-            }}
-            onValuesChange={onFormLayoutChange}
-            size={componentSize}
-          >
-            
-            <Form.Item label="Customer">
-              <Input />
-            </Form.Item>
-            <Form.Item label="Gurdwara">
-              <Select>
-                <Select.Option value="demo">Demo</Select.Option>
+      <Modal visible={isModalVisible} onOk={handleOk} onCancel={handleCancel}>
+        <Row>
+          <Col span={12}>
+            <h2 className="bookingFormHeading">Enter Booking</h2>
+          </Col>
+        </Row>
+        <Row>
+          <Col span={10}>
+            <div className="formData">
+              <h5 className="formHeader">Customer Name</h5>
+              <Input placeholder="Enter Name" />
+            </div>
+          </Col>
+          <Col span={10} offset={2}>
+            <div className="formData">
+              <h5 className="formHeader">Gurdwara</h5>
+              {/* <Input placeholder="Gurdwara" /> */}
+              <Select
+                defaultValue="Gurdwara"
+                style={{ width: 195 }}
+                onChange={handleChange}
+              >
+                <Option value="jack">Jack</Option>
+                <Option value="lucy">Lucy</Option>
+                <Option value="disabled" disabled>
+                  Disabled
+                </Option>
+                <Option value="Yiminghe">yiminghe</Option>
               </Select>
-            </Form.Item>
-            <Form.Item label="Hall">
-              <TreeSelect
-                treeData={[
-                  {
-                    title: 'Light',
-                    value: 'light',
-                    children: [
-                      {
-                        title: 'Bamboo',
-                        value: 'bamboo',
-                      },
-                    ],
-                  },
-                ]}
-              />
-            </Form.Item>
-            <Form.Item label="Event Type">
-              <Cascader
-                options={[
-                  {
-                    value: 'zhejiang',
-                    label: 'Zhejiang',
-                    children: [
-                      {
-                        value: 'hangzhou',
-                        label: 'Hangzhou',
-                      },
-                    ],
-                  },
-                ]}
-              />
-            </Form.Item>
+            </div>
+          </Col>
+        </Row>
+        <Row>
+          <Col span={10}>
+            <div className="formData">
+              <h5 className="formHeader">Hall</h5>
+              {/* <Input placeholder="Hall" /> */}
+              <Select
+                defaultValue="Gurdwara"
+                style={{ width: 195 }}
+                onChange={handleChange}
+              >
+                <Option value="jack">Jack</Option>
+                <Option value="lucy">Lucy</Option>
+                <Option value="disabled" disabled>
+                  Disabled
+                </Option>
+                <Option value="Yiminghe">yiminghe</Option>
+              </Select>
+            </div>
+          </Col>
+          <Col span={10} offset={2}>
+            <div className="formData">
+              <h5 className="formHeader">Event Type</h5>
+              {/* <Input placeholder="Type" /> */}
+              <Select
+                defaultValue="Gurdwara"
+                style={{ width: 195 }}
+                onChange={handleChange}
+              >
+                <Option value="jack">Jack</Option>
+                <Option value="lucy">Lucy</Option>
+                <Option value="disabled" disabled>
+                  Disabled
+                </Option>
+                <Option value="Yiminghe">yiminghe</Option>
+              </Select>
+            </div>
+          </Col>
+        </Row>
+        <Row>
+          <Col span={10}>
+            <div className="formData">
+              <h5 className="formHeader">Price</h5>
+               <Input placeholder="Basic usage" disabled /> 
+             
+            </div>
+          </Col>
+          <Col span={10} offset={2}>
+            <div className="formData">
+              <h5 className="formHeader">Date</h5>
+              <Input placeholder="Basic usage" />
+            </div>
+          </Col>
+        </Row>
+        <Row>
+          <Col span={10}>
+            <div className="formData">
+              <h5 className="formHeader">Time Slot</h5>
+              <Input placeholder="Basic usage" />
+            </div>
+          </Col>
+        </Row>
 
-            <Form.Item label="Price">
-              <InputNumber />
-            </Form.Item>
-            <Form.Item label="DatePicker">
-              <DatePicker />
-            </Form.Item>
-            <Form.Item label="Time Slot">
-              <TreeSelect
-                treeData={[
-                  {
-                    title: 'Light',
-                    value: 'light',
-                    children: [
-                      {
-                        title: 'Bamboo',
-                        value: 'bamboo',
-                      },
-                    ],
-                  },
-                ]}
-              />
-            </Form.Item>
-          </Form>
-        </Col>
-      </Row>
-
-      <Row>
-        <Col span={12}>
-          <h2 className="bookingFormHeading">Price</h2>
-        </Col>
-      </Row>
-      <Row>
-        <Col span={12}>
-          <h2 className="bookingFormHeading">Details</h2>
-        </Col>
-      </Row>
-      <Row>
-        <Col span={12}>
-          <Button className="BookingBtns" >Save</Button>
-          <Button className="BookingBtns" onClick={myfunction} ><DownOutlined /></Button>
-          <Button className="discardBtns" >Discard</Button>
-          <p>{data}</p>
-        </Col>
-      </Row>
-
-       
+        <Row>
+          <Col span={12}>
+            <h2 className="bookingFormHeading">Price</h2>
+          </Col>
+        </Row>
+        <Row>
+          <Col span={12}>
+            <h2 className="bookingFormHeading">Details</h2>
+          </Col>
+        </Row>
+        <Row>
+          <Col span={12}>
+            <Button className="BookingBtns">Save</Button>
+            <Button className="BookingBtns" onClick={myfunction}>
+              <DownOutlined />
+            </Button>
+            <Button className="discardBtns">Discard</Button>
+            <p>{data}</p>
+          </Col>
+        </Row>
       </Modal>
-
-     
     </div>
   );
-
-}
-export default BookingForm
+};
+export default BookingForm;
