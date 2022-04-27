@@ -7,6 +7,9 @@ import { useState } from "react";
 import { Select, Spin } from "antd";
 import debounce from "lodash/debounce";
 import { DownOutlined } from "@ant-design/icons";
+import {addBooking} from "../../api"
+import useFormHandler from "../../../hooks/form/form-handler"
+
 
 //
 const { Option } = Select;
@@ -17,6 +20,16 @@ function handleChange(value) {
 
 const BookingForm = () => {
   const [data, setData] = useState();
+  const { inputs, formErrors, handleInputChange, handleSubmit, setErrors } = useFormHandler(
+    {
+      name: "",
+      gurdwara: "",
+      hall: "",
+      eventType: "",
+      price: "",
+    },
+    logInHandler
+  )
   const myfunction = () => {
     setData(<p>Create an offer/Quatation (Does not block calendar)</p>);
   };
@@ -28,7 +41,14 @@ const BookingForm = () => {
     setIsModalVisible(true);
   };
 
-  const handleOk = () => {
+  const handleOk = async () => {
+    await addBooking({
+      guest: "string",
+      startTime: "string",
+      endTime: "string",
+      hallEvent: "626918022b442539727dd1c4",
+      available: true
+  })
     setIsModalVisible(false);
   };
 
