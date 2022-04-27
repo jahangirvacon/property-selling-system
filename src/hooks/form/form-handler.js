@@ -18,11 +18,18 @@ const useFormHandler = (initialValues, callback) => {
     }))
   }
 
+  const UpdateFormValue = (fieldName, value) =>
+    setInputs((inputs) => ({
+      ...inputs,
+      [fieldName]: value,
+    }))
+
   return {
     inputs,
     formErrors,
     handleSubmit,
     handleInputChange,
+    UpdateFormValue,
     setErrors,
   }
 }
