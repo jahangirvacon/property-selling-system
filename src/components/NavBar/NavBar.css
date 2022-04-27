@@ -34,6 +34,10 @@
     height: 45px;
     position: absolute;
     left: 220px;
+    border: none!important;
+    cursor: pointer!important;
+    border-radius: 2px;
+    width: 125px;
 }
 
 .user {

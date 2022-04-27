@@ -1,5 +1,5 @@
 import React from "react";
-import "./style.css";
+import "./BookingForm.css";
 import { Button, Input } from "antd";
 import { Modal } from "antd";
 import { Row, Col } from "antd";
@@ -41,7 +41,19 @@ const BookingForm = () => {
       <Button type="primary" onClick={showModal}>
         Open Modal
       </Button>
-      <Modal visible={isModalVisible} onOk={handleOk} onCancel={handleCancel}>
+      <Modal 
+      visible={isModalVisible} 
+      onOk={handleOk} 
+      onCancel={handleCancel}
+      footer={[
+        <Button key="back" onClick={handleCancel}>
+          Return
+        </Button>,
+        <Button key="submit" type="primary" onClick={handleOk}>
+          Save
+        </Button>,
+      ]}
+      >
         <Row>
           <Col span={12}>
             <h2 className="bookingFormHeading">Enter Booking</h2>
@@ -60,7 +72,7 @@ const BookingForm = () => {
               {/* <Input placeholder="Gurdwara" /> */}
               <Select
                 defaultValue="Gurdwara"
-                style={{ width: 195 }}
+                style={{ width: 182 }}
                 onChange={handleChange}
               >
                 <Option value="jack">Jack</Option>
@@ -80,7 +92,7 @@ const BookingForm = () => {
               {/* <Input placeholder="Hall" /> */}
               <Select
                 defaultValue="Gurdwara"
-                style={{ width: 195 }}
+                style={{ width: 182 }}
                 onChange={handleChange}
               >
                 <Option value="jack">Jack</Option>
@@ -98,7 +110,7 @@ const BookingForm = () => {
               {/* <Input placeholder="Type" /> */}
               <Select
                 defaultValue="Gurdwara"
-                style={{ width: 195 }}
+                style={{ width: 182 }}
                 onChange={handleChange}
               >
                 <Option value="jack">Jack</Option>
@@ -135,7 +147,7 @@ const BookingForm = () => {
           </Col>
         </Row>
 
-        <Row>
+        {/* <Row>
           <Col span={12}>
             <h2 className="bookingFormHeading">Price</h2>
           </Col>
@@ -154,7 +166,7 @@ const BookingForm = () => {
             <Button className="discardBtns">Discard</Button>
             <p>{data}</p>
           </Col>
-        </Row>
+        </Row> */}
       </Modal>
     </div>
   );

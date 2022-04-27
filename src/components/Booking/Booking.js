@@ -1,6 +1,6 @@
 import React from "react"
 import { Row, Col } from "antd"
-import "./booking.css"
+import "./Booking.css"
 import { Input, Space, Typography, Button } from "antd"
 import { AudioOutlined } from "@ant-design/icons"
 import { Table } from "antd"
@@ -155,22 +155,16 @@ const Booking = () => {
           <div className="bookingElement">
             <div className="searc">
               <Space direction="vertical">
-                <Search placeholder="Search here..." onSearch={onSearch} style={{ width: 200 }} />
+                <Search placeholder="Search here..." onSearch={onSearch} style={{ width: 250,height:45 }} />
               </Space>
             </div>
             <div className="datesetter">
-              <input type="date" id="start" name="trip-start" placeholder="Start Date" />
+              <input type="date" id="start" name="trip-start" placeholder="Start Date" style={{ width: 200,height:45 }} />
             </div>
             <div className="datesetter">
-              <input type="date" id="start" name="trip-start" placeholder="End Date" />
+              <input type="date" id="start" name="trip-start" placeholder="End Date" style={{ width: 200,height:45 }} />
             </div>
-            {/* <div>
-                        <Dropdown overlay={menu}>
-                            <a className="ant-dropdown-link" onClick={e => e.preventDefault()}>
-                                Hover me <DownOutlined />
-                            </a>
-                        </Dropdown>
-                    </div> */}
+           
           </div>
         </Col>
       </Row>

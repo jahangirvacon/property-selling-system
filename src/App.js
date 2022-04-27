@@ -14,15 +14,20 @@ import {
 } from "@ant-design/icons";
 import Form from "./components/popoverForm/BookingForm";
 import BookingForm from "./components/popoverForm/BookingForm";
-import Upcoming from "./components/Upcoming/Upcoming";
-import Testing from "./components/testing/Testing";
-import DirectBookingTesting from "./components/testing/DirectBookingTesting";
+import Upcoming from "./components/Upcoming/UpcomingEvents";
+import Testing from "./components/testing/Details";
+import DirectBookingTesting from "./components/testing/TestingDetails";
+import UpcomingEvents from "./components/Upcoming/UpcomingEvents";
+import ActivityFeed from "./components/Upcoming/ActivityFeed";
+import Details from "./components/testing/Details";
+import TestingDetails from "./components/testing/TestingDetails";
 
 function App() {
   const topics = [
     { text: "Dashboard", icon: <DashboardOutlined /> },
     { text: "Booking", icon: <CalendarOutlined /> },
     { text: "Setting", icon: <SettingOutlined /> },
+
   ];
   const [contentIndex, setContentIndex] = useState(0);
   const [selectedKey, setSelectedKey] = useState("0");
@@ -47,9 +52,10 @@ function App() {
           {/* {topics[contentIndex]} */}
           {/* <Booking /> */}
           <BookingForm />
-         {/* <Upcoming/>   */}
-          {/* <Testing /> */}
-          {/* <DirectBookingTesting/> */}
+          {/* <UpcomingEvents/>  */}
+           {/* <ActivityFeed/>  */}
+           {/* <Details/>  */}
+          {/* <TestingDetails/> */}
         </Layout.Content>
       </Layout>
     </div>

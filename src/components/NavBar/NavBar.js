@@ -39,10 +39,11 @@ const NavBar = ({ menu }) => {
       </Drawer>
       <div className="navbarStyling">
         <h1 className="logoStyling"> Smoobu</h1>
-        <Button type="ghost" className="bookingBtn">
+        <button  className="bookingBtn">
           <CalendarOutlined />
-          Enter Booking
-        </Button>
+          <span> Enter Booking</span>
+          
+        </button>
         <div className="user">
           <Menu mode="horizontal"  >
             <Menu.SubMenu

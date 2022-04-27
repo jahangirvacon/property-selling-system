@@ -1,18 +1,18 @@
 import React from "react";
 import { Row, Col } from "antd";
 import { Card } from "antd";
-import "./testing.css";
+import "./Details.css";
 import { EditOutlined } from "@ant-design/icons";
-const Testing = () => {
+const TestingDetails = () => {
   return (
     <div>
       <Row>
         <Col span={24}>
-          <h1 className="testingHeaders">Testing</h1>
+          <h1 className="testingHeaders">Bhalwinder Singh</h1>
         </Col>
       </Row>
       <Row>
-        <Col span={8}>
+        <Col span={10}>
           <Card title="" bordered={false}>
             <Row>
               <Col span={8}>
@@ -43,35 +43,28 @@ const Testing = () => {
             </Row>
           </Card>
         </Col>
-
-        <Col span={8} offset={8}>
-          <Row>
-            <Col span={8}>
+        {/* new coloumn */}
+        <Col span={10} offset={4}>
+          <Card title=" Payment Details" bordered={false}>
+            <Row>
               <div className="site-card-border-less-wrapper">
-                <Card
-                  title=" Payment Details"
-                  bordered={false}
-                  style={{ width: 300 }}
-                >
-                  <h1>No Payments</h1>
-                  <h1>
-                    <EditOutlined />
-                  </h1>
-                </Card>
+                <h1>No Payments</h1>
+                <h1>
+                  <EditOutlined />
+                </h1>
               </div>
-            </Col>
-          </Row>
+            </Row>
+          </Card>
         </Col>
       </Row>
 
       {/* Row 2 */}
       <Row className="placeDetails">
-        <Col span={8}>
-        <Card title="" bordered={false} >
-
-          <Row>
-            <Col span={8}>
-              <div className="site-card-border-less-wrapper">
+        <Col span={10}>
+          <Card title="" bordered={false}>
+            <Row>
+              <Col span={8}>
+                <div className="site-card-border-less-wrapper">
                   <h1>
                     <strong>Places</strong>{" "}
                   </h1>
@@ -79,11 +72,10 @@ const Testing = () => {
                   <p>Hall </p>
                   <p>Event Type</p>
                   <p> Available Slot</p>
-                
-              </div>
-            </Col>
-            <Col span={8} offset={8}>
-              <div className="site-card-border-less-wrapper">
+                </div>
+              </Col>
+              <Col span={8} offset={8}>
+                <div className="site-card-border-less-wrapper">
                   <h1>
                     <EditOutlined />
                   </h1>
@@ -92,29 +84,26 @@ const Testing = () => {
                   <p>Dam Complex </p>
                   <p>ceremoney</p>
                   <p> Available Slot</p>
-               
-              </div>
-            </Col>
-          </Row>
+                </div>
+              </Col>
+            </Row>
           </Card>
         </Col>
 
-        <Col span={8} offset={8}>
-          <Row>
-            <Col span={8}>
+        <Col span={10} offset={4}>
+          <Card title=" Invoice Details" bordered={false}>
+            <Row>
               <div className="site-card-border-less-wrapper">
-                <Card title="Invoice" bordered={false} style={{ width: 300 }}>
-                  <h1> No Invoice</h1>
-                  <h1>
-                    <EditOutlined />
-                  </h1>
-                </Card>
+                <h1>No Invoice</h1>
+                <h1>
+                  <EditOutlined />
+                </h1>
               </div>
-            </Col>
-          </Row>
+            </Row>
+          </Card>
         </Col>
       </Row>
     </div>
   );
 };
-export default Testing;
+export default TestingDetails;

@@ -20,5 +20,9 @@
 .formHeader {
     font-size: 15px!important;
     font-weight: 700;
-    padding: 3px;
+    margin-bottom: 0!important;
+}
+
+.formData {
+    padding: 8px;
 }
