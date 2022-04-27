@@ -1,6 +1,6 @@
 import React from "react"
 import { Row, Col } from "antd"
-import "./Booking.css"
+import "./booking.css"
 import { Input, Space, Typography, Button } from "antd"
 import { AudioOutlined } from "@ant-design/icons"
 import { Table } from "antd"

@@ -8,7 +8,7 @@ import { Select, Spin } from "antd";
 import debounce from "lodash/debounce";
 import { DownOutlined } from "@ant-design/icons";
 import {addBooking} from "../../api"
-import useFormHandler from "../../../hooks/form/form-handler"
+import useFormHandler from "../../hooks/form/form-handler"
 
 
 //
@@ -20,16 +20,16 @@ function handleChange(value) {
 
 const BookingForm = () => {
   const [data, setData] = useState();
-  const { inputs, formErrors, handleInputChange, handleSubmit, setErrors } = useFormHandler(
-    {
-      name: "",
-      gurdwara: "",
-      hall: "",
-      eventType: "",
-      price: "",
-    },
-    logInHandler
-  )
+  // const { inputs, formErrors, handleInputChange, handleSubmit, setErrors } = useFormHandler(
+  //   {
+  //     name: "",
+  //     gurdwara: "",
+  //     hall: "",
+  //     eventType: "",
+  //     price: "",
+  //   },
+  //   logInHandler
+  // )
   const myfunction = () => {
     setData(<p>Create an offer/Quatation (Does not block calendar)</p>);
   };
