@@ -1,0 +1,28 @@
+.bookingFormHeading {
+    font-weight: 800!important;
+}
+
+.BookingBtns {
+    background-color: #28e086 !important;
+    font-weight: 500;
+    height: 45px;
+}
+
+.discardBtns {
+    font-weight: 500;
+    height: 45px;
+}
+
+.bookingform {
+    width: 300px!important;
+}
+
+.formHeader {
+    font-size: 15px!important;
+    font-weight: 700;
+    margin-bottom: 0!important;
+}
+
+.formData {
+    padding: 8px;
+}
