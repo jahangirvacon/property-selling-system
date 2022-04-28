@@ -1,9 +1,11 @@
-import React from "react"
+import React, { useState, useEffect } from "react"
 import { Row, Col } from "antd"
 import "./booking.css"
 import { Input, Space, Typography, Button } from "antd"
 import { AudioOutlined } from "@ant-design/icons"
 import { Table } from "antd"
+import { getBookingList } from "../../api"
+import moment from 'moment';
 
 const { Text } = Typography
 
@@ -24,27 +26,27 @@ const onSearch = (value) => console.log(value)
 const columns = [
   {
     title: "Arrival",
+    dataIndex: "bookingDate",
+  },
+  {
+    title: "Slot",
+    dataIndex: "slot",
+    // sorter: {
+    //   compare: (a, b) => a.chinese - b.chinese,
+    //   multiple: 3,
+    // },
+  },
+  {
+    title: "Name",
     dataIndex: "name",
-  },
-  {
-    title: "Departure",
-    dataIndex: "chinese",
-    sorter: {
-      compare: (a, b) => a.chinese - b.chinese,
-      multiple: 3,
-    },
-  },
-  {
-    title: "Property",
-    dataIndex: "math",
-    sorter: {
-      compare: (a, b) => a.math - b.math,
-      multiple: 2,
-    },
+    // sorter: {
+    //   compare: (a, b) => a.math - b.math,
+    //   multiple: 2,
+    // },
   },
   {
     title: "Guest",
-    dataIndex: "english",
+    dataIndex: "guestCount",
     sorter: {
       compare: (a, b) => a.english - b.english,
       multiple: 1,
@@ -57,7 +59,7 @@ const columns = [
   },
   {
     title: "Portal",
-    dataIndex: "abc",
+    dataIndex: "portal",
     sorter: {
       compare: (a, b) => a.name - b.english,
       multiple: 1,
@@ -71,16 +73,27 @@ const columns = [
     ),
   },
   {
-    title: "Created",
-    dataIndex: "def",
+    title: "Event",
+    dataIndex: "event",
     sorter: {
       compare: (a, b) => a.name - b.english,
       multiple: 1,
     },
+    render: (event) => (
+      <Space size="middle">
+        <Text className="td-event" mark>
+          {event}
+        </Text>
+      </Space>
+    ),
+  },
+  {
+    title: "Created",
+    dataIndex: "createdAt",
   },
   {
     title: "Status",
-    dataIndex: "xyz",
+    dataIndex: "status",
     sorter: {
       compare: (a, b) => a.name - b.english,
       multiple: 1,
@@ -95,54 +108,34 @@ const columns = [
   },
 ]
 
-const data = [
-  {
-    key: "1",
-    name: "22/2/17",
-    chinese: 98,
-    math: "Ali",
-    english: 70,
-    abc: "Portal1",
-    def: "22/2/17",
-    xyz: "Booked",
-  },
-  {
-    key: "2",
-    name: "22/2/17",
-    chinese: 98,
-    math: "Ahmad",
-    english: 89,
-    abc: "Portal2",
-    def: "22/2/17",
-    xyz: "Booked",
-  },
-  {
-    key: "3",
-    name: "22/2/17",
-    chinese: 98,
-    math: "Ahmad",
-    english: 70,
-    abc: "Portal3",
-    def: "22/2/17",
-    xyz: "Booked",
-  },
-  {
-    key: "4",
-    name: "22/2/17",
-    chinese: 88,
-    math: "Ahmad",
-    english: 89,
-    abc: "Portal1",
-    def: "22/2/17",
-    xyz: "Booked",
-  },
-]
-
 function onChange(pagination, filters, sorter, extra) {
   console.log("params", pagination, filters, sorter, extra)
 }
 
 const Booking = () => {
+
+  const [bookingList, setBookingList] = useState([])
+  useEffect(() => {
+    populateTable()
+  },[])
+
+  const populateTable = async () => {
+    const { response } = await getBookingList()
+    setBookingList(response.map(booking => ({
+        id: booking._id,
+        bookingDate: "22/06/2022",
+        slot: `${booking.startTime} - ${booking.endTime}`,
+        name: booking.guest,
+        guestCount: 80,
+        portal: `${booking.hallEvent.hall.title}, ${booking.hallEvent.hall.gurdwara.title}`,
+        event: booking.hallEvent.eventType.title,
+        createdAt: moment(booking.createdAt).format("YYYY/MM/DD kk:mm:ss"),
+        status: 'Booked'
+      })
+    ))
+    debugger
+  }
+
   return (
     <div>
       <Row>
@@ -171,7 +164,7 @@ const Booking = () => {
 
       <Row className="bookingTable">
         <Col span={24}>
-          <Table columns={columns} dataSource={data} onChange={onChange} />
+          <Table columns={columns} dataSource={bookingList} onChange={onChange} />
         </Col>
       </Row>
     </div>
