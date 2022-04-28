@@ -1,0 +1,13 @@
+.GurdwaraBtn {
+    background-color: #28e086 !important;
+    font-weight: 500;
+    height: 35px;
+    border: none!important;
+    cursor: pointer!important;
+    border-radius: 2px;
+    width: 125px;
+}
+
+.addGurdwara {
+    text-align: end;
+}
