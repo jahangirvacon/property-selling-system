@@ -55,14 +55,14 @@ const BookingForm = () => {
     const { response } = await getHallEvents(selectedHallId)
     setEventTypeListSelection(response.map(eventType => ({id: eventType._id, displayText: eventType.eventType.title})))
     setEventTypeList(response)
-    UpdateFormValue('hallEvent', selectedHallId)
+    UpdateFormValue('hall', selectedHallId)
     // if(response.length === 0){
     //   UpdateFormValue('eventType', '')
     // }
   }
   
   const populateEventTypePrice = async (selectedEventTypeId) => {
-    UpdateFormValue('eventType', selectedEventTypeId)
+    UpdateFormValue('hallEvent', selectedEventTypeId)
     const selectedEvent = eventTypeList.find(eventType => eventType._id === selectedEventTypeId)
     UpdateFormValue('price', selectedEvent? selectedEvent.charges : 0)
   }
@@ -91,6 +91,7 @@ const BookingForm = () => {
     {
       guest: "",
       gurdwara: "",
+      hall: "",
       hallEvent: "",
       eventType: "",
       price: "",
@@ -154,8 +155,8 @@ const BookingForm = () => {
               <Select
                 style={{ width: 182 }}
                 onChange={populateEventTypeList} 
-                value={inputs.hallEvent} 
-                name="hallEvent"
+                value={inputs.hall} 
+                name="hall"
               >
                 {hallListSelection.map(hall => <Option value={hall.id}>{hall.displayText}</Option>)}
               </Select>
@@ -169,8 +170,8 @@ const BookingForm = () => {
                 defaultValue="yiminghe"
                 style={{ width: 182 }}
                 onChange={populateEventTypePrice} 
-                value={inputs.eventType} 
-                name="eventType"
+                value={inputs.hallEvent} 
+                name="hallEvent"
               >
                 {eventTypeListSelection.map(eventType => <Option value={eventType.id}>{eventType.displayText}</Option>)}
               </Select>

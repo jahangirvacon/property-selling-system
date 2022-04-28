@@ -16,3 +16,7 @@
 .sidebar .ant-menu-item:hover{
     color: #3b4aff;
 }
+
+.sidebar .ant-menu-submenu-title:hover{
+    color: #3b4aff;
+}
