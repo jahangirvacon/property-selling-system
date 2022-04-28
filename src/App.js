@@ -21,6 +21,14 @@ import UpcomingEvents from "./components/Upcoming/UpcomingEvents";
 import ActivityFeed from "./components/Upcoming/ActivityFeed";
 import Details from "./components/testing/Details";
 import TestingDetails from "./components/testing/TestingDetails";
+import Gurdwara from "./components/Gurdwara/Gurdwara";
+import AddGurdwara from "./components/Gurdwara/AddGurdwara";
+import AddEvents from "./components/Events/AddEvents";
+import AddHalls from "./components/Hall/AddHalls";
+import AddPrice from "./components/Price/AddPrice";
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import EventList from "./components/Events/EventList";
+import HallList from "./components/Hall/HallList";
 
 function App() {
   const topics = [
@@ -58,12 +66,39 @@ function App() {
         <SideBar menu={Menu} />
         <Layout.Content className="content">
           {/* {topics[contentIndex]} */}
-          <Booking />
-          <BookingForm />
+          {/* <Booking /> */}
+          {/* <Gurdwara /> */}
+          {/* <AddGurdwara />
+          <AddEvents/> */}
+          {/* <EventList/> */}
+
+          <AddHalls/>
+          {/* <HallList/> */}
+
+          {/* <AddPrice/>  
+
+          <BookingForm /> */}
           {/* <UpcomingEvents/>  */}
-           {/* <ActivityFeed/>  */}
-           {/* <Details/>  */}
+          {/* <ActivityFeed/>  */}
+          {/* <Details/>  */}
           {/* <TestingDetails/> */}
+
+          {/* Routing */}
+
+          <BrowserRouter>
+                <Routes>
+                    <Route path="/" >
+                        <Route index element={ <BookingForm />} />
+                        <Route path="bookingForm" element={<BookingForm />} />
+                        <Route path="details" element={ <Details/> } />
+
+
+
+
+                    </Route>
+                </Routes>
+            </BrowserRouter>
+         
         </Layout.Content>
       </Layout>
     </div>
