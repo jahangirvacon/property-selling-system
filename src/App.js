@@ -27,6 +27,8 @@ import AddEvents from "./components/Events/AddEvents";
 import AddHalls from "./components/Hall/AddHalls";
 import AddPrice from "./components/Price/AddPrice";
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import EventList from "./components/Events/EventList";
+import HallList from "./components/Hall/HallList";
 
 function App() {
   const topics = [
@@ -66,12 +68,16 @@ function App() {
           {/* {topics[contentIndex]} */}
           {/* <Booking /> */}
           {/* <Gurdwara /> */}
-          {/* <AddGurdwara /> */}
-          {/* <AddEvents/> */}
-          {/* <AddHalls/> */}
-          {/* <AddPrice/>   */}
+          {/* <AddGurdwara />
+          <AddEvents/> */}
+          {/* <EventList/> */}
 
-          {/* <BookingForm /> */}
+          <AddHalls/>
+          {/* <HallList/> */}
+
+          {/* <AddPrice/>  
+
+          <BookingForm /> */}
           {/* <UpcomingEvents/>  */}
           {/* <ActivityFeed/>  */}
           {/* <Details/>  */}

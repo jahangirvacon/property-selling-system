@@ -44,18 +44,18 @@ const AddHalls = () => {
       <Button type="primary" onClick={showModal}>
         Open Modal
       </Button>
-      <Modal 
-      visible={isModalVisible} 
-      onOk={handleOk} 
-      onCancel={handleCancel}
-      footer={[
-        <Button key="back" onClick={handleCancel}>
-          Return
-        </Button>,
-        <Button key="submit" type="primary" onClick={handleOk}>
-          Save
-        </Button>,
-      ]}
+      <Modal
+        visible={isModalVisible}
+        onOk={handleOk}
+        onCancel={handleCancel}
+        footer={[
+          <Button key="back" onClick={handleCancel}>
+            Return
+          </Button>,
+          <Button key="submit" type="primary" onClick={handleOk}>
+            Save
+          </Button>,
+        ]}
       >
         <Row>
           <Col span={12}>
@@ -88,31 +88,59 @@ const AddHalls = () => {
             </div>
           </Col>
         </Row>
-        <Row>
-        <Col span={24}>
-            <div className="formData">
-              <h5 className="formHeader">Working Hours</h5>
 
-              <Space direction=" " size={6}>
-                <RangePicker />
-                <RangePicker showTime />
-              </Space>
+        <Row>
+          <Col span={24}>
+            <div className="formData">
+              <h5 className="formHeader"> Timing</h5>
+              <Input.Group compact>
+                <Input
+                  style={{ width: 195, textAlign: "start" }}
+                  placeholder="Opening"
+                />
+                <Input
+                  className="site-input-split"
+                  style={{
+                    width: 30,
+                    borderLeft: 0,
+                    borderRight: 0,
+                    pointerEvents: "none",
+                  }}
+                  placeholder="~"
+                  disabled
+                />
+                <Input
+                  className="site-input-right"
+                  style={{
+                    width: 195,
+                    textAlign: "start",
+                  }}
+                  placeholder="Closing"
+                />
+              </Input.Group>
             </div>
           </Col>
         </Row>
         <Row>
           <Col span={10}>
             <div className="formData">
-              <h5 className="formHeader">No Hall</h5>
-               <Input placeholder="Basic usage" /> 
-             
+              <h5 className="formHeader">Event Type</h5>
+              <Select
+                mode="multiple"
+                defaultValue="Gurdwara"
+                style={{ width: 182 }}
+                onChange={handleChange}
+              >
+                <Option value="jack">Jack</Option>
+                <Option value="lucy">Lucy</Option>
+                <Option value="disabled" disabled>
+                  Disabled
+                </Option>
+                <Option value="Yiminghe">yiminghe</Option>
+              </Select>
             </div>
           </Col>
-          
         </Row>
-        
-
-        
       </Modal>
     </div>
   );

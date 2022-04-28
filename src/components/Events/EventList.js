@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react"
 import { Row, Col } from "antd"
-import "./Gurdwara.css"
+import "./Events.css"
 import { Input, Space, Typography, Button } from "antd"
 import { AudioOutlined } from "@ant-design/icons"
 import { Table } from "antd"
-import { getGurdwaraList } from "../../api"
+import { getEventList } from "../../api"
+
 
 const { Text } = Typography
 
@@ -24,17 +25,22 @@ const onSearch = (value) => console.log(value)
 // Table
 const columns = [
   {
-    title: "Name",
-    dataIndex: "title",
+    title: "Event Name",
+    dataIndex: "name",
   },
   {
-    title: "Address",
-    dataIndex: "location",
+    title: "Event Category",
+    dataIndex: "category",
+  },
+  {
+    title: "Event Duration",
+    dataIndex: "duration",
     sorter: {
       compare: (a, b) => a.chinese - b.chinese,
       multiple: 3,
     },
   },
+  
   
 ]
 
@@ -85,22 +91,21 @@ function onChange(pagination, filters, sorter, extra) {
   console.log("params", pagination, filters, sorter, extra)
 }
 
-const Gurdwara = () => {
-
-  // Hooks used in 
-  const [gurdwaraList, setGurdwaraList] = useState([])
+const EventList = () => {
+// Hooks used in 
+  const [eventList, setEventList] = useState([])
   useEffect(() => {
     populateTable()
   },[])
 
   // Function 
   const populateTable = async () => {
-    const { response } = await getGurdwaraList()
-    setGurdwaraList(response.map(gurdwara => ({
-        id: gurdwara._id,
-        title:gurdwara.title,
-        location:gurdwara.location,
-        
+    const { response } = await getEventList()
+    setEventList(response.map(event => ({
+        id: event._id,
+        name:event.title,
+        category:event.category,
+        duration:event.duration,
 
 
       })
@@ -108,14 +113,15 @@ const Gurdwara = () => {
     debugger
   }
 
+
   return (
     <div>
       <Row>
         <Col span={8}>
-          <h1 className="bookingHeader">Gurdwara List</h1>
+          <h1 className="bookingHeader">Event List</h1>
         </Col>
         <Col span={8} offset={8} className="addGurdwara">
-          <Button className="GurdwaraBtn">Add Gurdwara</Button>
+          <Button className="GurdwaraBtn">Add Event</Button>
         </Col>
       </Row>
       <Row>
@@ -139,10 +145,10 @@ const Gurdwara = () => {
 
       <Row className="bookingTable">
         <Col span={24}>
-          <Table columns={columns} dataSource={gurdwaraList} onChange={onChange} />
+          <Table columns={columns} dataSource={eventList} onChange={onChange} />
         </Col>
       </Row>
     </div>
   )
 }
-export default Gurdwara;
+export default EventList;

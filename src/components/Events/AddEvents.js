@@ -63,20 +63,26 @@ const AddEvents = () => {
           </Col>
         </Row>
         <Row>
-          <Col span={24}>
+          <Col span={10}>
             <div className="formData">
-              <h5 className="formHeader">Event Name</h5>
+              <h5 className="formHeader"> Name</h5>
               <Input placeholder="Enter Name" />
             </div>
           </Col>
-          <Col span={24}>
+          <Col span={10} offset={2}>
             <div className="formData">
-              <h5 className="formHeader">Event Duration</h5>
+              <h5 className="formHeader">Duration</h5>
+              <Input placeholder="Basic usage" />
+            </div>
+          </Col>
+          
+        </Row>
 
-              <Space direction=" " size={6}>
-                <RangePicker />
-                <RangePicker showTime />
-              </Space>
+        <Row>
+          <Col span={10}>
+            <div className="formData">
+              <h5 className="formHeader"> Add Category</h5>
+              <Input placeholder="Enter Name" />
             </div>
           </Col>
         </Row>
