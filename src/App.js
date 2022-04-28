@@ -32,7 +32,16 @@ function App() {
   const topics = [
     { text: "Dashboard", icon: <DashboardOutlined /> },
     { text: "Booking", icon: <CalendarOutlined /> },
-    { text: "Setting", icon: <SettingOutlined /> },
+    { 
+      text: "Settings", 
+      icon: <SettingOutlined />,
+      subMenu: [
+        { text: "Gurdwara", icon: <CalendarOutlined /> },
+        { text: "Hall", icon: <CalendarOutlined /> },
+        { text: "EventType", icon: <CalendarOutlined /> },
+      ] 
+    },
+
   ];
   const [contentIndex, setContentIndex] = useState(0);
   const [selectedKey, setSelectedKey] = useState("0");

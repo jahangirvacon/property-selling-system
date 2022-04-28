@@ -20,6 +20,10 @@
     background-color: #41F7936b
 }
 
+.td-event>mark {
+    background-color: #ffef2a
+}
+
 .anticon[tabindex] {
     cursor: pointer;
     color: blue!important;
