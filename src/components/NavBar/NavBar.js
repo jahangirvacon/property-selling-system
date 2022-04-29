@@ -14,6 +14,7 @@ import {
   TeamOutlined,
 } from "@ant-design/icons";
 import "./NavBar.css";
+import BookingForm from "../popoverForm/BookingForm"
 const { Text } = Typography;
 
 
@@ -39,11 +40,12 @@ const NavBar = ({ menu }) => {
       </Drawer>
       <div className="navbarStyling">
         <h1 className="logoStyling"> Smoobu</h1>
-        <button  className="bookingBtn">
+        {/* <button  className="bookingBtn">
           <CalendarOutlined />
           <span> Enter Booking</span>
           
-        </button>
+        </button> */}
+        <BookingForm />
         <div className="user">
           <Menu mode="horizontal"  >
             <Menu.SubMenu

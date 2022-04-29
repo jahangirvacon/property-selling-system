@@ -5,8 +5,8 @@ import { Modal } from "antd";
 import { Row, Col } from "antd";
 import { useState } from "react";
 import { Select, Spin } from "antd";
-import debounce from "lodash/debounce";
-import { DownOutlined } from "@ant-design/icons";
+import { addGurdwara } from "../../api"
+import useFormHandler from "../../hooks/form/form-handler";
 
 //
 const { Option } = Select;
@@ -17,9 +17,6 @@ function handleChange(value) {
 
 const AddGurdwara = () => {
   const [data, setData] = useState();
-  const myfunction = () => {
-    setData(<p>Create an offer/Quatation (Does not block calendar)</p>);
-  };
 
   // Modal
   const [isModalVisible, setIsModalVisible] = useState(false);
@@ -28,13 +25,27 @@ const AddGurdwara = () => {
     setIsModalVisible(true);
   };
 
-  const handleOk = () => {
+  const handleOk = async () => {
+    await addGurdwara({
+      ...inputs,
+      available: true, 
+  })
     setIsModalVisible(false);
   };
 
   const handleCancel = () => {
     setIsModalVisible(false);
   };
+
+  const { inputs, formErrors, handleInputChange, UpdateFormValue, handleSubmit, setErrors } = useFormHandler(
+    {
+      title: "",
+      location: "",
+      description: "",
+      email: "",
+    },
+    handleOk
+  )
 
   return (
     <div>
@@ -54,6 +65,7 @@ const AddGurdwara = () => {
         </Button>,
       ]}
       >
+        <form onSubmit={handleSubmit}>
         <Row>
           <Col span={12}>
             <h2 className="bookingFormHeading">Add Gurdwara</h2>
@@ -63,13 +75,13 @@ const AddGurdwara = () => {
           <Col span={10}>
             <div className="formData">
               <h5 className="formHeader"> Name</h5>
-              <Input placeholder="Enter Name" />
+              <Input placeholder="Enter Name" value={inputs.title} name="title" onChange={handleInputChange}/>
             </div>
           </Col>
           <Col span={10} offset={2}>
             <div className="formData">
               <h5 className="formHeader">Address</h5>
-              <Input placeholder="Basic usage" />
+              <Input placeholder="Enter Address" value={inputs.location} name="location" onChange={handleInputChange}/>
             </div>
           </Col>
           
@@ -80,18 +92,18 @@ const AddGurdwara = () => {
           <Col span={10}>
             <div className="formData">
               <h5 className="formHeader">Contact</h5>
-               <Input placeholder="Basic usage"  /> 
+               <Input placeholder="Enter Contact" value={inputs.contact} name="contact" onChange={handleInputChange} /> 
              
             </div>
           </Col>
           <Col span={10} offset={2}>
             <div className="formData">
               <h5 className="formHeader">Email</h5>
-              <Input placeholder="Basic usage"   type="email"  />
+              <Input value={inputs.email} name="email" placeholder="Enter Email" type="email" onChange={handleInputChange} />
             </div>
           </Col>
         </Row>
-        
+        </form>
       </Modal>
     </div>
   );

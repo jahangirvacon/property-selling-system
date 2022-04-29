@@ -1,14 +1,13 @@
 // import { GURDWARA_API_BASE_URL } from "../config"
 // import store from "../store"
 
-const GURDWARA_API_BASE_URL = "https://d51d-111-119-187-50.ngrok.io/v1"
+const GURDWARA_API_BASE_URL = "http://localhost:4000/v1"
 
-const token = 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjY1OGRlYjBlMDZjYTJlNjNkMjAzNGQiLCJ1c2VybmFtZSI6Imhhc2VlYkB0ZXN0LmNvbSIsImVtYWlsIjoiaGFzZWViQHRlc3QuY29tIiwicGhvbmVOdW1iZXIiOiIwIiwiaWF0IjoxNjUxMTQwMzczLCJleHAiOjE2NTExNDc1NzN9.nGOfTg3bZQZfXpHan1j5gzHjH-_jUzPoaPZIOqa4PO8'
+const token = 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjY1OGRlYjBlMDZjYTJlNjNkMjAzNGQiLCJ1c2VybmFtZSI6Imhhc2VlYkB0ZXN0LmNvbSIsImVtYWlsIjoiaGFzZWViQHRlc3QuY29tIiwicGhvbmVOdW1iZXIiOiIwIiwiaWF0IjoxNjUxMjA0NzA3LCJleHAiOjE2NTEyMTE5MDd9.mpncroKo1gIltxB12MEbkxen45zlRG9bsyTE-0UkCIM'
 
 export const post = async ({ url, baseURL, body, contentType, shouldAuthenticate }) => {
   const method = "POST"
   console.log(process.env.GURDWARA_API_BASE_URL)
-  debugger
   const bodyString = JSON.stringify(body)
   // const {
   // 	user: { token },

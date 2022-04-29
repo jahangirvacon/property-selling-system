@@ -133,7 +133,6 @@ const Booking = () => {
         status: 'Booked'
       })
     ))
-    debugger
   }
 
   return (
