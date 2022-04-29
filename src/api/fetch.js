@@ -3,7 +3,7 @@
 
 const GURDWARA_API_BASE_URL = "http://localhost:4000/v1"
 
-const token = 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjY1OGRlYjBlMDZjYTJlNjNkMjAzNGQiLCJ1c2VybmFtZSI6Imhhc2VlYkB0ZXN0LmNvbSIsImVtYWlsIjoiaGFzZWViQHRlc3QuY29tIiwicGhvbmVOdW1iZXIiOiIwIiwiaWF0IjoxNjUxMTcyMTA3LCJleHAiOjE2NTExNzkzMDd9.pFLR-YwNdipANxbEpz0tdOLxYL5uL2j7TWpwPhitH-4'
+const token = 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjY1OGRlYjBlMDZjYTJlNjNkMjAzNGQiLCJ1c2VybmFtZSI6Imhhc2VlYkB0ZXN0LmNvbSIsImVtYWlsIjoiaGFzZWViQHRlc3QuY29tIiwicGhvbmVOdW1iZXIiOiIwIiwiaWF0IjoxNjUxMjA0NzA3LCJleHAiOjE2NTEyMTE5MDd9.mpncroKo1gIltxB12MEbkxen45zlRG9bsyTE-0UkCIM'
 
 export const post = async ({ url, baseURL, body, contentType, shouldAuthenticate }) => {
   const method = "POST"

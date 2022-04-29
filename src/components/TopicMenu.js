@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom"
 import {Menu, Row, Col} from "antd";
 import {DashboardOutlined} from "@ant-design/icons"
 import './TopicMenu.css'
@@ -11,7 +12,9 @@ const TopicMenu = ({ topics, selectedKey, changeSelectedKey }) => {
         <Menu.SubMenu title={<div>{topic.icon}{topic.text}</div>}>
           {topic.subMenu.map(option => 
             <Menu.Item className="topics" key={option.text} onClick={changeSelectedKey}>
-              {option.icon}{option.text}
+              <Link to={option.link}>
+                {option.icon}{option.text}
+              </Link>
             </Menu.Item>
           )}
         </Menu.SubMenu>
@@ -19,7 +22,9 @@ const TopicMenu = ({ topics, selectedKey, changeSelectedKey }) => {
     } else {
       return (
         <Menu.Item className="topics" key={topic.text} onClick={changeSelectedKey}>
-          {topic.icon}{topic.text}
+          <Link to={topic.link}>
+            {topic.icon}{topic.text}
+          </Link>
         </Menu.Item>
       )
       }
