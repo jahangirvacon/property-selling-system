@@ -48,48 +48,6 @@ const columns = [
   
 ]
 
-const data = [
-  {
-    key: "1",
-    name: "22/2/17",
-    chinese: 98,
-    math: "Ali",
-    english: 70,
-    abc: "Portal1",
-    def: "22/2/17",
-    xyz: "Booked",
-  },
-  {
-    key: "2",
-    name: "22/2/17",
-    chinese: 98,
-    math: "Ahmad",
-    english: 89,
-    abc: "Portal2",
-    def: "22/2/17",
-    xyz: "Booked",
-  },
-  {
-    key: "3",
-    name: "22/2/17",
-    chinese: 98,
-    math: "Ahmad",
-    english: 70,
-    abc: "Portal3",
-    def: "22/2/17",
-    xyz: "Booked",
-  },
-  {
-    key: "4",
-    name: "22/2/17",
-    chinese: 88,
-    math: "Ahmad",
-    english: 89,
-    abc: "Portal1",
-    def: "22/2/17",
-    xyz: "Booked",
-  },
-]
 
 function onChange(pagination, filters, sorter, extra) {
   console.log("params", pagination, filters, sorter, extra)
@@ -115,7 +73,6 @@ const HallList = () => {
 
       })
     ))
-    debugger
   }
 
   return (

@@ -1,13 +1,14 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./Hall.css";
 import { Button, Input } from "antd";
 import { Modal } from "antd";
 import { Row, Col } from "antd";
-import { useState } from "react";
 import { Select, Spin } from "antd";
 import debounce from "lodash/debounce";
 import { DownOutlined } from "@ant-design/icons";
 import { DatePicker, Space } from "antd";
+import useFormHandler from "../../hooks/form/form-handler";
+import { getEventList, getGurdwaraList, addHall } from "../../api"
 
 const { RangePicker } = DatePicker;
 
@@ -19,25 +20,52 @@ function handleChange(value) {
 }
 
 const AddHalls = () => {
-  const [data, setData] = useState();
-  const myfunction = () => {
-    setData(<p>Create an offer/Quatation (Does not block calendar)</p>);
-  };
-
+  const [gurdwaraListSelection, setGurdwaraListSelection] = useState([]);
+  const [eventTypeListSelection, setEventTypeListSelection] = useState([]);
   // Modal
   const [isModalVisible, setIsModalVisible] = useState(false);
+
+  useEffect(() => {
+    populateGurdwaraList()
+    populateEventTypeList()
+  },[])
+
+  const populateGurdwaraList = async () => {
+    const { response } = await getGurdwaraList()
+    setGurdwaraListSelection(response.map(gurdwara => ({id: gurdwara._id, displayText: gurdwara.title})))
+  }
+
+  const populateEventTypeList = async () => {
+    const { response } = await getEventList()
+    setEventTypeListSelection(response.map(event => ({id: event._id, displayText: event.title})))
+  }
 
   const showModal = () => {
     setIsModalVisible(true);
   };
 
-  const handleOk = () => {
+  const handleOk = async () => {
+    const res = await addHall({
+      ...inputs,
+      available: true,
+    })
     setIsModalVisible(false);
   };
 
   const handleCancel = () => {
     setIsModalVisible(false);
   };
+
+  const { inputs, formErrors, handleInputChange, UpdateFormValue, handleSubmit, setErrors } = useFormHandler(
+    {
+      title: "",
+      gurdwara: "",
+      openingTime: "",
+      closingTime: "",
+      eventIds: "",
+    },
+    handleOk
+  )
 
   return (
     <div>
@@ -57,6 +85,7 @@ const AddHalls = () => {
           </Button>,
         ]}
       >
+        <form onSubmit={handleSubmit}>
         <Row>
           <Col span={12}>
             <h2 className="bookingFormHeading">Add Halls</h2>
@@ -66,7 +95,7 @@ const AddHalls = () => {
           <Col span={10}>
             <div className="formData">
               <h5 className="formHeader">Hall Name</h5>
-              <Input placeholder="Enter Name" />
+              <Input placeholder="Enter Name" onChange={handleInputChange} value={inputs.title} name="title"/>
             </div>
           </Col>
           <Col span={10} offset={2}>
@@ -74,16 +103,10 @@ const AddHalls = () => {
               <h5 className="formHeader">Gurdwara</h5>
               {/* <Input placeholder="Gurdwara" /> */}
               <Select
-                defaultValue="Gurdwara"
                 style={{ width: 182 }}
-                onChange={handleChange}
+                onChange={val => UpdateFormValue('gurdwara',val)}
               >
-                <Option value="jack">Jack</Option>
-                <Option value="lucy">Lucy</Option>
-                <Option value="disabled" disabled>
-                  Disabled
-                </Option>
-                <Option value="Yiminghe">yiminghe</Option>
+                {gurdwaraListSelection.map(gurdwara => <Option value={gurdwara.id}>{gurdwara.displayText}</Option>)}
               </Select>
             </div>
           </Col>
@@ -97,6 +120,7 @@ const AddHalls = () => {
                 <Input
                   style={{ width: 195, textAlign: "start" }}
                   placeholder="Opening"
+                  onChange={handleInputChange} value={inputs.openingTime} name="openingTime"
                 />
                 <Input
                   className="site-input-split"
@@ -116,31 +140,27 @@ const AddHalls = () => {
                     textAlign: "start",
                   }}
                   placeholder="Closing"
+                  onChange={handleInputChange} value={inputs.closingTime} name="closingTime"
                 />
               </Input.Group>
             </div>
           </Col>
         </Row>
         <Row>
-          <Col span={10}>
+          <Col span={24}>
             <div className="formData">
               <h5 className="formHeader">Event Type</h5>
               <Select
                 mode="multiple"
-                defaultValue="Gurdwara"
-                style={{ width: 182 }}
-                onChange={handleChange}
+                style={{ width: 418 }}
+                onChange={val => UpdateFormValue('eventIds',val)}
               >
-                <Option value="jack">Jack</Option>
-                <Option value="lucy">Lucy</Option>
-                <Option value="disabled" disabled>
-                  Disabled
-                </Option>
-                <Option value="Yiminghe">yiminghe</Option>
+                {eventTypeListSelection.map(event => <Option value={event.id}>{event.displayText}</Option>)}
               </Select>
             </div>
           </Col>
         </Row>
+        </form>
       </Modal>
     </div>
   );

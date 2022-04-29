@@ -8,21 +8,16 @@ import { Select, Spin } from "antd";
 import debounce from "lodash/debounce";
 import { DownOutlined } from "@ant-design/icons";
 import { DatePicker, Space } from "antd";
+import useFormHandler from "../../hooks/form/form-handler"
+import { addEventType } from "../../api"
 
 const { RangePicker } = DatePicker;
 
-//
 const { Option } = Select;
 
-function handleChange(value) {
-  console.log(`selected ${value}`);
-}
 
 const AddEvents = () => {
   const [data, setData] = useState();
-  const myfunction = () => {
-    setData(<p>Create an offer/Quatation (Does not block calendar)</p>);
-  };
 
   // Modal
   const [isModalVisible, setIsModalVisible] = useState(false);
@@ -31,13 +26,27 @@ const AddEvents = () => {
     setIsModalVisible(true);
   };
 
-  const handleOk = () => {
+  const handleOk = async () => {
+    await addEventType({
+      ...inputs,
+      available: true, 
+  })
     setIsModalVisible(false);
   };
 
   const handleCancel = () => {
     setIsModalVisible(false);
   };
+
+
+  const { inputs, formErrors, handleInputChange, UpdateFormValue, handleSubmit, setErrors } = useFormHandler(
+    {
+      title: "",
+      category: "",
+      duration: "",
+    },
+    handleOk
+  )
 
   return (
     <div>
@@ -57,6 +66,7 @@ const AddEvents = () => {
           </Button>,
         ]}
       >
+        <form onSubmit={handleSubmit}>
         <Row>
           <Col span={12}>
             <h2 className="bookingFormHeading">Add Events</h2>
@@ -66,13 +76,13 @@ const AddEvents = () => {
           <Col span={10}>
             <div className="formData">
               <h5 className="formHeader"> Name</h5>
-              <Input placeholder="Enter Name" />
+              <Input placeholder="Event Name" onChange={handleInputChange} value={inputs.title} name="title" />
             </div>
           </Col>
           <Col span={10} offset={2}>
             <div className="formData">
-              <h5 className="formHeader">Duration</h5>
-              <Input placeholder="Basic usage" />
+              <h5 className="formHeader">Duration Hours</h5>
+              <Input placeholder="Event Duration Hours" onChange={handleInputChange} value={inputs.duration} name="duration" />
             </div>
           </Col>
           
@@ -81,11 +91,12 @@ const AddEvents = () => {
         <Row>
           <Col span={10}>
             <div className="formData">
-              <h5 className="formHeader"> Add Category</h5>
-              <Input placeholder="Enter Name" />
+              <h5 className="formHeader">Category</h5>
+              <Input placeholder="Event Category" onChange={handleInputChange} value={inputs.category} name="category"/>
             </div>
           </Col>
         </Row>
+        </form>
       </Modal>
     </div>
   );

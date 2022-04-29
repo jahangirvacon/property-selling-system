@@ -66,18 +66,18 @@ function App() {
         <SideBar menu={Menu} />
         <Layout.Content className="content">
           {/* {topics[contentIndex]} */}
-          {/* <Booking /> */}
-          {/* <Gurdwara /> */}
-          {/* <AddGurdwara />
+          {/* <Gurdwara />
+          <AddGurdwara /> */}
+          {/* <EventList/>
           <AddEvents/> */}
-          {/* <EventList/> */}
 
-          <AddHalls/>
-          {/* <HallList/> */}
+          {/* <HallList/>
+          <AddHalls/> */}
 
-          {/* <AddPrice/>  
+          {/* <AddPrice/>   */}
 
-          <BookingForm /> */}
+          <Booking />
+          <BookingForm />
           {/* <UpcomingEvents/>  */}
           {/* <ActivityFeed/>  */}
           {/* <Details/>  */}

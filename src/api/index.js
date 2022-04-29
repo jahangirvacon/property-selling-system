@@ -5,6 +5,18 @@ export const addBooking = (body) => {
     return post({ url: BOOKING, shouldAuthenticate: true, body, contentType: 'application/json' });
 };
 
+export const addGurdwara = (body) => {
+    return post({ url: GURDWARA, shouldAuthenticate: true, body, contentType: 'application/json' });
+};
+
+export const addEventType = (body) => {
+    return post({ url: EVENT_TYPE, shouldAuthenticate: true, body, contentType: 'application/json' });
+};
+
+export const addHall = (body) => {
+    return post({ url: HALL, shouldAuthenticate: true, body, contentType: 'application/json' });
+};
+
 export const getBookingList = () => {
     return get({ url: BOOKING, shouldAuthenticate: true });
 };

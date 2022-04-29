@@ -182,14 +182,14 @@ const BookingForm = () => {
           <Col span={10}>
             <div className="formData">
               <h5 className="formHeader">Price</h5>
-               <Input placeholder="Basic usage" onChange={handleInputChange} value={inputs.price} name="price" disabled /> 
+               <Input placeholder="Price" onChange={handleInputChange} value={inputs.price} name="price" disabled /> 
              
             </div>
           </Col>
           <Col span={10} offset={2}>
             <div className="formData">
               <h5 className="formHeader">Date</h5>
-              <Input placeholder="Basic usage" onChange={handleInputChange} value={inputs.bookingDate} name="bookingDate" />
+              <Input placeholder="Booking Date" onChange={handleInputChange} value={inputs.bookingDate} name="bookingDate" />
             </div>
           </Col>
         </Row>
@@ -197,7 +197,7 @@ const BookingForm = () => {
           <Col span={10}>
             <div className="formData">
               <h5 className="formHeader">Time Slot</h5>
-              <Input placeholder="Basic usage" onChange={handleInputChange} value={inputs.timeSlot} name="timeSlot"/>
+              <Input placeholder="Time Slot" onChange={handleInputChange} value={inputs.timeSlot} name="timeSlot"/>
             </div>
           </Col>
         </Row>
