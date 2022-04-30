@@ -1,5 +1,4 @@
 {
-  "name": "ant-responsive-sidebar",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -23,7 +22,6 @@
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build"
   },
-  "homepage": "http://c-likethis123.github.io/ant-responsive-sidebar",
   "eslintConfig": {
     "extends": "react-app"
   },
