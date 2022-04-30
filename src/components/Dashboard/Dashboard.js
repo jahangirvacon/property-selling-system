@@ -1,45 +1,52 @@
-import React from "react"
+import React, { useState, useEffect } from "react"
 import { Row, Col, Calendar, Badge } from "antd"
+import UpcomingEvents from "../Upcoming/UpcomingEvents"
+import "./Dashboard.css"
+import moment from "moment"
+import { getBookingList } from "../../api"
 
 const Dashboard = () => {
-  const getListData = (value) => {
-    let listData
-    switch (value.date()) {
-      case 8:
-        listData = [
-          { type: "warning", content: "This is warning event." },
-          { type: "success", content: "This is usual event." },
-        ]
-        break
-      case 10:
-        listData = [
-          { type: "warning", content: "This is warning event." },
-          { type: "success", content: "This is usual event." },
-          { type: "error", content: "This is error event." },
-        ]
-        break
-      case 15:
-        listData = [
-          { type: "warning", content: "This is warning event" },
-          { type: "success", content: "This is very long usual event。。...." },
-          { type: "error", content: "This is error event 1." },
-          { type: "error", content: "This is error event 2." },
-          { type: "error", content: "This is error event 3." },
-          { type: "error", content: "This is error event 4." },
-        ]
-        break
-      default:
-    }
-    return listData || []
+  const [bookingList, setBookingList] = useState([])
+  const [selectedDate, setSelectedDate] = useState(moment())
+  const [selectedDateBookings, setSelectedDateBookings] = useState([])
+  const [dateMode, setDateMode] = useState(moment())
+
+  useEffect(() => {
+    getData()
+  },[])
+
+  useEffect(() => {
+    console.log(moment(selectedDate));
+    setSelectedDateBookings(bookingList.filter(booking => moment(booking.bookingDate).isSame(moment(selectedDate), 'day')))
+    // getData()
+  }, [selectedDate])
+
+  const getData = async () => {
+    const { response } = await getBookingList()
+    setBookingList(
+      response.map((booking) => ({
+        id: booking._id,
+        bookingDate: booking.bookingDate,
+        guest: booking.guest,
+        startTime: booking.startTime,
+        endTime: booking.endTime,
+        slot: `${booking.startTime} - ${booking.endTime}`,
+        name: booking.guest,
+        guestCount: 80,
+        portal: booking.hallEvent.hall.gurdwara.title,
+        event: booking.hallEvent.eventType.title,
+        createdAt: moment(booking.createdAt),
+      }))
+    )
   }
 
   const dateCellRender = (value) => {
-    const listData = getListData(value)
+    const listData = bookingList.filter(booking => moment(booking.bookingDate).isSame(value, 'day'))
     return (
       <ul className="events">
         {listData.map((item) => (
-          <li key={item.content}>
-            <Badge status={item.type} text={item.content} />
+          <li key={item.id}>
+            <Badge status="success" text={item.event} />
           </li>
         ))}
       </ul>
@@ -62,10 +69,29 @@ const Dashboard = () => {
     ) : null
   }
 
+  const onSelect = (value) => {
+    setSelectedDate(value)
+  }
+
+  const onPanelChange = (date, mode) => {
+    console.log(date, mode)
+  }
+
   return (
     <div>
-      <Row>
-        <Calendar dateCellRender={dateCellRender} monthCellRender={monthCellRender} />
+      <Row gutter={16}>
+        <Col span={18}>
+          <Calendar
+            style={{ padding: 10 }}
+            dateCellRender={dateCellRender}
+            monthCellRender={monthCellRender}
+            onSelect={onSelect}
+            onPanelChange={onPanelChange}
+          />
+        </Col>
+        <Col span={6}>
+          <UpcomingEvents bookings={selectedDateBookings}/>
+        </Col>
       </Row>
     </div>
   )

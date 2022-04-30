@@ -16,7 +16,7 @@ const { RangePicker } = DatePicker;
 const { Option } = Select;
 
 
-const AddEvents = () => {
+const AddEvents = ({refresh}) => {
   const [data, setData] = useState();
 
   // Modal
@@ -32,6 +32,7 @@ const AddEvents = () => {
       available: true, 
   })
     setIsModalVisible(false);
+    refresh()
   };
 
   const handleCancel = () => {
@@ -51,7 +52,7 @@ const AddEvents = () => {
   return (
     <div>
       <Button type="primary" onClick={showModal}>
-        Open Modal
+        Add Event
       </Button>
       <Modal
         visible={isModalVisible}
@@ -69,7 +70,7 @@ const AddEvents = () => {
         <form onSubmit={handleSubmit}>
         <Row>
           <Col span={12}>
-            <h2 className="bookingFormHeading">Add Events</h2>
+            <h2 className="bookingFormHeading">Add Event</h2>
           </Col>
         </Row>
         <Row>

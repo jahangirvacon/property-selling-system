@@ -4,7 +4,8 @@ import "./Gurdwara.css"
 import { Input, Space, Typography, Button } from "antd"
 import { AudioOutlined } from "@ant-design/icons"
 import { Table } from "antd"
-import { getGurdwaraList } from "../../api"
+import { getGurdwaraList, deleteGurdwara } from "../../api"
+import AddGurdwara from "./AddGurdwara"
 
 const { Text } = Typography
 
@@ -43,6 +44,20 @@ const columns = [
     title: "Email",
     dataIndex: "email",
   },
+  {
+    title: "Action",
+    dataIndex: "id",
+    render: (id) => (
+      <Space size="middle">
+        <Button type="warn" size="small">
+          Update
+        </Button>
+        <Button type="danger" size="small">
+          Delete
+        </Button>
+      </Space>
+    ),
+  }
   
 ]
 
@@ -58,6 +73,12 @@ const Gurdwara = () => {
   useEffect(() => {
     populateTable()
   },[])
+
+  const removeGurdwara = async (gurdwaraId) => {
+
+    debugger
+    const res = await deleteGurdwara(gurdwaraId)
+  } 
 
   // Function 
   const populateTable = async () => {
@@ -79,7 +100,8 @@ const Gurdwara = () => {
           <h1 className="bookingHeader">Gurdwara List</h1>
         </Col>
         <Col span={8} offset={8} className="addGurdwara">
-          <Button className="GurdwaraBtn">Add Gurdwara</Button>
+          <AddGurdwara refresh={populateTable}/>
+          {/* <Button className="GurdwaraBtn">Add Gurdwara</Button> */}
         </Col>
       </Row>
       <Row>

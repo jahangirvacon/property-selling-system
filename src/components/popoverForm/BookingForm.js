@@ -3,7 +3,7 @@ import "./BookingForm.css";
 import { Button, Input } from "antd";
 import { Modal } from "antd";
 import { Row, Col } from "antd";
-import { Select, Spin } from "antd";
+import { Select, Spin, DatePicker } from "antd";
 import debounce from "lodash/debounce";
 import { DownOutlined } from "@ant-design/icons";
 import { addBooking, getGurdwaraList, getGurdwaraHalls, getHallEvents } from "../../api"
@@ -77,8 +77,6 @@ const BookingForm = () => {
     await addBooking({
       ...inputs,
       available: true, 
-      startTime: 'abc',
-      endTime: "def"
   })
     setIsModalVisible(false);
   };
@@ -103,8 +101,8 @@ const BookingForm = () => {
 
   return (
     <div>
-      <Button type="primary" onClick={showModal}>
-        Open Modal
+      <Button type="primary" style={{position: 'absolute',left: 220}} onClick={showModal}>
+        Add Booking
       </Button>
       <Modal 
       visible={isModalVisible} 
@@ -189,15 +187,24 @@ const BookingForm = () => {
           <Col span={10} offset={2}>
             <div className="formData">
               <h5 className="formHeader">Date</h5>
-              <Input placeholder="Booking Date" onChange={handleInputChange} value={inputs.bookingDate} name="bookingDate" />
+              <DatePicker
+                format="MM-DD-YYYY" placeholder="Booking Date" onChange={val => UpdateFormValue('bookingDate', val)} value={inputs.bookingDate} name="bookingDate"
+              />
+              {/* <Input placeholder="Booking Date" onChange={handleInputChange} value={inputs.bookingDate} name="bookingDate" /> */}
             </div>
           </Col>
         </Row>
         <Row>
           <Col span={10}>
             <div className="formData">
-              <h5 className="formHeader">Time Slot</h5>
-              <Input placeholder="Time Slot" onChange={handleInputChange} value={inputs.timeSlot} name="timeSlot"/>
+              <h5 className="formHeader">Start Time</h5>
+              <Input placeholder="Time Slot" onChange={handleInputChange} value={inputs.startTime} name="startTime"/>
+            </div>
+          </Col>
+          <Col span={10} offset={2}>
+            <div className="formData">
+              <h5 className="formHeader">End Time</h5>
+              <Input placeholder="End Time" onChange={handleInputChange} value={inputs.endTime} name="endTime"/>
             </div>
           </Col>
         </Row>

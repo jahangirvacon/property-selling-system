@@ -1,4 +1,5 @@
 export const BOOKING = '/booking';
+export const BOOKING_DETAILS = bookingId => `/booking/${bookingId}`
 export const EVENT_TYPE = '/event-type';
 export const GURDWARA = '/gurdwara';
 export const HALL = '/hall';

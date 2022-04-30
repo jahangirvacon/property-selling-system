@@ -39,7 +39,7 @@ const NavBar = ({ menu }) => {
         {menu}
       </Drawer>
       <div className="navbarStyling">
-        <h1 className="logoStyling"> Smoobu</h1>
+        <h1 className="logoStyling">Gurdwara</h1>
         {/* <button  className="bookingBtn">
           <CalendarOutlined />
           <span> Enter Booking</span>

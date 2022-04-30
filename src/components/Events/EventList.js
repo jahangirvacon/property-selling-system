@@ -5,6 +5,7 @@ import { Input, Space, Typography, Button } from "antd"
 import { AudioOutlined } from "@ant-design/icons"
 import { Table } from "antd"
 import { getEventList } from "../../api"
+import AddEvents from "./AddEvents"
 
 
 const { Text } = Typography
@@ -40,7 +41,20 @@ const columns = [
       multiple: 3,
     },
   },
-  
+  {
+    title: "Action",
+    dataIndex: "id",
+    render: (id) => (
+      <Space size="middle">
+        <Button type="warn" size="small">
+          Update
+        </Button>
+        <Button type="danger" size="small">
+          Delete
+        </Button>
+      </Space>
+    ),
+  }
   
 ]
 
@@ -77,7 +91,8 @@ const EventList = () => {
           <h1 className="bookingHeader">Event List</h1>
         </Col>
         <Col span={8} offset={8} className="addGurdwara">
-          <Button className="GurdwaraBtn">Add Event</Button>
+          <AddEvents refresh={populateTable}/>
+          {/* <Button className="GurdwaraBtn">Add Event</Button> */}
         </Col>
       </Row>
       <Row>

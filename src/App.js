@@ -26,6 +26,7 @@ import AddPrice from "./components/Price/AddPrice"
 import { BrowserRouter, Routes, Route } from "react-router-dom"
 import EventList from "./components/Events/EventList"
 import HallList from "./components/Hall/HallList"
+// import Details from "./components/testing/Details"
 
 function App() {
   const topics = [
@@ -76,13 +77,10 @@ function App() {
           <SideBar menu={Menu} />
           <Layout.Content className="content">
             {/* {topics[contentIndex]} */}
-            {/* <Gurdwara />
-          <AddGurdwara /> */}
-            {/* <EventList/>
-          <AddEvents/> */}
+            {/* <Gurdwara /> */}
+            {/* <EventList/> */}
 
-            {/* <HallList/>
-          <AddHalls/> */}
+            {/* <HallList/> */}
 
             {/* <AddPrice/>   */}
 
@@ -98,13 +96,18 @@ function App() {
             <Routes>
               <Route path="/">
                 <Route index element={<Dashboard />} />
+                <Route path="dashboard" element={<Dashboard />} />
                 <Route path="booking" element={<Booking />} />
                 <Route path="details" element={<Details />} />
                 <Route path="gurdwara" element={<Gurdwara />} />
                 <Route path="hall" element={<HallList />} />
                 <Route path="event" element={<EventList />} />
+                <Route path="bookingDetail" element={<Details />} />
               </Route>
             </Routes>
+          {/* <AddGurdwara /> */}
+          {/* <AddEvents/> */}
+          {/* <AddHalls/> */}
           </Layout.Content>
         </Layout>
       </BrowserRouter>
