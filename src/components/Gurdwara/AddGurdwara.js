@@ -15,7 +15,7 @@ function handleChange(value) {
   console.log(`selected ${value}`);
 }
 
-const AddGurdwara = () => {
+const AddGurdwara = ({refresh}) => {
   const [data, setData] = useState();
 
   // Modal
@@ -31,6 +31,7 @@ const AddGurdwara = () => {
       available: true, 
   })
     setIsModalVisible(false);
+    refresh()
   };
 
   const handleCancel = () => {
@@ -50,7 +51,7 @@ const AddGurdwara = () => {
   return (
     <div>
       <Button type="primary" onClick={showModal}>
-        Open Modal
+        Add Gurdwara
       </Button>
       <Modal 
       visible={isModalVisible} 

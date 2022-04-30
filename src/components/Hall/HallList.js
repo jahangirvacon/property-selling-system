@@ -5,6 +5,7 @@ import { Input, Space, Typography, Button } from "antd"
 import { AudioOutlined } from "@ant-design/icons"
 import { Table } from "antd"
 import { getHallList } from "../../api"
+import AddHalls from "./AddHalls"
 
 const { Text } = Typography
 
@@ -40,9 +41,16 @@ const columns = [
     },
   },
   {
-    title: "N0 Halls",
-    dataIndex: "hallCount",
-  },
+    title: "Action",
+    dataIndex: "id",
+    render: (id) => (
+      <Space size="middle">
+        <Button type="danger" size="small">
+          Delete
+        </Button>
+      </Space>
+    ),
+  }
 
   
   
@@ -67,7 +75,7 @@ const HallList = () => {
         id: hall._id,
         gurdwara:hall.gurdwara.title,
         hallCount:hall.halls,
-        duration:hall.duration,
+        duration:`${hall.openingTime} - ${hall.closingTime}`,
         hallName:hall.title,
 
 
@@ -82,7 +90,8 @@ const HallList = () => {
           <h1 className="bookingHeader">Hall List</h1>
         </Col>
         <Col span={8} offset={8} className="addGurdwara">
-          <Button className="GurdwaraBtn">Add Hall</Button>
+          <AddHalls refresh={populateTable}/>
+          {/* <Button className="GurdwaraBtn">Add Hall</Button> */}
         </Col>
       </Row>
       <Row>

@@ -5,9 +5,10 @@
         }
         
         .UpcomingHeaders {
-            font-size: 16px;
+            /* font-size: 16px; */
             cursor: pointer;
             margin-bottom: 0!important;
+            padding-bottom: 1rem !important;
         }
         
         .popoverData {

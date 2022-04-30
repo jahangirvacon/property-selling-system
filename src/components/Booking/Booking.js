@@ -106,6 +106,20 @@ const columns = [
       </Space>
     ),
   },
+  {
+    title: "Action",
+    dataIndex: "id",
+    render: (id) => (
+      <Space size="middle">
+        <Button type="warn" size="small">
+          Update
+        </Button>
+        <Button type="danger" size="small">
+          Delete
+        </Button>
+      </Space>
+    ),
+  }
 ]
 
 function onChange(pagination, filters, sorter, extra) {

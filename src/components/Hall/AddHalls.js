@@ -19,7 +19,7 @@ function handleChange(value) {
   console.log(`selected ${value}`);
 }
 
-const AddHalls = () => {
+const AddHalls = ({refresh}) => {
   const [gurdwaraListSelection, setGurdwaraListSelection] = useState([]);
   const [eventTypeListSelection, setEventTypeListSelection] = useState([]);
   // Modal
@@ -50,6 +50,7 @@ const AddHalls = () => {
       available: true,
     })
     setIsModalVisible(false);
+    refresh()
   };
 
   const handleCancel = () => {
@@ -70,7 +71,7 @@ const AddHalls = () => {
   return (
     <div>
       <Button type="primary" onClick={showModal}>
-        Open Modal
+        Add Hall
       </Button>
       <Modal
         visible={isModalVisible}
@@ -88,7 +89,7 @@ const AddHalls = () => {
         <form onSubmit={handleSubmit}>
         <Row>
           <Col span={12}>
-            <h2 className="bookingFormHeading">Add Halls</h2>
+            <h2 className="bookingFormHeading">Add Hall</h2>
           </Col>
         </Row>
         <Row>
