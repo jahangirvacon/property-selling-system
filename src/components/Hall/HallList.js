@@ -4,7 +4,7 @@ import "./Hall.css"
 import { Input, Space, Typography, Button } from "antd"
 import { AudioOutlined } from "@ant-design/icons"
 import { Table } from "antd"
-import { getHallList } from "../../api"
+import { getHallList, deleteHall } from "../../api"
 import AddHalls from "./AddHalls"
 
 const { Text } = Typography
@@ -23,7 +23,7 @@ const suffix = (
 const onSearch = (value) => console.log(value)
 
 // Table
-const columns = [
+const columns = removeHall => [
   {
     title: "Gurdwara",
     dataIndex: "gurdwara",
@@ -45,15 +45,12 @@ const columns = [
     dataIndex: "id",
     render: (id) => (
       <Space size="middle">
-        <Button type="danger" size="small">
+        <Button type="danger" size="small" onClick={() => removeHall(id)}>
           Delete
         </Button>
       </Space>
     ),
   }
-
-  
-  
 ]
 
 
@@ -67,6 +64,12 @@ const HallList = () => {
   useEffect(() => {
     populateTable()
   },[])
+
+
+  const removeHall = async (hallId) => {
+    await deleteHall(hallId)
+    populateTable()
+  } 
 
   // Function 
   const populateTable = async () => {
@@ -115,7 +118,7 @@ const HallList = () => {
 
       <Row className="bookingTable">
         <Col span={24}>
-          <Table columns={columns} dataSource={hallList} onChange={onChange} />
+          <Table columns={columns(removeHall)} dataSource={hallList} onChange={onChange} />
         </Col>
       </Row>
     </div>

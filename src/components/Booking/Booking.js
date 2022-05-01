@@ -4,7 +4,7 @@ import "./booking.css"
 import { Input, Space, Typography, Button } from "antd"
 import { AudioOutlined } from "@ant-design/icons"
 import { Table } from "antd"
-import { getBookingList } from "../../api"
+import { getBookingList, deleteBooking } from "../../api"
 import moment from 'moment';
 
 const { Text } = Typography
@@ -23,7 +23,7 @@ const suffix = (
 const onSearch = (value) => console.log(value)
 
 // Table
-const columns = [
+const columns = removeBooking => [
   {
     title: "Arrival",
     dataIndex: "bookingDate",
@@ -114,7 +114,7 @@ const columns = [
         <Button type="warn" size="small">
           Update
         </Button>
-        <Button type="danger" size="small">
+        <Button type="danger" size="small" onClick={() => removeBooking(id)}>
           Delete
         </Button>
       </Space>
@@ -149,6 +149,11 @@ const Booking = () => {
     ))
   }
 
+  const removeBooking = async (id) => {
+    await deleteBooking(id)
+    populateTable()
+  } 
+
   return (
     <div>
       <Row>
@@ -177,7 +182,7 @@ const Booking = () => {
 
       <Row className="bookingTable">
         <Col span={24}>
-          <Table columns={columns} dataSource={bookingList} onChange={onChange} />
+          <Table columns={columns(removeBooking)} dataSource={bookingList} onChange={onChange} />
         </Col>
       </Row>
     </div>

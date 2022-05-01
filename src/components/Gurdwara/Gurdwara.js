@@ -23,7 +23,7 @@ const suffix = (
 const onSearch = (value) => console.log(value)
 
 // Table
-const columns = [
+const columns = (removeGurdwara) => [
   {
     title: "Name",
     dataIndex: "title",
@@ -49,10 +49,10 @@ const columns = [
     dataIndex: "id",
     render: (id) => (
       <Space size="middle">
-        <Button type="warn" size="small">
+        {/* <Button type="warn" size="small">
           Update
-        </Button>
-        <Button type="danger" size="small">
+        </Button> */}
+        <Button type="danger" size="small" onClick={() => removeGurdwara(id)}>
           Delete
         </Button>
       </Space>
@@ -75,9 +75,8 @@ const Gurdwara = () => {
   },[])
 
   const removeGurdwara = async (gurdwaraId) => {
-
-    debugger
-    const res = await deleteGurdwara(gurdwaraId)
+    await deleteGurdwara(gurdwaraId)
+    populateTable()
   } 
 
   // Function 
@@ -125,7 +124,7 @@ const Gurdwara = () => {
 
       <Row className="bookingTable">
         <Col span={24}>
-          <Table columns={columns} dataSource={gurdwaraList} onChange={onChange} />
+          <Table columns={columns(removeGurdwara)} dataSource={gurdwaraList} onChange={onChange} />
         </Col>
       </Row>
     </div>

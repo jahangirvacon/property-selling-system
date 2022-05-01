@@ -46,6 +46,14 @@ export const getHallEvents = async (hallId) => {
 
 
 export const deleteGurdwara = async (gurdwaraId) => {
-  debugger
   return deleteReq({ url: `${GURDWARA}/${gurdwaraId}`, shouldAuthenticate: true})
+}
+export const deleteHall = async (hallId) => {
+  return deleteReq({ url: `${HALL}/${hallId}`, shouldAuthenticate: true})
+}
+export const deleteEventType = async (eventTypeId) => {
+  return deleteReq({ url: `${EVENT_TYPE}/${eventTypeId}`, shouldAuthenticate: true})
+}
+export const deleteBooking = async (bookingId) => {
+  return deleteReq({ url: `${BOOKING}/${bookingId}`, shouldAuthenticate: true})
 }
