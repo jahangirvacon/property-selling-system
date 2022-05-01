@@ -3,7 +3,7 @@
 
 const GURDWARA_API_BASE_URL = "https://75aa-103-255-5-20.ngrok.io/v1"
 
-const token = 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjY1OGRlYjBlMDZjYTJlNjNkMjAzNGQiLCJ1c2VybmFtZSI6Imhhc2VlYkB0ZXN0LmNvbSIsImVtYWlsIjoiaGFzZWViQHRlc3QuY29tIiwicGhvbmVOdW1iZXIiOiIwIiwiaWF0IjoxNjUxMzQyNjcwLCJleHAiOjE2NTEzNDk4NzB9.o8AkPO9ouLkVJ--qIydbDumSLofI6MUMrBJlZ7t2r9M'
+const token = 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjY1OGRlYjBlMDZjYTJlNjNkMjAzNGQiLCJ1c2VybmFtZSI6Imhhc2VlYkB0ZXN0LmNvbSIsImVtYWlsIjoiaGFzZWViQHRlc3QuY29tIiwicGhvbmVOdW1iZXIiOiIwIiwiaWF0IjoxNjUxNDIwNzM0LCJleHAiOjE2NTE0Mjc5MzR9.yGHrcdO16Rmldhvj2Jj5gq4ApmkgE1tCxGIk5wpdrdc'
 
 export const post = async ({ url, baseURL, body, contentType, shouldAuthenticate }) => {
   const method = "POST"
