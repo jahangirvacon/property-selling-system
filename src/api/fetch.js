@@ -35,7 +35,7 @@ export const put = async ({ url, body, shouldAuthenticate }) => {
   const method = "PUT"
   const bodyString = JSON.stringify(body)
   // const {
-  // 	user: { token },
+  // 	user: { token }, testing
   // } = window.store.getState();
 //   const token = ""
 
