@@ -5,7 +5,8 @@ import { Input, Space, Typography, Button } from "antd"
 import { AudioOutlined } from "@ant-design/icons"
 import { Table } from "antd"
 import { getBookingList, deleteBooking } from "../../api"
-import moment from 'moment';
+import { useNavigate } from "react-router-dom"
+import moment from "moment"
 
 const { Text } = Typography
 
@@ -23,7 +24,7 @@ const suffix = (
 const onSearch = (value) => console.log(value)
 
 // Table
-const columns = removeBooking => [
+const columns = (removeBooking, navigateToDetails) => [
   {
     title: "Arrival",
     dataIndex: "bookingDate",
@@ -95,15 +96,15 @@ const columns = removeBooking => [
     dataIndex: "id",
     render: (id) => (
       <Space size="middle">
-        {/* <Button type="warn" size="small">
-          Update
-        </Button> */}
+        <Button type="warn" size="small" onClick={() => navigateToDetails(id)}>
+          Details
+        </Button>
         <Button type="danger" size="small" onClick={() => removeBooking(id)}>
           Delete
         </Button>
       </Space>
     ),
-  }
+  },
 ]
 
 function onChange(pagination, filters, sorter, extra) {
@@ -111,15 +112,21 @@ function onChange(pagination, filters, sorter, extra) {
 }
 
 const Booking = () => {
+  const navigate = useNavigate()
 
   const [bookingList, setBookingList] = useState([])
   useEffect(() => {
     populateTable()
-  },[])
+  }, [])
+
+  const navigateToDetails = (id) => {
+    navigate("/bookingDetail?id=" + id)
+  }
 
   const populateTable = async () => {
     const { response } = await getBookingList()
-    setBookingList(response.map(booking => ({
+    setBookingList(
+      response.map((booking) => ({
         id: booking._id,
         bookingDate: moment(booking.bookingDate).format("YYYY/MM/DD"),
         slot: `${booking.startTime} - ${booking.endTime}`,
@@ -128,15 +135,15 @@ const Booking = () => {
         portal: `${booking.hallEvent.hall.title}, ${booking.hallEvent.hall.gurdwara.title}`,
         event: booking.hallEvent.eventType.title,
         createdAt: moment(booking.createdAt).format("YYYY/MM/DD kk:mm:ss"),
-        status: 'Booked'
-      })
-    ))
+        status: "Booked",
+      }))
+    )
   }
 
   const removeBooking = async (id) => {
     await deleteBooking(id)
     populateTable()
-  } 
+  }
 
   return (
     <div>
@@ -166,7 +173,7 @@ const Booking = () => {
 
       <Row className="bookingTable">
         <Col span={24}>
-          <Table columns={columns(removeBooking)} dataSource={bookingList} onChange={onChange} />
+          <Table columns={columns(removeBooking, navigateToDetails)} dataSource={bookingList} onChange={onChange} />
         </Col>
       </Row>
     </div>

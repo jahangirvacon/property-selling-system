@@ -8,6 +8,7 @@ import debounce from "lodash/debounce"
 import { CaretRightOutlined, CheckOutlined, CloseOutlined } from "@ant-design/icons"
 import { addBooking, getGurdwaraList, getGurdwaraHalls, getHallEvents } from "../../api"
 import useFormHandler from "../../hooks/form/form-handler"
+import moment from "moment"
 
 //
 const { Option } = Select
@@ -19,13 +20,14 @@ const BookingForm = () => {
   const [eventTypeListSelection, setEventTypeListSelection] = useState([])
   const [eventTypeList, setEventTypeList] = useState([])
   const [isWeddingEvent, setIsWeddingEvent] = useState(false)
+  const [disabledHours, setDisabledHours] = useState([])
 
   // Modal
   const [isModalVisible, setIsModalVisible] = useState(false)
 
-  useEffect(() => {
-    populateGurdwaraList()
-  }, [])
+  // useEffect(() => {
+  //   populateGurdwaraList()
+  // }, [])
 
   useEffect(() => {
     populateEventTypePrice(eventTypeList.length > 0 ? eventTypeList[0]._id : "")
@@ -74,11 +76,12 @@ const BookingForm = () => {
   }
 
   const showModal = () => {
+    populateGurdwaraList()
     setIsModalVisible(true)
   }
 
   const handleOk = async () => {
-    const {response } = await addBooking({
+    await addBooking({
       ...inputs,
       available: true,
     })
@@ -88,6 +91,17 @@ const BookingForm = () => {
   const handleCancel = () => {
     setIsModalVisible(false)
   }
+
+  function range(start, end) {
+    const result = []
+    for (let i = start; i <= end; i++) {
+      result.push(i)
+    }
+    return result
+  }
+
+  const getDisabledHours = () => eventTypeList.reduce((acc, curr) => [...acc,...curr.bookings],[])
+    .reduce((acc,curr) => [...acc,...range(+curr.startTime,+curr.endTime)],[])
 
   const { inputs, formErrors, handleInputChange, UpdateFormValue, handleSubmit, setErrors } = useFormHandler(
     {
@@ -247,11 +261,20 @@ const BookingForm = () => {
                 <Col span={10}>
                   <div className="formData">
                     <h5 className="formHeader">Start Time</h5>
+                    {/* <DatePicker
+                      format="YYYY-MM-DD HH:mm:ss"
+                      // disabledDate={disabledDate}
+                      disabledTime={disabledDateTime}
+                      showTime={{ defaultValue: moment("00:00:00", "HH:mm:ss") }}
+                    /> */}
                     <TimePicker
-                      style={{ width: '100%', textAlign: "start" }}
+                      style={{ width: "100%", textAlign: "start" }}
+                      disabledHours={getDisabledHours}
                       showNow={false}
                       placeholder="Start Time"
                       format="HH"
+                      placement="topLeft"
+                      // disabledTime={disabledDateTime}
                       // value={inputs.openingTime}
                       minuteStep={30}
                       onChange={(time, timeString) => UpdateFormValue("startTime", timeString)}
@@ -262,10 +285,12 @@ const BookingForm = () => {
                   <div className="formData">
                     <h5 className="formHeader">End Time</h5>
                     <TimePicker
-                      style={{ width: '100%', textAlign: "start" }}
+                      style={{ width: "100%", textAlign: "start" }}
                       showNow={false}
                       placeholder="End Time"
                       format="HH"
+                      placement="topLeft"
+                      disabledHours={getDisabledHours}
                       // value={inputs.openingTime}
                       minuteStep={30}
                       onChange={(time, timeString) => UpdateFormValue("endTime", timeString)}

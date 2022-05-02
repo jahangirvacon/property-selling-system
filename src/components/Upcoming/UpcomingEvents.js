@@ -105,7 +105,7 @@ const UpcomingEvents = ({ bookings }) => {
                   title={
                     <Popover placement="rightTop" title={booking.event} content={content(booking)} trigger="click">
                       <p className="UpcomingHeaders">
-                        {booking.startTime}AM - {booking.endTime}AM | {booking.event} | <TeamOutlined /> 200
+                        {booking.startTime}AM - {booking.endTime}AM | {booking.event} | <TeamOutlined /> {booking.guestCount}
                       </p>
                     </Popover>
                   }

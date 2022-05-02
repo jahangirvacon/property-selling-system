@@ -32,7 +32,7 @@ const Dashboard = () => {
         endTime: booking.endTime,
         slot: `${booking.startTime} - ${booking.endTime}`,
         name: booking.guest,
-        guestCount: 80,
+        guestCount: booking.guestCount,
         portal: booking.hallEvent.hall.gurdwara.title,
         event: booking.hallEvent.eventType.title,
         createdAt: moment(booking.createdAt),
