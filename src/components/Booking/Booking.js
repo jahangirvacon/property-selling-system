@@ -47,10 +47,6 @@ const columns = removeBooking => [
   {
     title: "Guest",
     dataIndex: "guestCount",
-    sorter: {
-      compare: (a, b) => a.english - b.english,
-      multiple: 1,
-    },
     render: (guest) => (
       <Space size="middle">
         <a>{guest}</a>
@@ -60,10 +56,6 @@ const columns = removeBooking => [
   {
     title: "Portal",
     dataIndex: "portal",
-    sorter: {
-      compare: (a, b) => a.name - b.english,
-      multiple: 1,
-    },
     render: (portal) => (
       <Space size="middle">
         <Text className="td-portal" mark>
@@ -75,10 +67,6 @@ const columns = removeBooking => [
   {
     title: "Event",
     dataIndex: "event",
-    sorter: {
-      compare: (a, b) => a.name - b.english,
-      multiple: 1,
-    },
     render: (event) => (
       <Space size="middle">
         <Text className="td-event" mark>
@@ -94,10 +82,6 @@ const columns = removeBooking => [
   {
     title: "Status",
     dataIndex: "status",
-    sorter: {
-      compare: (a, b) => a.name - b.english,
-      multiple: 1,
-    },
     render: (statusText) => (
       <Space size="middle">
         <Button type="primary" size="small">
@@ -111,9 +95,9 @@ const columns = removeBooking => [
     dataIndex: "id",
     render: (id) => (
       <Space size="middle">
-        <Button type="warn" size="small">
+        {/* <Button type="warn" size="small">
           Update
-        </Button>
+        </Button> */}
         <Button type="danger" size="small" onClick={() => removeBooking(id)}>
           Delete
         </Button>
@@ -137,10 +121,10 @@ const Booking = () => {
     const { response } = await getBookingList()
     setBookingList(response.map(booking => ({
         id: booking._id,
-        bookingDate: "22/06/2022",
+        bookingDate: moment(booking.bookingDate).format("YYYY/MM/DD"),
         slot: `${booking.startTime} - ${booking.endTime}`,
         name: booking.guest,
-        guestCount: 80,
+        guestCount: booking.guestCount,
         portal: `${booking.hallEvent.hall.title}, ${booking.hallEvent.hall.gurdwara.title}`,
         event: booking.hallEvent.eventType.title,
         createdAt: moment(booking.createdAt).format("YYYY/MM/DD kk:mm:ss"),
@@ -161,7 +145,7 @@ const Booking = () => {
           <h1 className="bookingHeader">Bookings</h1>
         </Col>
       </Row>
-      <Row>
+      {/* <Row>
         <Col span={24}>
           <div className="bookingElement">
             <div className="searc">
@@ -178,7 +162,7 @@ const Booking = () => {
            
           </div>
         </Col>
-      </Row>
+      </Row> */}
 
       <Row className="bookingTable">
         <Col span={24}>

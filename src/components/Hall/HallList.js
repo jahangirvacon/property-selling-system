@@ -25,20 +25,16 @@ const onSearch = (value) => console.log(value)
 // Table
 const columns = removeHall => [
   {
+    title: "Hall Name",
+    dataIndex: "hallName",
+  },
+  {
     title: "Gurdwara",
     dataIndex: "gurdwara",
   },
   {
     title: "Working Hours",
     dataIndex: "duration",
-  },
-  {
-    title: "Halls Name",
-    dataIndex: "hallName",
-    sorter: {
-      compare: (a, b) => a.chinese - b.chinese,
-      multiple: 3,
-    },
   },
   {
     title: "Action",
@@ -97,7 +93,7 @@ const HallList = () => {
           {/* <Button className="GurdwaraBtn">Add Hall</Button> */}
         </Col>
       </Row>
-      <Row>
+      {/* <Row>
         <Col span={24}>
           <div className="bookingElement">
             <div className="searc">
@@ -105,16 +101,16 @@ const HallList = () => {
                 <Search placeholder="Search here..." onSearch={onSearch} style={{ width: 250,height:45 }} />
               </Space>
             </div>
-            {/* <div className="datesetter">
+            <div className="datesetter">
               <input type="date" id="start" name="trip-start" placeholder="Start Date" style={{ width: 200,height:45 }} />
             </div>
             <div className="datesetter">
               <input type="date" id="start" name="trip-start" placeholder="End Date" style={{ width: 200,height:45 }} />
-            </div> */}
+            </div>
            
           </div>
         </Col>
-      </Row>
+      </Row> */}
 
       <Row className="bookingTable">
         <Col span={24}>
