@@ -1,14 +1,12 @@
 import React, { useState, useEffect } from "react"
 import { useSelector } from "react-redux"
-import { Row, Col, Calendar, Badge, Tabs, Select, List, Card, Typography } from "antd"
+import { Row, Col, Calendar, Badge, Select, List, Card } from "antd"
 import UpcomingEvents from "../Upcoming/UpcomingEvents"
 import "./Dashboard.css"
 import moment from "moment"
 import { getGurdwaraHalls } from "../../api"
 
-const { TabPane } = Tabs
 const { Option } = Select
-const { Paragraph } = Typography
 
 const Dashboard = () => {
   const [bookingList, setBookingList] = useState([])
@@ -135,16 +133,8 @@ const Dashboard = () => {
         const filtered = bookingList.filter((booking) => moment(counter).isSame(booking.bookingDate, "day") && hall.id === booking.hallId)
         view.push(
           <span className="block" onClick={event => setSelectedDate(counter)}>
-          {/* <Avatar shape="square" size={64}> */}
-          {/* <Paragraph> */}
           <p>{moment(counter).format("MMMM D")}</p>
           <Badge style={{ backgroundColor: "#1890ff" }} count={filtered.length}></Badge>
-          {/* <Typography.Title level={5} style={{ margin: 0 }}>
-      </Typography.Title> */}
-          {/* <Text type="secondary">
-          </Text> */}
-          {/* </Paragraph> */}
-          {/* </Avatar> */}
         </span>
       )
     }
