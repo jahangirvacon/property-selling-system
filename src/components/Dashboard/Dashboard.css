@@ -17,3 +17,28 @@
   .notes-month section {
     font-size: 28px;
   }
+
+  .scrollmenu {
+    overflow: auto;
+    white-space: nowrap;
+  }
+
+  .hall-item{
+    width: 100%
+  }
+
+  .block {
+    cursor: pointer;
+    border: 1px solid #f0f2f5;
+    display: inline-block;
+    text-align: center;
+    padding: 14px;
+    text-decoration: none;
+  }
+
+  .hall-heading{
+    width: 100px;
+    float: left;
+    padding-top: 40px;
+  }
+  

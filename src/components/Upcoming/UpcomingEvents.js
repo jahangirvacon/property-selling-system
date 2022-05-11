@@ -96,7 +96,7 @@ const UpcomingEvents = ({ bookings }) => {
       {/* <Row>
         <Col span={8} > */}
       <div className="site-card-border-less-wrapper">
-        <Card className="titleEvents" title="Upcoming Events" bordered={false}>
+        <Card className="upcoming-events" title="Upcoming Events" bordered={false}>
           <Steps progressDot direction="vertical">
             {bookings &&
               bookings.map((booking) => (

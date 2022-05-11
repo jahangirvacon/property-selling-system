@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react"
 import { useSelector } from "react-redux"
-import { Row, Col, Calendar, Badge, Tabs, Select, List } from "antd"
+import { Row, Col, Calendar, Badge, Tabs, Select, List, Card, Typography } from "antd"
 import UpcomingEvents from "../Upcoming/UpcomingEvents"
 import "./Dashboard.css"
 import moment from "moment"
@@ -8,6 +8,7 @@ import { getGurdwaraHalls } from "../../api"
 
 const { TabPane } = Tabs
 const { Option } = Select
+const { Paragraph } = Typography
 
 const Dashboard = () => {
   const [bookingList, setBookingList] = useState([])
@@ -17,12 +18,14 @@ const Dashboard = () => {
   const bookings = useSelector((state) => state.bookingList)
   const [hallListSelection, setHallListSelection] = useState([])
   const [hallDetails, setHallDetails] = useState([])
+  const [activeTabKey, setActiveTabKey] = useState("default")
 
   useEffect(() => {
     getData(bookings)
   }, [bookings])
 
   useEffect(() => {
+    debugger
     setSelectedDateBookings(bookingList.filter((booking) => moment(booking.bookingDate).isSame(moment(selectedDate), "day")))
     // getData()
   }, [selectedDate])
@@ -112,7 +115,6 @@ const Dashboard = () => {
     console.log(date, mode)
   }
 
-
   const operations = (
     <Select style={{ width: 200 }} onChange={filterHallBookings} defaultValue="ALL">
       <Option value="ALL">All</Option>
@@ -128,23 +130,86 @@ const Dashboard = () => {
     let counter = moment()
     const view = []
     while (moment(counter).isBefore(endDate)) {
-      const filtered = bookingList.filter((booking) => moment(counter).isSame(booking.bookingDate, "day") && hall.id === booking.hallId)
-      view.push(
-        <span>
-          <Badge style={{ backgroundColor: "#1890ff" }} count={filtered.length} />
-          {moment(counter).format("MMMM D")}
+      function preserver(counter) {
+
+        const filtered = bookingList.filter((booking) => moment(counter).isSame(booking.bookingDate, "day") && hall.id === booking.hallId)
+        view.push(
+          <span className="block" onClick={event => setSelectedDate(counter)}>
+          {/* <Avatar shape="square" size={64}> */}
+          {/* <Paragraph> */}
+          <p>{moment(counter).format("MMMM D")}</p>
+          <Badge style={{ backgroundColor: "#1890ff" }} count={filtered.length}></Badge>
+          {/* <Typography.Title level={5} style={{ margin: 0 }}>
+      </Typography.Title> */}
+          {/* <Text type="secondary">
+          </Text> */}
+          {/* </Paragraph> */}
+          {/* </Avatar> */}
         </span>
       )
+    }
+    preserver(counter)
       counter = moment(counter).add(1, "days")
     }
     return view
+  }
+
+  const tabList = [
+    {
+      key: "default",
+      tab: "Default",
+    },
+    {
+      key: "detailed",
+      tab: "Detailed",
+    },
+  ]
+
+  const tabView = {
+    default: (
+      <Calendar
+        style={{ padding: 10 }}
+        dateCellRender={dateCellRender}
+        monthCellRender={monthCellRender}
+        onSelect={onSelect}
+        onPanelChange={onPanelChange}
+      />
+    ),
+    detailed: (
+      <List
+        itemLayout="horizontal"
+        dataSource={hallListSelection}
+        renderItem={(hall) => (
+          <List.Item>
+            <div className="hall-item">
+              <h4 className="hall-heading">{hall.displayText}</h4>
+              <div className="scrollmenu">{getHallDetailedView(hall)}</div>
+            </div>
+          </List.Item>
+        )}
+      />
+    ),
+  }
+
+  const onTabChange = (key) => {
+    setActiveTabKey(key)
+    filterHallBookings('ALL')
   }
 
   return (
     <div>
       <Row gutter={16}>
         <Col span={18}>
-          <Tabs defaultActiveKey="1" onChange={() => filterHallBookings("ALL")} tabBarExtraContent={operations}>
+          <Card
+            style={{ width: "100%", height: '950px' }}
+            tabList={tabList}
+            activeTabKey={activeTabKey}
+            tabBarExtraContent={activeTabKey === "default" ? operations: <div></div>}
+            onTabChange={onTabChange}
+          >
+            {tabView[activeTabKey]}
+          </Card>
+          {/* <Tabs defaultActiveKey="1" onChange={() => filterHallBookings("ALL")} tabBarExtraContent={operations}>
             <TabPane tab="Default" key="default">
               <Calendar
                 style={{ padding: 10 }}
@@ -154,21 +219,8 @@ const Dashboard = () => {
                 onPanelChange={onPanelChange}
               />
             </TabPane>
-            <TabPane tab="Detailed" key="detailed">
-              <List
-                itemLayout="horizontal"
-                dataSource={hallListSelection}
-                renderItem={(hall) => (
-                  <List.Item>
-                    <div>
-                      {hall.displayText}
-                      {getHallDetailedView(hall)}
-                      </div>
-                  </List.Item>
-                )}
-              />
-            </TabPane>
-          </Tabs>
+            <TabPane tab="Detailed" key="detailed"></TabPane>
+          </Tabs> */}
         </Col>
         <Col span={6}>
           <UpcomingEvents bookings={selectedDateBookings} />
