@@ -17,8 +17,8 @@ export const addHall = (body) => {
   return post({ url: HALL, shouldAuthenticate: true, body, contentType: "application/json" })
 }
 
-export const getBookingList = () => {
-  return get({ url: BOOKING, shouldAuthenticate: true })
+export const getBookingList = (search) => {
+  return get({ url: `${BOOKING}?search=${search}`, shouldAuthenticate: true })
 }
 
 export const getBookingDetails = (bookingId) => {

@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from "react"
+import { useSelector, useDispatch } from "react-redux"
+import { fetchBookingList } from "../../redux/thunk"
 import "./BookingForm.css"
 import { Button, Input } from "antd"
 import { Modal } from "antd"
@@ -21,13 +23,10 @@ const BookingForm = () => {
   const [eventTypeList, setEventTypeList] = useState([])
   const [isWeddingEvent, setIsWeddingEvent] = useState(false)
   const [disabledHours, setDisabledHours] = useState([])
+  const dispatch = useDispatch()
 
   // Modal
   const [isModalVisible, setIsModalVisible] = useState(false)
-
-  // useEffect(() => {
-  //   populateGurdwaraList()
-  // }, [])
 
   useEffect(() => {
     populateEventTypePrice(eventTypeList.length > 0 ? eventTypeList[0]._id : "")
@@ -85,6 +84,7 @@ const BookingForm = () => {
       ...inputs,
       available: true,
     })
+    dispatch(fetchBookingList)
     setIsModalVisible(false)
   }
 

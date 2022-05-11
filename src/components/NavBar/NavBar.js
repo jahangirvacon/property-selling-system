@@ -1,26 +1,31 @@
 import React, { useState } from "react";
+import { useDispatch } from "react-redux"
+import { fetchBookingList } from "../../redux/thunk"
 import { Menu } from "antd";
 import {
-  MailOutlined,
-  AppstoreOutlined,
-  SettingOutlined,
   LogoutOutlined,
 } from "@ant-design/icons";
 
-import { Typography, Drawer, Button } from "antd";
+import { Typography, Drawer, Button, Input } from "antd";
 import {
-  CalendarOutlined,
   MenuOutlined,
   TeamOutlined,
 } from "@ant-design/icons";
 import "./NavBar.css";
 import BookingForm from "../popoverForm/BookingForm"
-const { Text } = Typography;
+const { Search } = Input;
 
 
 
 const NavBar = ({ menu }) => {
   const [visible, setVisible] = useState(false);
+  const dispatch = useDispatch()
+  
+  const onSearch = (search) => {
+    dispatch({ type: "TEXT_SEARCHED" , payload: search });
+    dispatch(fetchBookingList)
+  }
+
   return (
     <nav className="navbar">
       <Button
@@ -46,6 +51,13 @@ const NavBar = ({ menu }) => {
           
         </button> */}
         <BookingForm />
+        <Search
+      placeholder="Search Booking"
+      allowClear
+      // size="large"
+      style={{ width: 300 }}
+      onSearch={onSearch}
+    />
         <div className="user">
           <Menu mode="horizontal"  >
             <Menu.SubMenu

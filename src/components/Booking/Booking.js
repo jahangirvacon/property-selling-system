@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from "react"
+import { useSelector, useDispatch } from "react-redux"
+import { fetchBookingList } from "../../redux/thunk"
 import { Row, Col } from "antd"
 import "./booking.css"
 import { Input, Space, Typography, Button } from "antd"
@@ -115,18 +117,22 @@ const Booking = () => {
   const navigate = useNavigate()
 
   const [bookingList, setBookingList] = useState([])
+  const bookings = useSelector(state => state.bookingList)
+  
+
   useEffect(() => {
     populateTable()
-  }, [])
+  }, [bookings])
+
+  const dispatch = useDispatch()
 
   const navigateToDetails = (id) => {
     navigate("/bookingDetail?id=" + id)
   }
 
   const populateTable = async () => {
-    const { response } = await getBookingList()
     setBookingList(
-      response.map((booking) => ({
+      bookings.map((booking) => ({
         id: booking._id,
         bookingDate: moment(booking.bookingDate).format("YYYY/MM/DD"),
         slot: `${booking.startTime} - ${booking.endTime}`,
@@ -142,7 +148,7 @@ const Booking = () => {
 
   const removeBooking = async (id) => {
     await deleteBooking(id)
-    populateTable()
+    dispatch(fetchBookingList)
   }
 
   return (
