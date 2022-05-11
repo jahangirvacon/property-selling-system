@@ -130,10 +130,10 @@ const Dashboard = () => {
     while (moment(counter).isBefore(endDate)) {
       const filtered = bookingList.filter((booking) => moment(counter).isSame(booking.bookingDate, "day") && hall.id === booking.hallId)
       view.push(
-        <p>
+        <span>
           <Badge style={{ backgroundColor: "#1890ff" }} count={filtered.length} />
           {moment(counter).format("MMMM D")}
-        </p>
+        </span>
       )
       counter = moment(counter).add(1, "days")
     }
@@ -160,7 +160,10 @@ const Dashboard = () => {
                 dataSource={hallListSelection}
                 renderItem={(hall) => (
                   <List.Item>
-                    <div>{getHallDetailedView(hall)}</div>
+                    <div>
+                      {hall.displayText}
+                      {getHallDetailedView(hall)}
+                      </div>
                   </List.Item>
                 )}
               />
