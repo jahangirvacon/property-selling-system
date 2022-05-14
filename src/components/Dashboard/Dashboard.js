@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react"
 import { useSelector } from "react-redux"
-import { Row, Col, Calendar, Badge, Select, List, Card } from "antd"
+import { Row, Col, Calendar, Badge, Select, List, Card, Typography } from "antd"
 import UpcomingEvents from "../Upcoming/UpcomingEvents"
 import "./Dashboard.css"
 import moment from "moment"
-import { getGurdwaraHalls } from "../../api"
+import { getGurdwaraList, getGurdwaraHalls } from "../../api"
 
 const { Option } = Select
 
@@ -23,9 +23,7 @@ const Dashboard = () => {
   }, [bookings])
 
   useEffect(() => {
-    debugger
     setSelectedDateBookings(bookingList.filter((booking) => moment(booking.bookingDate).isSame(moment(selectedDate), "day")))
-    // getData()
   }, [selectedDate])
 
   useEffect(() => {
@@ -72,8 +70,11 @@ const Dashboard = () => {
   }
 
   const populateHallList = async () => {
-    const { response } = await getGurdwaraHalls("62700a29602540134f2d5bae")
-    setHallListSelection(response.map((hall) => ({ id: hall._id, displayText: hall.title })))
+    const { response: gurdwaraList } = await getGurdwaraList()
+    if(gurdwaraList.length){
+      const { response } = await getGurdwaraHalls(gurdwaraList[0]._id)
+      setHallListSelection(response.map((hall) => ({ id: hall._id, displayText: hall.title })))
+    }
   }
 
   const dateCellRender = (value) => {
@@ -82,7 +83,7 @@ const Dashboard = () => {
       <ul className="events">
         {listData.map((item) => (
           <li key={item.id}>
-            <Badge status="success" text={item.event} />
+            <Badge status="success" />
           </li>
         ))}
       </ul>
@@ -129,16 +130,15 @@ const Dashboard = () => {
     const view = []
     while (moment(counter).isBefore(endDate)) {
       function preserver(counter) {
-
         const filtered = bookingList.filter((booking) => moment(counter).isSame(booking.bookingDate, "day") && hall.id === booking.hallId)
         view.push(
-          <span className="block" onClick={event => setSelectedDate(counter)}>
-          <p>{moment(counter).format("MMMM D")}</p>
-          <Badge style={{ backgroundColor: "#1890ff" }} count={filtered.length}></Badge>
-        </span>
-      )
-    }
-    preserver(counter)
+          <span className="block" onClick={(event) => setSelectedDate(counter)}>
+            <p>{moment(counter).format("MMMM D")}</p>
+            <Badge style={{ backgroundColor: "#1890ff" }} count={filtered.length}></Badge>
+          </span>
+        )
+      }
+      preserver(counter)
       counter = moment(counter).add(1, "days")
     }
     return view
@@ -158,7 +158,9 @@ const Dashboard = () => {
   const tabView = {
     default: (
       <Calendar
-        style={{ padding: 10 }}
+        fullscreen={false}
+        headerRender={({ value, type, onChange, onTypeChange }) => <Typography.Title level={4}>Custom header</Typography.Title>}
+        style={{ padding: 10, width: 200 }}
         dateCellRender={dateCellRender}
         monthCellRender={monthCellRender}
         onSelect={onSelect}
@@ -183,7 +185,7 @@ const Dashboard = () => {
 
   const onTabChange = (key) => {
     setActiveTabKey(key)
-    filterHallBookings('ALL')
+    filterHallBookings("ALL")
   }
 
   return (
@@ -191,10 +193,10 @@ const Dashboard = () => {
       <Row gutter={16}>
         <Col span={18}>
           <Card
-            style={{ width: "100%", height: '950px' }}
+            style={{ width: "100%", height: "950px" }}
             tabList={tabList}
             activeTabKey={activeTabKey}
-            tabBarExtraContent={activeTabKey === "default" ? operations: <div></div>}
+            tabBarExtraContent={activeTabKey === "default" ? operations : <div></div>}
             onTabChange={onTabChange}
           >
             {tabView[activeTabKey]}
