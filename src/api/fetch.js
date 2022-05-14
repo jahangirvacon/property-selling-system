@@ -4,7 +4,7 @@
 const GURDWARA_API_BASE_URL = "https://gurdwara-backend.herokuapp.com/v1"
 // const GURDWARA_API_BASE_URL = "http://localhost:4000/v1"
 
-const token = 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjdjOGNjZDA2ZjNmMjQ5MGE0ODRiNDAiLCJ1c2VybmFtZSI6Imhhc2VlYkB0ZXN0LmNvbSIsImVtYWlsIjoiaGFzZWViQHRlc3QuY29tIiwicGhvbmVOdW1iZXIiOiIwIiwiaWF0IjoxNjUyMzI5Njc4LCJleHAiOjE2NTMwNDk2Nzh9.D87x_SPZtm2-U4cwK1hzfxwumzBHVcNERI4tTy3x7l4'
+const token = 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjdjOGNjZDA2ZjNmMjQ5MGE0ODRiNDAiLCJ1c2VybmFtZSI6Imhhc2VlYkB0ZXN0LmNvbSIsImVtYWlsIjoiaGFzZWViQHRlc3QuY29tIiwicGhvbmVOdW1iZXIiOiIwIiwiaWF0IjoxNjUyNTQ5ODA0LCJleHAiOjE2NTMyNjk4MDR9.1SjmwWMcBAEtTGT0jd1te3rb-Lu_oh0cDt3mZZ7jKdU'
 
 export const post = async ({ url, baseURL, body, contentType, shouldAuthenticate }) => {
   const method = "POST"

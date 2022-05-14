@@ -20,7 +20,7 @@ const Dashboard = () => {
   const bookings = useSelector((state) => state.bookingList)
   const [hallListSelection, setHallListSelection] = useState([])
   const [hallDetails, setHallDetails] = useState([])
-  const [activeTabKey, setActiveTabKey] = useState("default")
+  const [activeTabKey, setActiveTabKey] = useState("multi")
 
   useEffect(() => {
     getData(bookings)
@@ -148,33 +148,48 @@ const Dashboard = () => {
 
   const tabList = [
     {
-      key: "default",
-      tab: "Default",
+      key: "multi",
+      tab: "Multi",
     },
     {
-      key: "detailed",
-      tab: "Detailed",
+      key: "monthly",
+      tab: "Monthly",
     },
   ]
 
   // fullscreen={false}
   const tabView = {
-    default: (
-      <Calendar
-        headerRender={({ value, type, onChange, onTypeChange }) => (
-          <Title style={{ textAlign: "center" }} level={4}>
-            {moment(value).format("MMMM")}
-          </Title>
-        )}
-        style={{ padding: 10, width: 300 }}
-        dateCellRender={dateCellRender}
-        monthCellRender={monthCellRender}
-        onSelect={onSelect}
-        onPanelChange={onPanelChange}
-        validRange={[moment().startOf("month"), moment().endOf("month")]}
-      />
-    ),
-    detailed: (
+    monthly: () => {
+      const today = moment()
+      const calendarArr = []
+      for (let i = 0; i < 12; i++) {
+        const current = i ===0 ? today.clone() : moment(today).startOf("month").add(i, "months")
+
+        calendarArr.push(
+          <div style={{ float: "left" }}>
+            <Calendar
+              headerRender={({ value, type, onChange, onTypeChange }) => {
+                return (
+                  <Title style={{ textAlign: "center" }} level={4}>
+                    {moment(value).format("MMMM YY")}
+                  </Title>
+                )
+              }}
+              defaultValue={current}
+              style={{ padding: 10, width: 300 }}
+              dateCellRender={dateCellRender}
+              monthCellRender={monthCellRender}
+              onSelect={onSelect}
+              onPanelChange={onPanelChange}
+              validRange={[moment(current).startOf("month"), moment(current).endOf("month")]}
+            />
+          </div>
+        )
+      }
+      return <div className="calendar-wrapper">{calendarArr}</div>
+    },
+    multi: () => {
+      return(
       <List
         itemLayout="horizontal"
         dataSource={hallListSelection}
@@ -187,7 +202,7 @@ const Dashboard = () => {
           </List.Item>
         )}
       />
-    ),
+    )},
   }
 
   const onTabChange = (key) => {
@@ -233,10 +248,10 @@ const Dashboard = () => {
             style={{ width: "100%" }}
             tabList={tabList}
             activeTabKey={activeTabKey}
-            tabBarExtraContent={activeTabKey === "default" ? operations : <div></div>}
+            tabBarExtraContent={activeTabKey === "multi" ? operations : <div></div>}
             onTabChange={onTabChange}
           >
-            {tabView[activeTabKey]}
+            {tabView[activeTabKey]()}
           </Card>
         </Col>
       </Row>
