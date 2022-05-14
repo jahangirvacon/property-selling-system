@@ -95,22 +95,22 @@ const UpcomingEvents = ({ bookings }) => {
     <div>
       {/* <Row>
         <Col span={8} > */}
-      <div className="site-card-border-less-wrapper">
-        <Card className="upcoming-events" title="Upcoming Events" bordered={false}>
+      {/* <div className="site-card-border-less-wrapper"> */}
+        {/* <Card className="upcoming-events" title="Upcoming Events" bordered={false}> */}
           <Steps progressDot direction="vertical">
             {bookings &&
               bookings.map((booking) => (
                 <Step
                   status="finish"
                   title={
-                    <Popover placement="rightTop" title={booking.event} content={content(booking)} trigger="click">
+                    <Popover placement="topLeft" title={booking.event} content={content(booking)} trigger="click">
                       <p className="UpcomingHeaders">
                         {booking.startTime}AM - {booking.endTime}AM | {booking.event} | <TeamOutlined /> {booking.guestCount}
                       </p>
                     </Popover>
                   }
                   description={
-                    <Popover placement="rightTop" title={booking.event} content={content(booking)} trigger="click">
+                    <Popover placement="topLeft" title={booking.event} content={content(booking)} trigger="click">
                       <p className="UpcomingHeaders">
                         <HomeOutlined /> {booking.portal} | <UserOutlined />
                         {booking.guest}
@@ -157,8 +157,8 @@ const UpcomingEvents = ({ bookings }) => {
               </p>
             </Popover>
           </div> */}
-        </Card>
-      </div>
+        {/* </Card> */}
+      {/* </div> */}
       {/* </Col> */}
 
       {/* new Row  */}
