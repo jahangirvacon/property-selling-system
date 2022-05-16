@@ -2,10 +2,12 @@
     font-weight: 800!important;
 }
 
-.BookingBtns {
-    background-color: #28e086 !important;
-    font-weight: 500;
-    height: 45px;
+.bookingBtn {
+    margin-right: 20px!important;
+    background-color: #28e086!important;
+    border-radius: 6px!important;
+    color: black!important;
+    width: 140px;
 }
 
 .discardBtns {

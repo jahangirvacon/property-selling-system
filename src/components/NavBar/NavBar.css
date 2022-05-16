@@ -1,8 +1,5 @@
 .navbar {
     background-color: white;
-    padding-left: 2rem;
-    padding-top: 1rem;
-    padding-bottom: 1rem;
 }
 
 @media (min-width: 992px) {
@@ -14,37 +11,62 @@
 .logo {
     height: 32px;
     margin-left: 1rem;
+    background-color: #fff!important;
 }
 
-.logoStyling {
+.logoStyling h1 {
     color: blue;
     font-weight: 700;
     cursor: pointer;
     text-align: start;
+    background-color: #fff!important;
 }
 
-.navbarStyling {
+.logoStyling {
+    width: 200px;
+    padding-left: 20px;
+    padding-top: 20px;
+    background-color: white;
+}
+
+.navbar-content {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-left: 16px;
+}
+
+.navbarcolor {
+    background-color: #f3f3f3;
+}
+
+.user {
+    padding-top: 15px;
+    padding-bottom: 15px;
 }
 
 .bookingBtn {
     background-color: #28e086 !important;
     font-weight: 500;
-    height: 45px;
-    position: absolute;
-    left: 220px;
+    height: 40px;
+    /* position: absolute;
+    left: 220px; */
     border: none!important;
     cursor: pointer!important;
     border-radius: 2px;
-    width: 125px;
 }
 
 .user {
-    padding-right: 25px;
+    display: flex;
+    justify-content: end;
 }
 
 .user>.anticon {
     font-size: 30px;
     color: #65cad4;
+}
+
+.ant-menu-horizontal {
+    background-color: #f3f3f3!important;
 }

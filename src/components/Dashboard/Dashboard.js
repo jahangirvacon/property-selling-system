@@ -84,12 +84,7 @@ const Dashboard = () => {
   const dateCellRender = (value) => {
     const listData = bookingList.filter((booking) => moment(booking.bookingDate).isSame(value, "day"))
     return <div>{listData.length > 0 ? <Badge style={{ paddingLeft: 13 }} status="success" /> : <div></div>}</div>
-    // <ul className="events">
-    //   {listData.map((item) => (
-    //     <li key={item.id}>
-    //     </li>
-    //   ))}
-    // </ul>
+   
   }
 
   const getMonthData = (value) => {
@@ -217,15 +212,19 @@ const Dashboard = () => {
       <Row justify="space-between" className="dashboardCard">
         <Col span={24}>
           <Row className="title" justify="start" align="middle" >
-              <h1>Dashbord</h1>
+              <h2>Dashbord</h2>
+          </Row>
+          <Row className="subtitle">
+            <h1></h1>
           </Row>
         </Col>
-        <Col span={6}>
+        <Row className="dashboardContents">
+        <Col span={6}  >
           <div className="site-card-border-less-wrapper">
             {/* title="Card Nights / Portal"  */}
             <Card className="chart-card" bordered={false}>
               <Title level={4}>Card Nights / Portal</Title>
-              <img src={pics1} className="graphtable" alt="" />
+              <img src={pics1} className="graphtable  dashboard-imgs" alt="" />
             </Card>
           </div>
         </Col>
@@ -233,7 +232,7 @@ const Dashboard = () => {
           <div className="site-card-border-less-wrapper">
             <Card className="chart-card" bordered={false}>
               <Title level={4}>Occupancy</Title>
-              <img src={chart2} className="graphtable" width alt="" />
+              <img src={chart2} className="graphtable dashboard-imgs" width alt="" />
             </Card>
           </div>
         </Col>
@@ -241,10 +240,11 @@ const Dashboard = () => {
           <div className="site-card-border-less-wrapper">
             <Card className="chart-card" bordered={false}>
               <Title level={4}>Occupancy & Revenue</Title>
-              <img src={chart3} alt="" className="graphtable" />
+              <img src={chart3} alt="" className="graphtable dashboard-imgs" />
             </Card>
           </div>
         </Col>
+        </Row>
       </Row>
 
       {/* Dashboard Calender */}

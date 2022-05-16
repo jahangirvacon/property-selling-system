@@ -100,8 +100,8 @@ const BookingForm = () => {
     return result
   }
 
-  const getDisabledHours = () => eventTypeList.reduce((acc, curr) => [...acc,...curr.bookings],[])
-    .reduce((acc,curr) => [...acc,...range(+curr.startTime,+curr.endTime)],[])
+  const getDisabledHours = () => eventTypeList.reduce((acc, curr) => [...acc, ...curr.bookings], [])
+    .reduce((acc, curr) => [...acc, ...range(+curr.startTime, +curr.endTime)], [])
 
   const { inputs, formErrors, handleInputChange, UpdateFormValue, handleSubmit, setErrors } = useFormHandler(
     {
@@ -136,7 +136,7 @@ const BookingForm = () => {
 
   return (
     <div>
-      <Button type="primary" style={{ position: "absolute", left: 220 }} onClick={showModal}>
+      <Button type="primary"  className="bookingBtn" onClick={showModal}>
         Add Booking
       </Button>
       <Modal

@@ -52,7 +52,15 @@
 }
 
 .dashboardCard {
-    margin-bottom: 30px;
+    margin-bottom: 6px;
+    background-color: white;
+    margin-left: 12px;
+}
+
+.dashboard-imgs {
+    border: 1px solid #f3f3f3!important;
+    box-shadow: 5px 5px 3px whitesmoke;
+    border-radius: 6px;
 }
 
 .graphtable {
@@ -109,9 +117,52 @@
     margin: 5px 0px;
 }
 
-.title h1 {
+.title h2 {
     font-family: proxima-nova, sans-serif;
     margin: 15px;
     font-size: 24px;
     font-weight: 700;
+}
+
+h4.ant-typography,
+.ant-typography h4 {
+    font-weight: 500;
+}
+
+.subtitle {
+    background-color: #f3f3f3;
+}
+
+.dashboardContents {
+    margin-left: 16px!important;
+}
+
+.hall-heading {
+    padding-top: 20px!important;
+    background-color: aliceblue!important;
+}
+
+.block {
+    border: none!important;
+}
+
+.ant-list-split .ant-list-item {
+    border-bottom: 4px solid #f0f0f0!important;
+}
+
+thead {
+    display: table-header-group;
+    vertical-align: middle;
+    border-color: inherit;
+    border-bottom: .5px solid gray;
+}
+
+h4.ant-typography,
+.ant-typography h4 {
+    border-bottom: .2px solid gray;
+    font-weight: 700!important;
+}
+
+.chart-card {
+    height: 350px!important;
 }

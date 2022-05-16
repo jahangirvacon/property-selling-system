@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux"
 import { fetchBookingList } from "../../redux/thunk"
-import { Menu } from "antd";
+import { Col, Menu, Row } from "antd";
 import {
   LogoutOutlined,
 } from "@ant-design/icons";
@@ -20,9 +20,9 @@ const { Search } = Input;
 const NavBar = ({ menu }) => {
   const [visible, setVisible] = useState(false);
   const dispatch = useDispatch()
-  
+
   const onSearch = (search) => {
-    dispatch({ type: "TEXT_SEARCHED" , payload: search });
+    dispatch({ type: "TEXT_SEARCHED", payload: search });
     dispatch(fetchBookingList)
   }
 
@@ -43,22 +43,26 @@ const NavBar = ({ menu }) => {
       >
         {menu}
       </Drawer>
-      <div className="navbarStyling">
-        <h1 className="logoStyling">Gurdwara</h1>
-        {/* <button  className="bookingBtn">
-          <CalendarOutlined />
-          <span> Enter Booking</span>
-          
-        </button> */}
-        <BookingForm />
-        <Search
-      placeholder="Search Booking"
-      allowClear
-      // size="large"
-      style={{ width: 300 }}
-      onSearch={onSearch}
-    />
-        <div className="user">
+      <Row className="navbarStyling navbarcolor">
+
+        <div className="logoStyling" >
+
+          <h1 >Gurdwara</h1>
+        </div>
+        
+        <Col span={8}>
+        <div className="navbar-content">
+          <BookingForm />
+          <Search
+            placeholder="Search Booking"
+            allowClear
+            style={{ width: 250 }}
+            onSearch={onSearch}
+          />
+          </div>
+          </Col>
+        <Col span={12} className="user">
+        <div >
           <Menu mode="horizontal"  >
             <Menu.SubMenu
               key="SubMenu"
@@ -66,7 +70,7 @@ const NavBar = ({ menu }) => {
               icon={<TeamOutlined />}
             >
               <Menu.Item key="two" icon={<TeamOutlined />}>
-                User Id 
+                User Id
               </Menu.Item>
               <Menu.Item key="three" icon={<LogoutOutlined />}>
                 Logout
@@ -74,11 +78,9 @@ const NavBar = ({ menu }) => {
             </Menu.SubMenu>
           </Menu>
         </div>
-        {/* <Button></Button> */}
-      </div>
-      {/* <a href="/">
-        <img src={logo} className="logo" alt="logo" />
-      </a> */}
+        </Col>
+        </Row>
+      
     </nav>
   );
 };
