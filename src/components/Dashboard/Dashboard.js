@@ -163,7 +163,7 @@ const Dashboard = () => {
       const today = moment()
       const calendarArr = []
       for (let i = 0; i < 12; i++) {
-        const current = i ===0 ? today.clone() : moment(today).startOf("month").add(i, "months")
+        const current = i === 0 ? today.clone() : moment(today).startOf("month").add(i, "months")
 
         calendarArr.push(
           <div style={{ float: "left" }}>
@@ -189,20 +189,21 @@ const Dashboard = () => {
       return <div className="calendar-wrapper">{calendarArr}</div>
     },
     multi: () => {
-      return(
-      <List
-        itemLayout="horizontal"
-        dataSource={hallListSelection}
-        renderItem={(hall) => (
-          <List.Item>
-            <div className="hall-item">
-              <h4 className="hall-heading">{hall.displayText}</h4>
-              <div className="scrollmenu">{getHallDetailedView(hall)}</div>
-            </div>
-          </List.Item>
-        )}
-      />
-    )},
+      return (
+        <List
+          itemLayout="horizontal"
+          dataSource={hallListSelection}
+          renderItem={(hall) => (
+            <List.Item>
+              <div className="hall-item">
+                <h4 className="hall-heading">{hall.displayText}</h4>
+                <div className="scrollmenu">{getHallDetailedView(hall)}</div>
+              </div>
+            </List.Item>
+          )}
+        />
+      )
+    },
   }
 
   const onTabChange = (key) => {
@@ -212,8 +213,13 @@ const Dashboard = () => {
 
   return (
     <div>
-      {/* Dashboard Headers */}
+
       <Row justify="space-between" className="dashboardCard">
+        <Col span={24}>
+          <Row className="title" justify="start" align="middle" >
+              <h1>Dashbord</h1>
+          </Row>
+        </Col>
         <Col span={6}>
           <div className="site-card-border-less-wrapper">
             {/* title="Card Nights / Portal"  */}

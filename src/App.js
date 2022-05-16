@@ -76,22 +76,6 @@ function App() {
         <Layout>
           <SideBar menu={Menu} />
           <Layout.Content className="content">
-            {/* {topics[contentIndex]} */}
-            {/* <Gurdwara /> */}
-            {/* <EventList/> */}
-
-            {/* <HallList/> */}
-
-            {/* <AddPrice/>   */}
-
-            {/* <Booking />
-          <BookingForm /> */}
-            {/* <UpcomingEvents/>  */}
-            {/* <ActivityFeed/>  */}
-            {/* <Details/>  */}
-            {/* <TestingDetails/> */}
-
-            {/* Routing */}
 
             <Routes>
               <Route path="/">
@@ -105,9 +89,6 @@ function App() {
                 <Route path="bookingDetail" element={<Details />} />
               </Route>
             </Routes>
-          {/* <AddGurdwara /> */}
-          {/* <AddEvents/> */}
-          {/* <AddHalls/> */}
           </Layout.Content>
         </Layout>
       </BrowserRouter>
