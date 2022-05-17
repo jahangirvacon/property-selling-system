@@ -27,6 +27,10 @@
     margin-left: 185px;
 }
 
+.first-scroll{
+    border-top: 2px solid #f0f0f0;
+}
+
 .hall-item {
     width: 100%;
 }
@@ -136,6 +140,7 @@ h4.ant-typography,
 
 .dashboardContents {
     margin-left: 16px !important;
+    height: 450px
 }
 
 .hall-heading {
@@ -147,10 +152,20 @@ h4.ant-typography,
 
 .block {
     border: none !important;
-    padding-top: 8px;
+    padding-top: 15px;
+}
+
+.booked {
+    background: linear-gradient(45deg, #3ce689 0%, #3ce689 35%, transparent 35%);
+    /* background-color: #3ce689 */
+}
+
+.month-indicator {
+    padding-left: 10px;
 }
 
 .ant-list-split .ant-list-item {
+    border-right: 2px solid #f0f0f0;
     border-bottom: 2px solid #f0f0f0 !important;
     padding: 0px
 }
@@ -178,7 +193,7 @@ h4.ant-typography,
 }
 
 .multi-list ul {
-    width: 6850px;
+    width: 6900px;
 }
 
 .cardWrapper {
@@ -194,7 +209,7 @@ h4.ant-typography,
 
 .hall-heading {
     padding-top: 15px;
-    height: 49px;
+    height: 55px;
     padding-left: 8px;
     margin-bottom: 0!important;
     white-space: nowrap;
@@ -202,6 +217,13 @@ h4.ant-typography,
     font-size: 14px;
     font-style: normal;
     font-weight: 600;
+    border-left: 2px solid #f0f0f0;
+}
+
+.first-heading{
+    border-left: unset;
+    background-color: white !important;
+    height: 137px;
 }
 
 .ant-list {

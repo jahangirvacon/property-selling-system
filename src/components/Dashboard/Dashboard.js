@@ -84,7 +84,6 @@ const Dashboard = () => {
   const dateCellRender = (value) => {
     const listData = bookingList.filter((booking) => moment(booking.bookingDate).isSame(value, "day"))
     return <div>{listData.length > 0 ? <Badge style={{ paddingLeft: 13 }} status="success" /> : <div></div>}</div>
-   
   }
 
   const getMonthData = (value) => {
@@ -120,17 +119,42 @@ const Dashboard = () => {
     </Select>
   )
 
-  const getHallDetailedView = (hall, index) => {
+  const getHallDetailedViewHeader = () => {
     // const startDate = moment()
     const endDate = moment().add(6, "months")
     let counter = moment().subtract(6, "days")
     const view = []
     while (moment(counter).isBefore(endDate)) {
       function preserver(counter) {
-        const filtered = bookingList.filter((booking) => moment(counter).isSame(booking.bookingDate, "day") && hall.id === booking.hallId)
         view.push(
           <span className="block" onClick={(event) => setSelectedDate(counter)}>
-            <p>{index % 2 == 0 ? moment(counter).format("D") : moment(counter).format("dd")}</p>
+            <p className="month-indicator">{moment(counter).format("D") == 1 || moment(counter).format("D") == 16 ? moment(counter).format("MMMM"): ''}</p>
+            <p>{moment(counter).format("DD")}</p>
+            <p>{moment(counter).format("dd")}</p>
+            {/* <Badge style={{ backgroundColor: "#1890ff" }} count={filtered.length}></Badge> */}
+          </span>
+        )
+      }
+      preserver(counter)
+      counter = moment(counter).add(1, "days")
+    }
+    return view
+  }
+
+  const getHallDetailedView = (hall, index) => {
+    // const startDate = moment()
+    const view = []
+    if (index === 0) {
+      return getHallDetailedViewHeader()
+    }
+    const endDate = moment().add(6, "months")
+    let counter = moment().subtract(6, "days")
+    while (moment(counter).isBefore(endDate)) {
+      function preserver(counter) {
+        const filtered = bookingList.filter((booking) => moment(counter).isSame(booking.bookingDate, "day") && hall.id === booking.hallId)
+        view.push(
+          <span className={`block ${filtered.length > 0 ? 'booked':''}`} onClick={(event) => setSelectedDate(counter)}>
+            <p>{index % 2 == 1 ? moment(counter).format("DD") : moment(counter).format("dd")}</p>
             {/* <p>{moment(counter).format("dd")}</p> */}
             {/* <Badge style={{ backgroundColor: "#1890ff" }} count={filtered.length}></Badge> */}
           </span>
@@ -190,12 +214,12 @@ const Dashboard = () => {
         <List
           className="multi-list"
           itemLayout="horizontal"
-          dataSource={hallListSelection}
-          renderItem={(hall,index) => (
+          dataSource={[{ displayText: "", id: 0 }, ...hallListSelection]}
+          renderItem={(hall, index) => (
             <List.Item>
               <div className="hall-item">
-                <h4 className="hall-heading">{hall.displayText}</h4>
-                <div className="scrollmenu">{getHallDetailedView(hall,index)}</div>
+                <h4 className={`hall-heading ${index === 0 ? 'first-heading' :''}`}>{hall.displayText}</h4>
+                <div className={`scrollmenu ${index === 0 ? 'first-scroll' :''}`}>{getHallDetailedView(hall, index)}</div>
               </div>
             </List.Item>
           )}
@@ -211,42 +235,41 @@ const Dashboard = () => {
 
   return (
     <div>
-
       <Row justify="space-between" className="dashboardCard">
         <Col span={24}>
-          <Row className="title" justify="start" align="middle" >
-              <h2>Dashbord</h2>
+          <Row className="title" justify="start" align="middle">
+            <h2>Dashbord</h2>
           </Row>
           <Row className="subtitle">
             <h1></h1>
           </Row>
         </Col>
         <Row className="dashboardContents">
-        <Col span={6}  >
-          <div className="site-card-border-less-wrapper">
-            {/* title="Card Nights / Portal"  */}
-            <Card className="chart-card" bordered={false}>
-              <Title level={4}>Card Nights / Portal</Title>
-              <img src={pics1} className="graphtable  dashboard-imgs" alt="" />
-            </Card>
-          </div>
-        </Col>
-        <Col span={6}>
-          <div className="site-card-border-less-wrapper">
-            <Card className="chart-card" bordered={false}>
-              <Title level={4}>Occupancy</Title>
-              <img src={chart2} className="graphtable dashboard-imgs" width alt="" />
-            </Card>
-          </div>
-        </Col>
-        <Col span={11}>
-          <div className="site-card-border-less-wrapper">
-            <Card className="chart-card" bordered={false}>
-              <Title level={4}>Occupancy & Revenue</Title>
-              <img src={chart3} alt="" className="graphtable dashboard-imgs" />
-            </Card>
-          </div>
-        </Col>
+          <Col span={6}>
+            <div className="site-card-border-less-wrapper">
+              {/* title="Card Nights / Portal"  */}
+              <Card className="chart-card" bordered={false}>
+                <Title level={4}>Card Nights / Portal</Title>
+                <img src={pics1} className="graphtable  dashboard-imgs" alt="" />
+              </Card>
+            </div>
+          </Col>
+          <Col span={6}>
+            <div className="site-card-border-less-wrapper">
+              <Card className="chart-card" bordered={false}>
+                <Title level={4}>Occupancy</Title>
+                <img src={chart2} className="graphtable dashboard-imgs" width alt="" />
+              </Card>
+            </div>
+          </Col>
+          <Col span={11}>
+            <div className="site-card-border-less-wrapper">
+              <Card className="chart-card" bordered={false}>
+                <Title level={4}>Occupancy & Revenue</Title>
+                <img src={chart3} alt="" className="graphtable dashboard-imgs" />
+              </Card>
+            </div>
+          </Col>
         </Row>
       </Row>
 
