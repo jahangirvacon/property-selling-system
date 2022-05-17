@@ -120,18 +120,19 @@ const Dashboard = () => {
     </Select>
   )
 
-  const getHallDetailedView = (hall) => {
+  const getHallDetailedView = (hall, index) => {
     // const startDate = moment()
-    const endDate = moment().add(1, "months")
-    let counter = moment()
+    const endDate = moment().add(6, "months")
+    let counter = moment().subtract(6, "days")
     const view = []
     while (moment(counter).isBefore(endDate)) {
       function preserver(counter) {
         const filtered = bookingList.filter((booking) => moment(counter).isSame(booking.bookingDate, "day") && hall.id === booking.hallId)
         view.push(
           <span className="block" onClick={(event) => setSelectedDate(counter)}>
-            <p>{moment(counter).format("MMMM D")}</p>
-            <Badge style={{ backgroundColor: "#1890ff" }} count={filtered.length}></Badge>
+            <p>{index % 2 == 0 ? moment(counter).format("D") : moment(counter).format("dd")}</p>
+            {/* <p>{moment(counter).format("dd")}</p> */}
+            {/* <Badge style={{ backgroundColor: "#1890ff" }} count={filtered.length}></Badge> */}
           </span>
         )
       }
@@ -184,15 +185,17 @@ const Dashboard = () => {
       return <div className="calendar-wrapper">{calendarArr}</div>
     },
     multi: () => {
+      // style={{overflow: 'auto', position: 'relative'}}
       return (
         <List
+          className="multi-list"
           itemLayout="horizontal"
           dataSource={hallListSelection}
-          renderItem={(hall) => (
+          renderItem={(hall,index) => (
             <List.Item>
               <div className="hall-item">
                 <h4 className="hall-heading">{hall.displayText}</h4>
-                <div className="scrollmenu">{getHallDetailedView(hall)}</div>
+                <div className="scrollmenu">{getHallDetailedView(hall,index)}</div>
               </div>
             </List.Item>
           )}
