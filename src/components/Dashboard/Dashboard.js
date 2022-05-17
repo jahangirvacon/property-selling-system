@@ -265,8 +265,8 @@ const Dashboard = () => {
         </Col>
       </Row>
       {/* Arrival And Departer Fields  */}
-      <Row justify="space-between" className="DepartureHeader">
-        <Col span={11}>
+      <Row justify="space-around" className="DepartureHeader">
+        <Col span={11} className="cardWrapper">
           <div className="site-card-border-less-wrapper">
             <Card title="Upcomming Events" className="card" bordered={false}>
               <div className={`cardcontent ${selectedDateBookings.length === 0 ? "empty-card" : ""}`}>
@@ -288,7 +288,7 @@ const Dashboard = () => {
             </Card>
           </div>
         </Col>
-        <Col span={11}>
+        <Col span={11}  className="cardWrapper">
           <div className="site-card-border-less-wrapper">
             <Card title="Activity Feed" className="card" bordered={false}>
               <div className="cardcontent empty-card">
