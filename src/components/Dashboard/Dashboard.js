@@ -22,6 +22,8 @@ const Dashboard = () => {
   const [hallDetails, setHallDetails] = useState([])
   const [activeTabKey, setActiveTabKey] = useState("multi")
 
+  const isLoading = useSelector((state) => state.isLoading)
+
   useEffect(() => {
     getData(bookings)
   }, [bookings])
@@ -215,6 +217,7 @@ const Dashboard = () => {
           className="multi-list"
           itemLayout="horizontal"
           dataSource={[{ displayText: "", id: 0 }, ...hallListSelection]}
+          loading={isLoading}
           renderItem={(hall, index) => (
             <List.Item>
               <div className="hall-item">

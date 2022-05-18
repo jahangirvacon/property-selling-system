@@ -57,18 +57,22 @@ function onChange(pagination, filters, sorter, extra) {
 const HallList = () => {
   // Hooks used in 
   const [hallList, setHallList] = useState([])
+  const [isLoading, setIsLoading] = useState(false)
+  
   useEffect(() => {
     populateTable()
   },[])
 
 
   const removeHall = async (hallId) => {
+    setIsLoading(true)
     await deleteHall(hallId)
     populateTable()
   } 
 
   // Function 
   const populateTable = async () => {
+    setIsLoading(true)
     const { response } = await getHallList()
     setHallList(response.map(hall => ({
         id: hall._id,
@@ -76,10 +80,9 @@ const HallList = () => {
         hallCount:hall.halls,
         duration:`${hall.openingTime} - ${hall.closingTime}`,
         hallName:hall.title,
-
-
       })
     ))
+    setIsLoading(false)
   }
 
   return (
@@ -114,7 +117,7 @@ const HallList = () => {
 
       <Row className="bookingTable">
         <Col span={24}>
-          <Table columns={columns(removeHall)} dataSource={hallList} onChange={onChange} />
+          <Table columns={columns(removeHall)} dataSource={hallList} onChange={onChange} loading={isLoading} />
         </Col>
       </Row>
     </div>

@@ -61,22 +61,24 @@ function onChange(pagination, filters, sorter, extra) {
 const EventList = () => {
 // Hooks used in 
   const [eventList, setEventList] = useState([])
+  const [isLoading, setIsLoading] = useState(false)
+
   useEffect(() => {
     populateTable()
   },[])
 
   // Function 
   const populateTable = async () => {
+    setIsLoading(true)
     const { response } = await getEventList()
     setEventList(response.map(event => ({
         id: event._id,
         name:event.title,
         category:event.category,
         duration:event.duration,
-
-
       })
     ))
+    setIsLoading(false)
   }
 
 
@@ -112,7 +114,7 @@ const EventList = () => {
 
       <Row className="bookingTable">
         <Col span={24}>
-          <Table columns={columns} dataSource={eventList} onChange={onChange} />
+          <Table columns={columns} dataSource={eventList} onChange={onChange} loading={isLoading} />
         </Col>
       </Row>
     </div>

@@ -66,17 +66,20 @@ const Gurdwara = () => {
 
   // Hooks used in 
   const [gurdwaraList, setGurdwaraList] = useState([])
+  const [isLoading, setIsLoading] = useState(false)
   useEffect(() => {
     populateTable()
   },[])
 
   const removeGurdwara = async (gurdwaraId) => {
+    setIsLoading(true)
     await deleteGurdwara(gurdwaraId)
     populateTable()
   } 
 
   // Function 
   const populateTable = async () => {
+    setIsLoading(true)
     const { response } = await getGurdwaraList()
     setGurdwaraList(response.map(gurdwara => ({
         id: gurdwara._id,
@@ -86,6 +89,7 @@ const Gurdwara = () => {
         email: gurdwara.email
       })
     ))
+    setIsLoading(false)
   }
 
   return (
@@ -120,7 +124,7 @@ const Gurdwara = () => {
 
       <Row className="bookingTable">
         <Col span={24}>
-          <Table columns={columns(removeGurdwara)} dataSource={gurdwaraList} onChange={onChange} />
+          <Table columns={columns(removeGurdwara)} dataSource={gurdwaraList} onChange={onChange} loading={isLoading} />
         </Col>
       </Row>
     </div>

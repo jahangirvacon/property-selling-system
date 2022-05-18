@@ -116,7 +116,7 @@ const Booking = () => {
   const navigate = useNavigate()
 
   const [bookingList, setBookingList] = useState([])
-  const [isLoading, setIsLoading] = useState(false)
+  const isLoading = useSelector((state) => state.isLoading)
   const bookings = useSelector((state) => state.bookingList)
 
   useEffect(() => {
