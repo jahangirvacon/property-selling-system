@@ -314,7 +314,7 @@ const Dashboard = () => {
         
         <Col span={11} className="cardWrapper">
           <div className="site-card-border-less-wrapper">
-            <Card title="Activity Feed" className="card" bordered={false}>
+            <Card title="Activity Feed" className="card asdasd" bordered={false}>
               <div className={`cardcontent ${selectedDateBookings.length === 0 ? "empty-card" : ""}`}>
                 {selectedDateBookings && selectedDateBookings.length > 0 ? (
                   <UpcomingEvents bookings={selectedDateBookings} />
