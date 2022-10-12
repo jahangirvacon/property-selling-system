@@ -7,7 +7,7 @@ import { Modal } from "antd"
 import { Row, Col, Collapse, Switch } from "antd"
 import { Select, Spin, DatePicker, TimePicker } from "antd"
 import debounce from "lodash/debounce"
-import { CaretRightOutlined, CheckOutlined, CloseOutlined } from "@ant-design/icons"
+import { CaretRightOutlined, CheckOutlined, CloseOutlined,CalendarOutlined  } from "@ant-design/icons"
 import { addBooking, getGurdwaraList, getGurdwaraHalls, getHallEvents } from "../../api"
 import useFormHandler from "../../hooks/form/form-handler"
 import moment from "moment"
@@ -136,8 +136,9 @@ const BookingForm = () => {
 
   return (
     <div>
-      <Button type="primary"  className="bookingBtn" onClick={showModal}>
-        Add Booking
+      <Button type=""  className="bookingBtn" onClick={showModal}>
+      <CalendarOutlined className="calIcon"/>
+        <span className="bokBtn">Enter Booking</span>
       </Button>
       <Modal
         visible={isModalVisible}

@@ -294,7 +294,7 @@ const Dashboard = () => {
       <Row justify="space-around" className="DepartureHeader">
         <Col span={11} className="cardWrapper">
           <div className="site-card-border-less-wrapper">
-            <Card title="Upcomming Events" className="card" bordered={false}>
+            <Card title="Next Arrivals / Departures" className="card asdasd" bordered={false}>
               <div className={`cardcontent ${selectedDateBookings.length === 0 ? "empty-card" : ""}`}>
                 {selectedDateBookings && selectedDateBookings.length > 0 ? (
                   <UpcomingEvents bookings={selectedDateBookings} />
@@ -303,25 +303,30 @@ const Dashboard = () => {
                     <h1>
                       <InteractionOutlined />
                     </h1>
-                    <p>There are no Upcomming Events</p>
+                    <p>There are no "Arrivals/Departures" scheduled</p>
                   </div>
                 )}
-                {/* <h1>
-                  <HomeOutlined />
-                </h1>
-                <p>There are no "Arrivals/Departures" scheduled</p> */}
+    
               </div>
             </Card>
           </div>
         </Col>
-        <Col span={11}  className="cardWrapper">
+        
+        <Col span={11} className="cardWrapper">
           <div className="site-card-border-less-wrapper">
             <Card title="Activity Feed" className="card" bordered={false}>
-              <div className="cardcontent empty-card">
-                <h1>
-                  <InteractionOutlined />
-                </h1>
-                <p>There are no “Activities” scheduled</p>
+              <div className={`cardcontent ${selectedDateBookings.length === 0 ? "empty-card" : ""}`}>
+                {selectedDateBookings && selectedDateBookings.length > 0 ? (
+                  <UpcomingEvents bookings={selectedDateBookings} />
+                ) : (
+                  <div className="no-events">
+                    <h1>
+                      <InteractionOutlined />
+                    </h1>
+                    <p>There are no “Activities” scheduled</p>
+                  </div>
+                )}
+    
               </div>
             </Card>
           </div>

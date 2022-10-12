@@ -50,16 +50,18 @@ const NavBar = ({ menu }) => {
           <h1 >Gurdwara</h1>
         </div>
         
-        <Col span={8}>
+        <Col span={6}>
         <div className="navbar-content">
           <BookingForm />
           <Search
             placeholder="Search Booking"
             allowClear
-            style={{ width: 250 }}
+            style={{ width: 200}}
             onSearch={onSearch}
+
           />
           </div>
+      
           </Col>
         <Col span={12} className="user">
         <div >

@@ -90,8 +90,8 @@
 }
 
 .no-events p {
-    font-size: 23px;
-    font-weight: 700;
+    font-size: 19px;
+    font-weight: 500;
 }
 
 .no-events .anticon svg {
@@ -237,4 +237,12 @@ h4.ant-typography,
     font-weight: 400;
     font-size: 1rem;
     line-height: 1.5;
+}
+.site-card-border-less-wrapper{
+    color: #212529;
+}
+
+.asdasd .ant-card-head-title{
+    color: unset !important;
+    font-weight: unset !important;
 }
