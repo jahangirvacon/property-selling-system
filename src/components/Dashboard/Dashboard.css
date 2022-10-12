@@ -27,7 +27,7 @@
     margin-left: 185px;
 }
 
-.first-scroll{
+.first-scroll {
     border-top: 2px solid #f0f0f0;
 }
 
@@ -62,9 +62,10 @@
 }
 
 .dashboard-imgs {
-    border: 1px solid #f3f3f3 !important;
+    /* border: 1px solid #f3f3f3 !important; */
     box-shadow: 5px 5px 3px whitesmoke;
     border-radius: 6px;
+    height: 230px;
 }
 
 .graphtable {
@@ -220,7 +221,7 @@ h4.ant-typography,
     border-left: 2px solid #f0f0f0;
 }
 
-.first-heading{
+.first-heading {
     border-left: unset;
     background-color: white !important;
     height: 137px;
@@ -238,11 +239,12 @@ h4.ant-typography,
     font-size: 1rem;
     line-height: 1.5;
 }
-.site-card-border-less-wrapper{
+
+.site-card-border-less-wrapper {
     color: #212529;
 }
 
-.asdasd .ant-card-head-title{
+.asdasd .ant-card-head-title {
     color: unset !important;
     font-weight: unset !important;
 }

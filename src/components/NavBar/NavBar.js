@@ -46,43 +46,45 @@ const NavBar = ({ menu }) => {
       <Row className="navbarStyling navbarcolor">
 
         <div className="logoStyling" >
+          <Row align="center" >
 
-          <h1 >Gurdwara</h1>
+            <h1 >Gurdwara</h1>
+          </Row>
         </div>
-        
+
         <Col span={6}>
-        <div className="navbar-content">
-          <BookingForm />
-          <Search
-            placeholder="Search Booking"
-            allowClear
-            style={{ width: 200}}
-            onSearch={onSearch}
+          <div className="navbar-content">
+            <BookingForm />
+            <Search
+              placeholder="Search Booking"
+              allowClear
+              style={{ width: 200 }}
+              onSearch={onSearch}
 
-          />
+            />
           </div>
-      
-          </Col>
-        <Col span={12} className="user">
-        <div >
-          <Menu mode="horizontal"  >
-            <Menu.SubMenu
-              key="SubMenu"
-              title="Balwinder Singh"
-              icon={<TeamOutlined />}
-            >
-              <Menu.Item key="two" icon={<TeamOutlined />}>
-                User Id
-              </Menu.Item>
-              <Menu.Item key="three" icon={<LogoutOutlined />}>
-                Logout
-              </Menu.Item>
-            </Menu.SubMenu>
-          </Menu>
-        </div>
+
         </Col>
-        </Row>
-      
+        <Col span={12} className="user">
+          <div >
+            <Menu mode="horizontal"  >
+              <Menu.SubMenu
+                key="SubMenu"
+                title="Balwinder Singh"
+                icon={<TeamOutlined  style={{color:"#41F793" }} />}
+              >
+                <Menu.Item key="two" icon={<TeamOutlined />}>
+                  User Id
+                </Menu.Item>
+                <Menu.Item key="three" icon={<LogoutOutlined />}>
+                  Logout
+                </Menu.Item>
+              </Menu.SubMenu>
+            </Menu>
+          </div>
+        </Col>
+      </Row>
+
     </nav>
   );
 };

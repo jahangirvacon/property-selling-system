@@ -24,9 +24,9 @@
 
 .logoStyling {
     width: 200px;
-    padding-left: 20px;
     padding-top: 20px;
     background-color: white;
+    border-right: 1px solid #ececec
 }
 
 .navbar-content {
@@ -36,7 +36,6 @@
     padding-bottom: 15px;
     padding-left: 16px;
 }
-
 
 .navbarcolor {
     background-color: #f3f3f3;
@@ -49,7 +48,7 @@
 
 .bookingBtn {
     background-color: #28e086 !important;
-    height: 40px;   
+    height: 40px;
     border-radius: 5px;
     margin-bottom: 0;
     padding: 8px 10px 4px 10px;
@@ -64,12 +63,13 @@
 .user>.anticon {
     font-size: 30px;
     color: #65cad4;
-    
 }
 
 .ant-menu-horizontal {
     background-color: #f3f3f3!important;
 }
+
+
 /* .bokBtn{
     font-family: proxima-nova;
     color: #002333;
@@ -77,7 +77,8 @@
     line-height: 1.5;
     vertical-align: -.0667em;
 } */
-.calIcon{
+
+.calIcon {
     width: 1.25em;
     font-weight: 300;
     line-height: inherit;
@@ -86,12 +87,41 @@
     font-size: 1.33333em;
     display: inline;
     font-style: normal;
-    
 }
-.ant-btn > .anticon + span, .ant-btn > span + .anticon{
+
+.ant-btn>.anticon+span,
+.ant-btn>span+.anticon {
     margin-left: 3px;
 }
-.ant-btn > span{
+
+.ant-btn>span {
     display: inline-flex;
     padding-top: 0.5px;
+}
+
+.ant-menu-item-selected {
+    background-color: none !important;
+    color: #3b4aff !important;
+}
+
+.ant-menu-item-selected a {
+    color: #3b4aff !important;
+}
+
+.ant-menu-item::after {
+    border-right: 3px solid #3b4aff !important
+}
+
+.ant-layout-sider-light {
+    border-right: 1px solid #ececec !important;
+}
+
+.content {
+    min-height: 90vh !important;
+    background-color: white;
+    padding: 20px;
+}
+
+.ant-input-search:not(.ant-input-search-enter-button) {
+    border-radius: 5px !important;
 }
