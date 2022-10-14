@@ -62,8 +62,6 @@
 }
 
 .dashboard-imgs {
-    /* border: 1px solid #f3f3f3 !important; */
-    box-shadow: 5px 5px 3px whitesmoke;
     border-radius: 6px;
     height: 230px;
 }
@@ -140,8 +138,8 @@ h4.ant-typography,
 }
 
 .dashboardContents {
-    margin-left: 16px !important;
-    height: 450px
+    /* margin-left: 16px !important; */
+    /* height: 450px */
 }
 
 .hall-heading {
@@ -185,7 +183,11 @@ h4.ant-typography,
 }
 
 .chart-card {
-    height: 350px !important;
+    height: 315px !important;
+    border: 1px solid #dedede !important;
+    box-shadow: 5px 5px 3px whitesmoke;
+    margin: 5px;
+    border-radius: 5px;
 }
 
 .multi-list {

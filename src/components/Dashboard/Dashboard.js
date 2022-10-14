@@ -243,33 +243,35 @@ const Dashboard = () => {
           <Row className="title" justify="start" align="middle">
             <h2>Dashbord</h2>
           </Row>
-          <Row className="subtitle">
-            <h1></h1>
-          </Row>
+        
         </Col>
         <Row className="dashboardContents">
-          <Col span={6}>
+        
+          <Col md={12} sm={24} >
+            <div className="site-card-border-less-wrapper">
+              <Card className="chart-card" bordered={false}>
+                <h1 >Occupancy</h1>
+                <Row align="center" >
+
+                <img src={chart2} className=" dashboard-imgs" width="50%" alt="" />
+                </Row>
+              </Card>
+            </div>
+          </Col>
+          <Col md={12} sm={24} >
+            <div className="site-card-border-less-wrapper">
+              <Card className="chart-card" bordered={false}>
+                <h1>Occupancy & Revenue</h1>
+                <img src={chart3} alt="" className="graphtable dashboard-imgs" />
+              </Card>
+            </div>
+          </Col>
+          <Col md={6} sm={12} >
             <div className="site-card-border-less-wrapper">
               {/* title="Card Nights / Portal"  */}
               <Card className="chart-card" bordered={false}>
-                <Title level={4}>Card Nights / Portal</Title>
+                <h1>Card Nights / Portal</h1>
                 <img src={pics1} className="graphtable  dashboard-imgs" alt="" />
-              </Card>
-            </div>
-          </Col>
-          <Col span={6}>
-            <div className="site-card-border-less-wrapper">
-              <Card className="chart-card" bordered={false}>
-                <Title level={4}>Occupancy</Title>
-                <img src={chart2} className="graphtable dashboard-imgs" width alt="" />
-              </Card>
-            </div>
-          </Col>
-          <Col span={11}>
-            <div className="site-card-border-less-wrapper">
-              <Card className="chart-card" bordered={false}>
-                <Title level={4}>Occupancy & Revenue</Title>
-                <img src={chart3} alt="" className="graphtable dashboard-imgs" />
               </Card>
             </div>
           </Col>
