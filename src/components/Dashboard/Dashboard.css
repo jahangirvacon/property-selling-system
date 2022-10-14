@@ -42,6 +42,8 @@
     text-align: center;
     width: 35px;
     text-decoration: none;
+    font-family: proxima-nova sans-serif;
+   letter-spacing: 0.8px;
 }
 
 .hall-heading {
@@ -186,8 +188,9 @@ h4.ant-typography,
     height: 315px !important;
     border: 1px solid #dedede !important;
     box-shadow: 5px 5px 3px whitesmoke;
-    margin: 5px;
-    border-radius: 5px;
+    margin: 10px;
+    border-radius: 10px;
+    margin-bottom:50px;
 }
 
 .multi-list {
@@ -212,21 +215,21 @@ h4.ant-typography,
 
 .hall-heading {
     padding-top: 15px;
-    height: 55px;
+    height: 35px;
     padding-left: 8px;
     margin-bottom: 0!important;
     white-space: nowrap;
     color: #212529;
     font-size: 14px;
     font-style: normal;
-    font-weight: 600;
+    font-weight: 1px;
     border-left: 2px solid #f0f0f0;
 }
 
 .first-heading {
     border-left: unset;
     background-color: white !important;
-    height: 137px;
+    height: 70px;
 }
 
 .ant-list {
@@ -237,9 +240,10 @@ h4.ant-typography,
     margin-bottom: none!important;
     color: #212529;
     font-style: normal;
-    font-weight: 400;
     font-size: 1rem;
-    line-height: 1.5;
+    line-height: 2px;
+    opacity: 0.8;
+    
 }
 
 .site-card-border-less-wrapper {
@@ -249,4 +253,9 @@ h4.ant-typography,
 .asdasd .ant-card-head-title {
     color: unset !important;
     font-weight: unset !important;
+}
+.graphtableEnd{
+    width: 100%;
+    margin-top: 10px;
+    
 }

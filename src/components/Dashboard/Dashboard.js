@@ -85,7 +85,7 @@ const Dashboard = () => {
 
   const dateCellRender = (value) => {
     const listData = bookingList.filter((booking) => moment(booking.bookingDate).isSame(value, "day"))
-    return <div>{listData.length > 0 ? <Badge style={{ paddingLeft: 13 }} status="success" /> : <div></div>}</div>
+    return  
   }
 
   const getMonthData = (value) => {
@@ -130,7 +130,7 @@ const Dashboard = () => {
       function preserver(counter) {
         view.push(
           <span className="block" onClick={(event) => setSelectedDate(counter)}>
-            <p className="month-indicator">{moment(counter).format("D") == 1 || moment(counter).format("D") == 16 ? moment(counter).format("MMMM"): ''}</p>
+            <p className="month-indicator">{moment(counter).format("D") == 1 || moment(counter).format("D") == 16 ? moment(counter).format("MMMM") : ''}</p>
             <p>{moment(counter).format("DD")}</p>
             <p>{moment(counter).format("dd")}</p>
             {/* <Badge style={{ backgroundColor: "#1890ff" }} count={filtered.length}></Badge> */}
@@ -155,7 +155,7 @@ const Dashboard = () => {
       function preserver(counter) {
         const filtered = bookingList.filter((booking) => moment(counter).isSame(booking.bookingDate, "day") && hall.id === booking.hallId)
         view.push(
-          <span className={`block ${filtered.length > 0 ? 'booked':''}`} onClick={(event) => setSelectedDate(counter)}>
+          <span className={`block ${filtered.length > 0 ? 'booked' : ''}`} onClick={(event) => setSelectedDate(counter)}>
             <p>{index % 2 == 1 ? moment(counter).format("DD") : moment(counter).format("dd")}</p>
             {/* <p>{moment(counter).format("dd")}</p> */}
             {/* <Badge style={{ backgroundColor: "#1890ff" }} count={filtered.length}></Badge> */}
@@ -198,7 +198,7 @@ const Dashboard = () => {
                 )
               }}
               defaultValue={current}
-              style={{ padding: 10, width: 300 }}
+              style={{ padding: 10, width: 300  }}
               dateCellRender={dateCellRender}
               monthCellRender={monthCellRender}
               onSelect={onSelect}
@@ -221,8 +221,8 @@ const Dashboard = () => {
           renderItem={(hall, index) => (
             <List.Item>
               <div className="hall-item">
-                <h4 className={`hall-heading ${index === 0 ? 'first-heading' :''}`}>{hall.displayText}</h4>
-                <div className={`scrollmenu ${index === 0 ? 'first-scroll' :''}`}>{getHallDetailedView(hall, index)}</div>
+                <h4 className={`hall-heading ${index === 0 ? 'first-heading' : ''}`}>{hall.displayText}</h4>
+                <div className={`scrollmenu ${index === 0 ? 'first-scroll' : ''}`}>{getHallDetailedView(hall, index)}</div>
               </div>
             </List.Item>
           )}
@@ -243,38 +243,39 @@ const Dashboard = () => {
           <Row className="title" justify="start" align="middle">
             <h2>Dashbord</h2>
           </Row>
-        
+
         </Col>
         <Row className="dashboardContents">
-        
-          <Col md={12} sm={24} >
-            <div className="site-card-border-less-wrapper">
-              <Card className="chart-card" bordered={false}>
-                <h1 >Occupancy</h1>
-                <Row align="center" >
-
-                <img src={chart2} className=" dashboard-imgs" width="50%" alt="" />
-                </Row>
-              </Card>
-            </div>
-          </Col>
-          <Col md={12} sm={24} >
-            <div className="site-card-border-less-wrapper">
-              <Card className="chart-card" bordered={false}>
-                <h1>Occupancy & Revenue</h1>
-                <img src={chart3} alt="" className="graphtable dashboard-imgs" />
-              </Card>
-            </div>
-          </Col>
-          <Col md={6} sm={12} >
+          <Col md={7} sm={12} >
             <div className="site-card-border-less-wrapper">
               {/* title="Card Nights / Portal"  */}
               <Card className="chart-card" bordered={false}>
-                <h1>Card Nights / Portal</h1>
+                <h1>Nights / Portal</h1>
                 <img src={pics1} className="graphtable  dashboard-imgs" alt="" />
               </Card>
             </div>
           </Col>
+
+          <Col md={7} sm={24} >
+            <div className="site-card-border-less-wrapper">
+              <Card className="chart-card" bordered={false} >
+                <h1 >Occupancy</h1>
+                <Row align="center" >
+
+                  <img src={chart2} className=" dashboard-imgs" alt="" />
+                </Row>
+              </Card>
+            </div>
+          </Col>
+          <Col md={10} sm={24} >
+            <div className="site-card-border-less-wrapper">
+              <Card className="chart-card" bordered={false}>
+                <h1>Occupancy & Revenue</h1>
+                <img src={chart3} alt="" className="graphtableEnd dashboard-imgs" />
+              </Card>
+            </div>
+          </Col>
+
         </Row>
       </Row>
 
@@ -308,12 +309,12 @@ const Dashboard = () => {
                     <p>There are no "Arrivals/Departures" scheduled</p>
                   </div>
                 )}
-    
+
               </div>
             </Card>
           </div>
         </Col>
-        
+
         <Col span={11} className="cardWrapper">
           <div className="site-card-border-less-wrapper">
             <Card title="Activity Feed" className="card asdasd" bordered={false}>
@@ -328,7 +329,7 @@ const Dashboard = () => {
                     <p>There are no “Activities” scheduled</p>
                   </div>
                 )}
-    
+
               </div>
             </Card>
           </div>
