@@ -43,7 +43,7 @@
     width: 35px;
     text-decoration: none;
     font-family: proxima-nova sans-serif;
-   letter-spacing: 0.8px;
+    letter-spacing: 0.8px;
 }
 
 .hall-heading {
@@ -190,7 +190,7 @@ h4.ant-typography,
     box-shadow: 5px 5px 3px whitesmoke;
     margin: 10px;
     border-radius: 10px;
-    margin-bottom:50px;
+    margin-bottom: 50px;
 }
 
 .multi-list {
@@ -199,7 +199,7 @@ h4.ant-typography,
 }
 
 .multi-list ul {
-    width: 6900px;
+    width: 100%;
 }
 
 .cardWrapper {
@@ -243,7 +243,6 @@ h4.ant-typography,
     font-size: 1rem;
     line-height: 2px;
     opacity: 0.8;
-    
 }
 
 .site-card-border-less-wrapper {
@@ -254,8 +253,8 @@ h4.ant-typography,
     color: unset !important;
     font-weight: unset !important;
 }
-.graphtableEnd{
+
+.graphtableEnd {
     width: 100%;
     margin-top: 10px;
-    
 }

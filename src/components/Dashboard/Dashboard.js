@@ -224,7 +224,7 @@ const Dashboard = () => {
                 <h4 className={`hall-heading ${index === 0 ? 'first-heading' : ''}`}>{hall.displayText}</h4>
                 <div className={`scrollmenu ${index === 0 ? 'first-scroll' : ''}`}>{getHallDetailedView(hall, index)}</div>
               </div>
-            </List.Item>
+            </List.Item>  
           )}
         />
       )
@@ -245,38 +245,40 @@ const Dashboard = () => {
           </Row>
 
         </Col>
-        <Row className="dashboardContents">
-          <Col md={7} sm={12} >
-            <div className="site-card-border-less-wrapper">
-              {/* title="Card Nights / Portal"  */}
-              <Card className="chart-card" bordered={false}>
-                <h1>Nights / Portal</h1>
-                <img src={pics1} className="graphtable  dashboard-imgs" alt="" />
-              </Card>
-            </div>
-          </Col>
 
-          <Col md={7} sm={24} >
-            <div className="site-card-border-less-wrapper">
-              <Card className="chart-card" bordered={false} >
-                <h1 >Occupancy</h1>
-                <Row align="center" >
+          <Row className="">
+            <Col lg={7}   md={12} >
+              <div className="site-card-border-less-wrapper">
+                {/* title="Card Nights / Portal"  */}
+                <Card className="chart-card" bordered={false}>
+                  <h1>Nights / Portal</h1>
+                  <img src={pics1} className="graphtable  dashboard-imgs" alt="" />
+                </Card>
+              </div>
+            </Col>
 
-                  <img src={chart2} className=" dashboard-imgs" alt="" />
-                </Row>
-              </Card>
-            </div>
-          </Col>
-          <Col md={10} sm={24} >
-            <div className="site-card-border-less-wrapper">
-              <Card className="chart-card" bordered={false}>
-                <h1>Occupancy & Revenue</h1>
-                <img src={chart3} alt="" className="graphtableEnd dashboard-imgs" />
-              </Card>
-            </div>
-          </Col>
+            <Col lg={7}   md={24} >
+              <div className="site-card-border-less-wrapper">
+                <Card className="chart-card" bordered={false} >
+                  <h1 >Occupancy</h1>
+                  <Row align="center" >
 
-        </Row>
+                    <img src={chart2} className=" dashboard-imgs" alt="" />
+                  </Row>
+                </Card>
+              </div>
+            </Col>
+            <Col lg={10}   md={24} >
+              <div className="site-card-border-less-wrapper">
+                <Card className="chart-card" bordered={false}>
+                  <h1>Occupancy & Revenue</h1>
+                  <img src={chart3} alt="" className="graphtableEnd dashboard-imgs" />
+                </Card>
+              </div>
+            </Col>
+
+          </Row>
+      
       </Row>
 
       {/* Dashboard Calender */}
