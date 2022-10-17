@@ -13,6 +13,7 @@ import {
 } from "@ant-design/icons";
 import "./NavBar.css";
 import BookingForm from "../popoverForm/BookingForm"
+import logo from "../../Assets/logo.png"
 const { Search } = Input;
 
 
@@ -47,8 +48,8 @@ const NavBar = ({ menu }) => {
 
         <div className="logoStyling" >
           <Row align="center" >
-
-            <h1 >Gurdwara</h1>
+             <img src={logo} width={30} height={30}/>
+            <h1>Gurdwara</h1>
           </Row>
         </div>
 

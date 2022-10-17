@@ -16,10 +16,12 @@
 
 .logoStyling h1 {
     color: blue;
-    font-weight: 700;
+    font-weight: bolder;
+    font-size: x-large;
     cursor: pointer;
     text-align: start;
     background-color: #fff!important;
+    font-family: proxima-nova;
 }
 
 .logoStyling {

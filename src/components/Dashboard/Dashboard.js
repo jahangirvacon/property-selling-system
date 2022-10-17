@@ -221,7 +221,7 @@ const Dashboard = () => {
           renderItem={(hall, index) => (
             <List.Item>
               <div className="hall-item">
-                <h4 className={`hall-heading ${index === 0 ? 'first-heading' : ''}`}>{hall.displayText}</h4>
+              <h4 className={`hall-heading ${index === 0 ? 'first-heading' : ''}`}>{hall.displayText}</h4>
                 <div className={`scrollmenu ${index === 0 ? 'first-scroll' : ''}`}>{getHallDetailedView(hall, index)}</div>
               </div>
             </List.Item>  
@@ -247,7 +247,7 @@ const Dashboard = () => {
         </Col>
 
           <Row className="">
-            <Col lg={7}   md={12} >
+            <Col lg={7}   md={24} sm={24}>
               <div className="site-card-border-less-wrapper">
                 {/* title="Card Nights / Portal"  */}
                 <Card className="chart-card" bordered={false}>
@@ -257,7 +257,7 @@ const Dashboard = () => {
               </div>
             </Col>
 
-            <Col lg={7}   md={24} >
+            <Col lg={7}   md={24} sm={24} >
               <div className="site-card-border-less-wrapper">
                 <Card className="chart-card" bordered={false} >
                   <h1 >Occupancy</h1>
@@ -268,7 +268,7 @@ const Dashboard = () => {
                 </Card>
               </div>
             </Col>
-            <Col lg={10}   md={24} >
+            <Col lg={10}   md={24} sm={24} >
               <div className="site-card-border-less-wrapper">
                 <Card className="chart-card" bordered={false}>
                   <h1>Occupancy & Revenue</h1>
@@ -297,7 +297,7 @@ const Dashboard = () => {
       </Row>
       {/* Arrival And Departer Fields  */}
       <Row justify="space-around" className="DepartureHeader">
-        <Col span={11} className="cardWrapper">
+        <Col lg={11} md={20} sm={20} className="cardWrapper">
           <div className="site-card-border-less-wrapper">
             <Card title="Next Arrivals / Departures" className="card asdasd" bordered={false}>
               <div className={`cardcontent ${selectedDateBookings.length === 0 ? "empty-card" : ""}`}>
@@ -317,7 +317,7 @@ const Dashboard = () => {
           </div>
         </Col>
 
-        <Col span={11} className="cardWrapper">
+        <Col lg={11} md={20} sm={20} className="cardWrapper">
           <div className="site-card-border-less-wrapper">
             <Card title="Activity Feed" className="card asdasd" bordered={false}>
               <div className={`cardcontent ${selectedDateBookings.length === 0 ? "empty-card" : ""}`}>

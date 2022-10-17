@@ -1,3 +1,4 @@
+
 .events {
     margin: 0;
     padding: 0;
@@ -182,7 +183,10 @@ h4.ant-typography,
 .ant-typography h4 {
     border-bottom: 0.2px solid gray;
     font-weight: 700 !important;
+    font-size: 15px;
+    padding-bottom: 15px;
 }
+
 
 .chart-card {
     height: 315px !important;
@@ -242,7 +246,7 @@ h4.ant-typography,
     font-style: normal;
     font-size: 1rem;
     line-height: 2px;
-    opacity: 0.8;
+    /* opacity: 0.8; */
 }
 
 .site-card-border-less-wrapper {
@@ -258,3 +262,33 @@ h4.ant-typography,
     width: 100%;
     margin-top: 10px;
 }
+.ant-picker-calendar,.ant-picker-panel , .ant-picker-body{
+    padding: 0px, 0;
+    text-align: center;
+}
+.ant-picker-calendar-full .ant-picker-panel .ant-picker-body th{
+    height: 30px;
+    line-height: 18px;
+    padding: 0px 12px 20px 0;
+}
+.ant-picker-calendar-date-content{
+    height: 20px !important;
+    padding: 5px 0px 20px 0;
+    border-bottom: 0.2px solid gray;
+}
+@media only screen and (max-width: 800px) {
+   
+    html, body {
+        overflow-x: hidden;
+       
+    }
+  }
+  @media only screen and (max-width: 900px) {
+   
+    html, body {
+        overflow-x: hidden;
+       
+    }
+  }
+
+ 
