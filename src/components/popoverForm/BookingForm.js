@@ -2,12 +2,12 @@ import React, { useState, useEffect } from "react"
 import { useSelector, useDispatch } from "react-redux"
 import { fetchBookingList } from "../../redux/thunk"
 import "./BookingForm.css"
-import { Button, Input } from "antd"
+import { Button, Form, Input } from "antd"
 import { Modal } from "antd"
 import { Row, Col, Collapse, Switch } from "antd"
 import { Select, Spin, DatePicker, TimePicker } from "antd"
 import debounce from "lodash/debounce"
-import { CaretRightOutlined, CheckOutlined, CloseOutlined,CalendarOutlined  } from "@ant-design/icons"
+import { CaretRightOutlined, CheckOutlined, CloseOutlined, CalendarOutlined } from "@ant-design/icons"
 import { addBooking, getGurdwaraList, getGurdwaraHalls, getHallEvents } from "../../api"
 import useFormHandler from "../../hooks/form/form-handler"
 import moment from "moment"
@@ -136,8 +136,8 @@ const BookingForm = () => {
 
   return (
     <div>
-      <Button type=""  className="bookingBtn" onClick={showModal}>
-      <CalendarOutlined className="calIcon"/>
+      <Button type="" className="bookingBtn" onClick={showModal}>
+        <CalendarOutlined className="calIcon" />
         <span className="bokBtn">Enter Booking</span>
       </Button>
       <Modal
@@ -145,10 +145,11 @@ const BookingForm = () => {
         onOk={handleOk}
         onCancel={handleCancel}
         footer={[
-          <Button key="back" onClick={handleCancel}>
-            Return
-          </Button>,
-          <Button key="submit" type="primary" htmlType="submit" onClick={handleSubmit}>
+          // <Button key="back" onClick={handleCancel} className="discardBtn" >
+          //   Return
+          // </Button>,
+          <Button key="back" onClick={handleCancel} className="discardBtn">Discard</Button>,
+          <Button key="submit" htmlType="submit" onClick={handleSubmit} className="saveBtn" >
             Save
           </Button>,
         ]}
@@ -161,15 +162,15 @@ const BookingForm = () => {
           </Row>
           <Row>
             <Col span={10}>
-              <div className="formData">
+              <div className="formData" >
                 <h5 className="formHeader">Customer Name</h5>
-                <Input onChange={handleInputChange} value={inputs.guest} name="guest" placeholder="Customer Name" />
+                <Input  onChange={handleInputChange} value={inputs.guest} name="guest" placeholder="Customer Name" height={100}/>
               </div>
             </Col>
             <Col span={10} offset={2}>
               <div className="formData">
                 <h5 className="formHeader">Post Code</h5>
-                <Input placeholder="Post Code" onChange={handleInputChange} value={inputs.postCode} name="postCode" />
+                <Input placeholder="Post Codesssss" onChange={handleInputChange} value={inputs.postCode} name="postCode" required  />
               </div>
             </Col>
           </Row>

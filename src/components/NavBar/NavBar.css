@@ -2,7 +2,7 @@
     background-color: white;
 }
 
-@media (min-width: 992px) {
+@media (min-width: 100px) {
     .menu {
         display: none;
     }

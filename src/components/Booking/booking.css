@@ -29,3 +29,23 @@
     color: blue!important;
     font-size: 20px!important;
 }
+.saveBtn{
+    float: left;
+    background:#28e086;
+    border-color: #28e086;
+}
+.saveBtn:hover{
+    color: white;
+    background: blue;
+}
+.discardBtn{
+margin-right: 335px;
+color: blue!important;
+border-color: blue;
+}
+.discardBtn:hover{
+    color: blue!important;
+    border-color: blue;
+    }
+   
+    

@@ -48,6 +48,7 @@ const NavBar = ({ menu }) => {
 
         <div className="logoStyling" >
           <Row align="center" >
+     
              <img src={logo} width={30} height={30}/>
             <h1>Gurdwara</h1>
           </Row>
