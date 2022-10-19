@@ -81,7 +81,7 @@ const NavBar = ({ menu, onUpdate, update }) => {
         <Col sm={15} xs={15} md={14} lg={0}  >
           <Row justify="center" >
 
-            <h1>logo</h1>
+          <img src={logoOne} width={33} height={33} style={{marginTop: 25}} />
           </Row>
         </Col>
         {search ?
