@@ -2,11 +2,15 @@
     background-color: white;
 }
 
-@media (min-width: 100px) {
-    .menu {
+ /* @media (min-width: 900px) {
+    .menu, .serachMenu {
         display: none;
     }
-}
+    
+}  */
+
+
+
 
 .logo {
     height: 32px;
@@ -16,19 +20,19 @@
 
 .logoStyling h1 {
     color: blue;
-    font-weight: bolder;
-    font-size: x-large;
+     font-weight: 800;
     cursor: pointer;
     text-align: start;
     background-color: #fff!important;
     font-family: proxima-nova;
+     padding-left: 6px;
 }
 
 .logoStyling {
-    width: 200px;
-    padding-top: 20px;
+    padding-top: 31px;
     background-color: white;
-    border-right: 1px solid #ececec
+    border-right: 1px solid #ececec;
+    font-size: 15px;
 }
 
 .navbar-content {
@@ -68,7 +72,7 @@
 }
 
 .ant-menu-horizontal {
-    background-color: #f3f3f3!important;
+     background-color: #f3f3f3!important;   
 }
 
 
@@ -123,7 +127,45 @@
     background-color: white;
     padding: 20px;
 }
+.ant-btn menu, .ant-btn-primary, .ant-btn-icon-only{
+    margin-top: 15px !important;
+   
+   height: 50px;
+   width: 50px;
+   background:#f3f3f3;
+   color: blue;
+   border: none;
+   margin-left: 30px !important;
+
+}
+.ant-btn, .serachMenu, .ant-btn-primary, .ant-btn-icon-only{
+    margin-left: 10px !important;
+  
+ 
+}
 
 .ant-input-search:not(.ant-input-search-enter-button) {
     border-radius: 5px !important;
 }
+@media only screen and (max-width: 900px) {
+    .logoStyling{
+   display: none;
+    }
+    /* .ant-input-search, .ant-input-affix-wrapper{
+        display: none;
+    } */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+   
+    

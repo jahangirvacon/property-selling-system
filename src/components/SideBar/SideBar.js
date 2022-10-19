@@ -1,17 +1,20 @@
-import React from "react";
-import { Layout } from "antd";
+import React, { useState } from "react";
+import { Col, Layout,Row } from "antd";
 import "./SideBar.css"
-const SideBar = ({ menu }) => {
+import { MenuFoldOutlined, MenuOutlined, MenuUnfoldOutlined } from "@ant-design/icons";
+const SideBar = ({ menu, update }) => {
   return (
     <Layout.Sider
       className="sidebar"
       breakpoint={"lg"}
       theme="light"
-      collapsedWidth={0}
+      collapsedWidth={60}
       trigger={null}
+      collapsible collapsed={update}
     >
-        {menu}
+      {menu}
     </Layout.Sider>
+   
   );
 };
 

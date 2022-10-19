@@ -63,18 +63,22 @@ function App() {
   ]
   const [contentIndex, setContentIndex] = useState(0)
   const [selectedKey, setSelectedKey] = useState("0")
+  const [update, setUpdate] = useState(false)
   const changeSelectedKey = (event) => {
     const key = event.key
     setSelectedKey(key)
     setContentIndex(+key)
   }
-  const Menu = <TopicMenu topics={topics} selectedKey={selectedKey} changeSelectedKey={changeSelectedKey} />
+  const onUpdate = () => {
+   setUpdate(!update)
+  }
+  const Menu = <TopicMenu update={update} topics={topics} selectedKey={selectedKey} changeSelectedKey={changeSelectedKey} />
   return (
     <div className="App">
       <BrowserRouter>
-        <NavBar menu={Menu} />
+        <NavBar  update={update} menu={Menu} onUpdate={onUpdate} />  
         <Layout>
-          <SideBar menu={Menu} />
+          <SideBar menu={Menu}  update={update} />
           <Layout.Content className="content">
 
             <Routes>
