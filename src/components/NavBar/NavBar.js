@@ -46,7 +46,7 @@ const NavBar = ({ menu, onUpdate, update }) => {
       </Drawer>
 
       <Row justify="space-between" className="navbarStyling navbarcolor"  >
-        <Col sm={0} xs={0} md={0} lg={6} >
+        <Col sm={0} xs={0} md={0} lg={4} >
           <div style={{ width: `${update ? "61px" : "200px"}` }} className="logoStyling" >
             <Row align="center" onClick={() => onUpdate()}  >
 
@@ -85,7 +85,7 @@ const NavBar = ({ menu, onUpdate, update }) => {
           </Row>
         </Col>
         {search ?
-          <Col sm={0} xs={0} md={0} lg={10}  >
+          <Col sm={0} xs={0} md={0} lg={8}  >
             <div className="navbar-content">
               <BookingForm />
               <Search
@@ -98,6 +98,8 @@ const NavBar = ({ menu, onUpdate, update }) => {
           </Col>
           : ""}
         {/* : ""} */}
+
+        <Col lg={4} md={0} sm={0} xs={0}></Col>
         <Col xs={5} sm={5} md={6} lg={8} className="user">
           <div >
             <Menu mode="horizontal"  >
