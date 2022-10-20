@@ -114,9 +114,9 @@ const EventList = () => {
 
       <Row className="bookingTable">
         <Col span={24}>
-          <Table columns={columns} dataSource={eventList} onChange={onChange} loading={isLoading}   scroll={{
-      x: 1100,
-    }}
+          <Table columns={columns} scroll={{
+     x: 1100,
+    }}  dataSource={eventList} onChange={onChange} loading={isLoading}  
   />
         </Col>
       </Row>

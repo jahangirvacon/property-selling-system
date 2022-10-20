@@ -44,9 +44,9 @@
 .navbar-content {
     display: flex;
     justify-content: flex-start;
-    padding-top: 15px;
+    padding-top: 20px;
     padding-bottom: 15px;
-    padding-left: 16px;
+    padding-left: 14px;
 }
 
 .navbarcolor {
@@ -70,6 +70,7 @@
 .user {
     display: flex;
     justify-content: end;
+    
 }
 
 .user>.anticon {
@@ -79,6 +80,7 @@
 
 .ant-menu-horizontal {
     background-color: #f3f3f3!important;
+    
 }
 
 
@@ -165,6 +167,7 @@
     /* .ant-input-search, .ant-input-affix-wrapper{
         display: none;
     } */
+   
 }
 
 .ant-btn:hover,
@@ -183,3 +186,17 @@
 .ant-menu-inline-collapsed {
     width: 100% !important;
 }
+/* 
+@media only screen and (max-width: 90px) {
+     .navbarcolor{
+        height: 30px !important;
+    }
+   
+.navbar-content {
+    display: flex;
+    justify-content: flex-start;
+    padding-top: 20px;
+    padding-bottom: 15px;
+    padding-left: 14px;
+}
+} */
