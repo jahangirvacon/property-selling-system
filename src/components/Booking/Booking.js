@@ -177,7 +177,9 @@ const Booking = () => {
                   </Row> */}
       <Row className="bookingTable">
         <Col span={24}>
-          <Table columns={columns(removeBooking, navigateToDetails)} dataSource={bookingList} onChange={onChange} loading={isLoading} />{" "}
+          <Table columns={columns(removeBooking, navigateToDetails)} dataSource={bookingList} onChange={onChange} loading={isLoading}  scroll={{
+      x: 1100,
+    }}/>
         </Col>{" "}
       </Row>{" "}
     </div>

@@ -33,13 +33,14 @@
     float: left;
     background:#28e086;
     border-color: #28e086;
+
 }
 .saveBtn:hover{
     color: white;
     background: blue;
 }
 .discardBtn{
-margin-right: 335px;
+margin-right: 10px;
 color: blue!important;
 border-color: blue;
 }
@@ -47,5 +48,4 @@ border-color: blue;
     color: blue!important;
     border-color: blue;
     }
-   
-    
+  

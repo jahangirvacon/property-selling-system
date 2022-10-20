@@ -5,11 +5,15 @@ import "./BookingForm.css"
 import { Button, Form, Input } from "antd"
 import { Modal } from "antd"
 import { Row, Col, Collapse, Switch } from "antd"
-import { Select, Spin, DatePicker, TimePicker } from "antd"
+import {  Select,Spin, DatePicker, TimePicker } from "antd"
 import debounce from "lodash/debounce"
 import { CaretRightOutlined, CheckOutlined, CloseOutlined, CalendarOutlined } from "@ant-design/icons"
 import { addBooking, getGurdwaraList, getGurdwaraHalls, getHallEvents } from "../../api"
 import useFormHandler from "../../hooks/form/form-handler"
+import { TextField } from '@material-ui/core';
+
+
+
 import moment from "moment"
 
 //
@@ -154,7 +158,9 @@ const BookingForm = () => {
           </Button>,
         ]}
       >
-        <form onSubmit={handleSubmit}>
+
+      <form onSubmit={handleSubmit}>
+      
           <Row>
             <Col span={12}>
               <h2 className="bookingFormHeading">Enter Booking</h2>
@@ -163,42 +169,51 @@ const BookingForm = () => {
           <Row>
             <Col span={10}>
               <div className="formData" >
-                <h5 className="formHeader">Customer Name</h5>
-                <Input  onChange={handleInputChange} value={inputs.guest} name="guest" placeholder="Customer Name" height={100}/>
-              </div>
+                {/* <h5 className="formHeader">Customer Name</h5> */}
+                {/* <Input  onChange={handleInputChange} value={inputs.guest} name="guest" placeholder="Customer Name" height={100}/> */}
+                <TextField id="outlined-size-small"  variant="outlined"  defaultValue="Small" size="small" label="Customer Name" onChange={handleInputChange} value={inputs.guest} name="guest"/>
+               </div>
             </Col>
             <Col span={10} offset={2}>
               <div className="formData">
-                <h5 className="formHeader">Post Code</h5>
-                <Input placeholder="Post Codesssss" onChange={handleInputChange} value={inputs.postCode} name="postCode" required  />
+                {/* <h5 className="formHeader">Post Code</h5> */}
+                {/* <Input placeholder="Post Code" onChange={handleInputChange} value={inputs.postCode} name="postCode" required  /> */}
+                <TextField id="outlined-size-small"  variant="outlined"  defaultValue="Small" size="small" label="Post Code" onChange={handleInputChange} value={inputs.postCode} name="postCode"  />
               </div>
             </Col>
           </Row>
           <Row>
             <Col span={10}>
               <div className="formData">
-                <h5 className="formHeader">Phone Number</h5>
-                <Input placeholder="Phone Number" onChange={handleInputChange} value={inputs.phoneNumber} name="phoneNumber" />
+                {/* <h5 className="formHeader">Phone Number</h5>
+                <Input placeholder="Phone Number" onChange={handleInputChange} value={inputs.phoneNumber} name="phoneNumber" /> */}
+                <TextField id="outlined-size-small"  variant="outlined"  defaultValue="Small" size="small" label="Phone Number"  onChange={handleInputChange} value={inputs.phoneNumber} name="phoneNumber"/>
+
               </div>
             </Col>
             <Col span={10} offset={2}>
               <div className="formData">
-                <h5 className="formHeader">Mobile</h5>
-                <Input onChange={handleInputChange} value={inputs.mobileNumber} name="mobileNumber" placeholder="Mobile" />
+                {/* <h5 className="formHeader">Mobile</h5>
+                <Input onChange={handleInputChange} value={inputs.mobileNumber} name="mobileNumber" placeholder="Mobile" /> */}
+                <TextField id="outlined-size-small"  variant="outlined"  defaultValue="Small" size="small"  label="Mobile" onChange={handleInputChange} value={inputs.mobileNumber} name="mobileNumber"/>
               </div>
             </Col>
           </Row>
           <Row>
             <Col span={22}>
               <div className="formData">
-                <h5 className="formHeader">Email</h5>
-                <Input onChange={handleInputChange} value={inputs.email} name="email" placeholder="Email" />
+                {/* <h5 className="formHeader">Email</h5>
+                <Input onChange={handleInputChange} value={inputs.email} name="email" placeholder="Email" /> */}
+                <TextField id="outlined-size-small"  variant="outlined"  defaultValue="Small" size="small"  label="Email" onChange={handleInputChange} value={inputs.email} name="email" style={{width: "420px"}}/>
+
               </div>
             </Col>
             <Col span={22}>
               <div className="formData">
-                <h5 className="formHeader">Address</h5>
-                <Input onChange={handleInputChange} value={inputs.address} name="address" placeholder="Address" />
+                {/* <h5 className="formHeader">Address</h5>
+                <Input onChange={handleInputChange} value={inputs.address} name="address" placeholder="Address" /> */}
+                <TextField id="outlined-size-small"  variant="outlined"  defaultValue="Small" size="small"  label="Address"  onChange={handleInputChange} value={inputs.address} name="address" style={{width: "420px"}}/>
+
               </div>
             </Col>
           </Row>
@@ -213,12 +228,12 @@ const BookingForm = () => {
                 <Col span={10}>
                   <div className="formData">
                     <h5 className="formHeader">Gurdwara</h5>
-                    {/* <Input placeholder="Gurdwara" /> */}
-                    <Select style={{ width: "100%" }} onChange={populateHallList} value={inputs.gurdwara} name="gurdwara">
-                      {gurdwaraListSelection.map((gurdwara) => (
+                     {/* <Input placeholder="Gurdwara" /> */}
+                     <Select style={{ width: "100%" }} onChange={populateHallList} value={inputs.gurdwara} name="gurdwara">
+                     {gurdwaraListSelection.map((gurdwara) =>  (
                         <Option value={gurdwara.id}>{gurdwara.displayText}</Option>
                       ))}
-                    </Select>
+                    </Select>     
                   </div>
                 </Col>
                 <Col span={10} offset={2}>
@@ -386,7 +401,7 @@ const BookingForm = () => {
               </Panel>
             )}
           </Collapse>
-        </form>
+          </form>
       </Modal>
     </div>
   )

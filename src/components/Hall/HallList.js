@@ -117,7 +117,10 @@ const HallList = () => {
 
       <Row className="bookingTable">
         <Col span={24}>
-          <Table columns={columns(removeHall)} dataSource={hallList} onChange={onChange} loading={isLoading} />
+          <Table columns={columns(removeHall)} dataSource={hallList} onChange={onChange} loading={isLoading}   scroll={{
+      x: 1100,
+    }}
+  />
         </Col>
       </Row>
     </div>

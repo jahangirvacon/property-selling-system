@@ -9,7 +9,8 @@ const TopicMenu = ({ topics, selectedKey, changeSelectedKey, update }) => {
   const getMenuItem = (topic) => {
     if (topic.subMenu) {
       return (
-        <Menu.SubMenu title={<div>{topic.icon}{update ? "" : topic.text}</div>}>
+        <Menu.SubMenu  title={<div> {topic.icon}{update ? "" : topic.text}</div>}>
+          
             {topic.subMenu.map(option =>
               <Menu.Item className="topics" key={option.text} onClick={changeSelectedKey}>
                 <Link to={option.link}>

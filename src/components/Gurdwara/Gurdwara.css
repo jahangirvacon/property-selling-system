@@ -11,3 +11,12 @@
 .addGurdwara {
     text-align: end;
 }
+
+.ant-btn,
+.ant-btn-primary {
+    width: 100%!important
+}
+
+.dltBtn {
+    width: 100;
+}

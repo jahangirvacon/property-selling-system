@@ -49,7 +49,9 @@ const AddGurdwara = ({refresh}) => {
   )
 
   return (
+    
     <div>
+    
       <Button type="primary" onClick={showModal}>
         Add Gurdwara
       </Button>

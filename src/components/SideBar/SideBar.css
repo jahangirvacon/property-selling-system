@@ -1,5 +1,6 @@
 .sidebar {
-    /* height: 1000px; */
+    /* min-width: 190px !important;
+    max-width: 100px !important; */
 }
 
 
@@ -20,17 +21,13 @@
 .sidebar .ant-menu-submenu-title:hover{
     color: #3b4aff;
 } */
-.ant-menu-inline-collapsed{
-    width: 100%!important;
-}
-
 
 @media only screen and (max-width: 900px) {
-    .sidebar, .ant-layout-sider, .ant-layout-sider-light, .ant-layout-sider-collapsed, .ant-layout-sider-below{
-     display: none;
+    .sidebar,
+    .ant-layout-sider,
+    .ant-layout-sider-light,
+    .ant-layout-sider-collapsed,
+    .ant-layout-sider-below {
+        display: none;
     }
-        
- 
- }
-
- 
+}
