@@ -38,6 +38,7 @@
     background-color: white;
     border-right: 1px solid #ececec;
     font-size: 15px;
+    height: 92px;
 }
 
 .navbar-content {
@@ -175,4 +176,10 @@
 
 .ant-drawer-body {
     margin-top: 15px;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.ant-menu-inline-collapsed {
+    width: 100% !important;
 }

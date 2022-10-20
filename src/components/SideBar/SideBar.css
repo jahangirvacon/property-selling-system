@@ -1,5 +1,6 @@
 .sidebar {
-    /* height: 1000px; */
+    min-width: 190px !important;
+    max-width: 100px !important;
 }
 
 
@@ -21,15 +22,12 @@
     color: #3b4aff;
 } */
 
-
-
-
 @media only screen and (max-width: 900px) {
-    .sidebar, .ant-layout-sider, .ant-layout-sider-light, .ant-layout-sider-collapsed, .ant-layout-sider-below{
-     display: none;
+    .sidebar,
+    .ant-layout-sider,
+    .ant-layout-sider-light,
+    .ant-layout-sider-collapsed,
+    .ant-layout-sider-below {
+        display: none;
     }
-        
- 
- }
-
- 
+}

@@ -44,7 +44,7 @@ const NavBar = ({ menu, onUpdate, update }) => {
 
       <Row justify="space-between" className="navbarStyling navbarcolor"  >
         <Col sm={0} xs={0} md={0} lg={4} >
-          <div style={{ width: `${update ? "61px" : "200px"}` }} className="logoStyling" >
+          <div style={{ width: `${update ? "61px" : "190px"}` }} className="logoStyling" >
             <Row align="center" onClick={() => onUpdate()}  >
 
               <img src={logoOne} width={33} height={33} />
@@ -94,6 +94,7 @@ const NavBar = ({ menu, onUpdate, update }) => {
             <div className="navbar-content">
               <BookingForm />
               <Search
+              style={{marginLeft:"10px"}}
                 placeholder="Search Booking"
                 allowClear
                 onSearch={onSearch}
