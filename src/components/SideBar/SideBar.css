@@ -20,9 +20,8 @@
 .sidebar .ant-menu-submenu-title:hover{
     color: #3b4aff;
 } */
-.ant-menu-inline-collapsed{
-    width: 100%!important;
-}
+
+
 
 
 @media only screen and (max-width: 900px) {

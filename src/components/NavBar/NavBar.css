@@ -12,7 +12,10 @@
     }
     
 }  */
-
+.ant-layout-sider-children {
+    margin-top: 80px;
+}
+  
 .logo {
     height: 32px;
     margin-left: 1rem;
@@ -127,6 +130,7 @@
     min-height: 90vh !important;
     background-color: white;
     padding: 20px;
+    margin-top: 60px;
 }
 .ant-btn menu, .ant-btn-primary, .ant-btn-icon-only{
     margin-top: 15px !important;

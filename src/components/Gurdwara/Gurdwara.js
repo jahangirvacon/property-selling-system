@@ -48,13 +48,13 @@ const columns = (removeGurdwara) => [
         {/* <Button type="warn" size="small">
           Update
         </Button> */}
-        <Button type="danger" size="small" onClick={() => removeGurdwara(id)}>
+        <Button type="danger" size="small" onClick={() => removeGurdwara(id)} className="dltBtn">
           Delete
         </Button>
       </Space>
     ),
   }
-  
+
 ]
 
 
@@ -69,37 +69,38 @@ const Gurdwara = () => {
   const [isLoading, setIsLoading] = useState(false)
   useEffect(() => {
     populateTable()
-  },[])
+  }, [])
 
   const removeGurdwara = async (gurdwaraId) => {
     setIsLoading(true)
     await deleteGurdwara(gurdwaraId)
     populateTable()
-  } 
+  }
 
   // Function 
   const populateTable = async () => {
     setIsLoading(true)
     const { response } = await getGurdwaraList()
     setGurdwaraList(response.map(gurdwara => ({
-        id: gurdwara._id,
-        title:gurdwara.title,
-        location:gurdwara.location,
-        contact: gurdwara.contact,
-        email: gurdwara.email
-      })
+      id: gurdwara._id,
+      title: gurdwara.title,
+      location: gurdwara.location,
+      contact: gurdwara.contact,
+      email: gurdwara.email
+    })
     ))
     setIsLoading(false)
   }
 
   return (
     <div>
+
       <Row>
         <Col span={8}>
           <h1 className="bookingHeader">Gurdwara List</h1>
         </Col>
-        <Col span={8} offset={8} className="addGurdwara">
-          <AddGurdwara refresh={populateTable}/>
+        <Col span={8} offset={6} className="addGurdwara">
+          <AddGurdwara refresh={populateTable} />
           {/* <Button className="GurdwaraBtn">Add Gurdwara</Button> */}
         </Col>
       </Row>
@@ -124,7 +125,9 @@ const Gurdwara = () => {
 
       <Row className="bookingTable">
         <Col span={24}>
-          <Table columns={columns(removeGurdwara)} dataSource={gurdwaraList} onChange={onChange} loading={isLoading} />
+          <Table columns={columns(removeGurdwara)} dataSource={gurdwaraList} onChange={onChange} loading={isLoading} scroll={{
+            x: 1100,
+          }} />
         </Col>
       </Row>
     </div>
