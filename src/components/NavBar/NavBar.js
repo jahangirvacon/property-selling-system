@@ -17,8 +17,6 @@ import BookingForm from "../popoverForm/BookingForm"
 import logoOne from "../../Assets/logoOne.png"
 const { Search } = Input;
 
-
-
 const NavBar = ({ menu, onUpdate, update }) => {
   const [visible, setVisible] = useState(false);
   const [search, setSearch] = useState(true);
@@ -38,7 +36,6 @@ const NavBar = ({ menu, onUpdate, update }) => {
       <Drawer
         title="Topics"
         placement="left"
-        onClick={() => setVisible(false)}
         onClose={() => setVisible(false)}
         visible={visible}
       >
@@ -58,30 +55,38 @@ const NavBar = ({ menu, onUpdate, update }) => {
           </div>
         </Col>
 
-        <Col xs={2} sm={2} md={2} lg={0}  >
+        <Col xs={3} sm={3} md={3} lg={0}  >
           <Button
-            className="menu"
-            // type="primary"
-            icon={<MenuOutlined />}
+            className="menu menu-btn"
+            
+            icon={
+              <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40 " fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
+              <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
+              </svg>
+            }
             onClick={() => setVisible(true)}
 
           />
         </Col>
-        <Col xs={2} sm={2} md={2} lg={0} >
+        <Col xs={3} sm={3} md={3} lg={0} >
           <Button
             className="serachMenu"
             // type="primary"
-            icon={<SearchOutlined />}
+            icon={
+            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+             <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+             </svg>
+                   }
             onClick={() => setSearch(!search)}
             style={{ background: "#f3f3f3", color: "blue" }}
 
           />
 
         </Col >
-        <Col sm={15} xs={15} md={14} lg={0}  >
+        <Col sm={13} xs={13} md={12} lg={0}  >
           <Row justify="center" >
 
-          <img src={logoOne} width={33} height={33} style={{marginTop: 25}} />
+          <img src={logoOne} width={50} height={50} style={{marginTop: 15}} />
           </Row>
         </Col>
         {search ?
@@ -101,12 +106,14 @@ const NavBar = ({ menu, onUpdate, update }) => {
 
         <Col lg={4} md={0} sm={0} xs={0}></Col>
         <Col xs={5} sm={5} md={6} lg={8} className="user">
-          <div >
+          <div style={{marginTop:"10px"}} >
             <Menu mode="horizontal"  >
               <Menu.SubMenu
                 key="SubMenu"
-                title="Balwinder Singh"
-                icon={<TeamOutlined style={{ color: "#41F793" }} />}
+                title={ window.innerWidth > 980 ?  "Balwinder Singh" :"" }
+                icon={<svg  xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="#41F793" class="bi bi-people" viewBox="0 0 16 16">
+                <path d="M15 14s1 0 1-1-1-4-5-4-5 3-5 4 1 1 1 1h8zm-7.978-1A.261.261 0 0 1 7 12.996c.001-.264.167-1.03.76-1.72C8.312 10.629 9.282 10 11 10c1.717 0 2.687.63 3.24 1.276.593.69.758 1.457.76 1.72l-.008.002a.274.274 0 0 1-.014.002H7.022zM11 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm3-2a3 3 0 1 1-6 0 3 3 0 0 1 6 0zM6.936 9.28a5.88 5.88 0 0 0-1.23-.247A7.35 7.35 0 0 0 5 9c-4 0-5 3-5 4 0 .667.333 1 1 1h4.216A2.238 2.238 0 0 1 5 13c0-1.01.377-2.042 1.09-2.904.243-.294.526-.569.846-.816zM4.92 10A5.493 5.493 0 0 0 4 13H1c0-.26.164-1.03.76-1.724.545-.636 1.492-1.256 3.16-1.275zM1.5 5.5a3 3 0 1 1 6 0 3 3 0 0 1-6 0zm3-2a2 2 0 1 0 0 4 2 2 0 0 0 0-4z"/>
+              </svg>}
               >
                 <Menu.Item key="two" icon={<TeamOutlined />}>
                   User Id

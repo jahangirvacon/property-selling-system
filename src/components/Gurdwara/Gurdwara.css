@@ -9,14 +9,14 @@
 }
 
 .addGurdwara {
- text-align: end;
-  
+    text-align: end;
 }
-.ant-btn, .ant-btn-primary{
-    width: 150px!important;
- 
-   
+
+.ant-btn,
+.ant-btn-primary {
+    width: 100%!important
 }
-.dltBtn{
-  width: 100;
+
+.dltBtn {
+    width: 100;
 }
