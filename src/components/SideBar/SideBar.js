@@ -5,12 +5,13 @@ import { MenuFoldOutlined, MenuOutlined, MenuUnfoldOutlined } from "@ant-design/
 const SideBar = ({ menu, update }) => {
   return (
     <Layout.Sider
-      className="sidebar"
+      // className="sidebar"
       breakpoint={"lg"}
       theme="light"
       collapsedWidth={60}
       trigger={null}
       collapsible collapsed={update}
+      width={190}
     >
       {menu}
     </Layout.Sider>

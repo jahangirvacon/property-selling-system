@@ -29,15 +29,15 @@
     cursor: pointer;
     text-align: start;
     background-color: #fff!important;
-    font-family: proxima-nova;
+    font-family: system-ui;
     padding-left: 6px;
 }
 
 .logoStyling {
-    padding-top: 31px;
+    padding-top: 25px;
     background-color: white;
     border-right: 1px solid #ececec;
-    font-size: 15px;
+    font-size: 14px;
     height: 92px;
 }
 
