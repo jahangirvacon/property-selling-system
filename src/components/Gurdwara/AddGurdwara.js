@@ -7,6 +7,7 @@ import { useState } from "react";
 import { Select, Spin } from "antd";
 import { addGurdwara } from "../../api"
 import useFormHandler from "../../hooks/form/form-handler";
+import { TextField } from '@material-ui/core';
 
 //
 const { Option } = Select;
@@ -52,7 +53,7 @@ const AddGurdwara = ({refresh}) => {
     
     <div>
     
-      <Button type="primary" onClick={showModal}>
+      <Button type="primary" onClick={showModal} className="addBtn">
         Add Gurdwara
       </Button>
       <Modal 
@@ -77,14 +78,16 @@ const AddGurdwara = ({refresh}) => {
         <Row>
           <Col span={10}>
             <div className="formData">
-              <h5 className="formHeader"> Name</h5>
-              <Input placeholder="Enter Name" value={inputs.title} name="title" onChange={handleInputChange}/>
+              {/* <h5 className="formHeader"> Name</h5>
+              <Input placeholder="Enter Name" value={inputs.title} name="title" onChange={handleInputChange}/> */}
+               <TextField id="outlined-size-small"  variant="outlined"  size="small" label="Name" onChange={handleInputChange} value={inputs.title} name="title"/>
             </div>
           </Col>
           <Col span={10} offset={2}>
             <div className="formData">
-              <h5 className="formHeader">Address</h5>
-              <Input placeholder="Enter Address" value={inputs.location} name="location" onChange={handleInputChange}/>
+              {/* <h5 className="formHeader">Address</h5>
+              <Input placeholder="Enter Address" value={inputs.location} name="location" onChange={handleInputChange}/> */}
+              <TextField id="outlined-size-small"  variant="outlined"  size="small" label="Address" onChange={handleInputChange} value={inputs.location} name="location"/>
             </div>
           </Col>
           
@@ -94,15 +97,17 @@ const AddGurdwara = ({refresh}) => {
         <Row>
           <Col span={10}>
             <div className="formData">
-              <h5 className="formHeader">Contact</h5>
-               <Input placeholder="Enter Contact" value={inputs.contact} name="contact" onChange={handleInputChange} /> 
+              {/* <h5 className="formHeader">Contact</h5>
+               <Input placeholder="Enter Contact" value={inputs.contact} name="contact" onChange={handleInputChange} />  */}
+                <TextField id="outlined-size-small"  variant="outlined"  size="small" label="Contact" onChange={handleInputChange} value={inputs.contact} name="contact"/>
              
             </div>
           </Col>
           <Col span={10} offset={2}>
             <div className="formData">
-              <h5 className="formHeader">Email</h5>
-              <Input value={inputs.email} name="email" placeholder="Enter Email" type="email" onChange={handleInputChange} />
+              {/* <h5 className="formHeader">Email</h5>
+              <Input value={inputs.email} name="email" placeholder="Enter Email" type="email" onChange={handleInputChange} /> */}
+                <TextField id="outlined-size-small"  variant="outlined"  size="small" label="Email" onChange={handleInputChange} value={inputs.email} name="email"/>
             </div>
           </Col>
         </Row>

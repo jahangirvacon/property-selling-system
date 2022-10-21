@@ -25,16 +25,16 @@
 .scrollmenu {
     /* overflow: auto; */
     white-space: nowrap;
-    margin-left: 185px;
+    margin-left: 70px;
 }
 
 .first-scroll {
     border-top: 2px solid #f0f0f0;
 }
 
-.hall-item {
+/* .hall-item {
     width: 100%;
-}
+} */
 
 .block {
     cursor: pointer;
@@ -45,6 +45,7 @@
     text-decoration: none;
     font-family: proxima-nova sans-serif;
     letter-spacing: 0.8px;
+ 
 }
 
 .hall-heading {
@@ -165,6 +166,7 @@ h4.ant-typography,
 
 .month-indicator {
     padding-left: 10px;
+
 }
 
 .ant-list-split .ant-list-item {
@@ -199,8 +201,10 @@ h4.ant-typography,
 }
 
 .multi-list {
-    overflow: auto;
+    overflow:auto ;
     position: relative;
+ 
+      
 }
 
 .multi-list ul {
@@ -219,6 +223,7 @@ h4.ant-typography,
 }
 
 .hall-heading {
+    position: sticky;
     padding-top: 15px;
     height: 35px;
     padding-left: 8px;
@@ -302,4 +307,33 @@ h4.ant-typography,
         display: none;
     }
   
+  }
+  @media only screen and (max-width: 500px) {
+    .hall-heading{
+      width: 80px;
+    }
+  
+  }
+ /* width */
+::-webkit-scrollbar {
+    width: 1px;
+    height: 10px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    box-shadow: inset 0 0 2px grey;
+  
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 5px;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555;
   }

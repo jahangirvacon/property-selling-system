@@ -2,7 +2,10 @@
     /* min-width: 190px !important;
     max-width: 100px !important; */
 }
-
+.ant-menu-inline{
+    position: sticky;
+    top: 80px;
+}
 
 /* .sidebar .ant-menu-item-selected{
     background-color: inherit !important;

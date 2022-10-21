@@ -4,12 +4,13 @@ import { Button, Input, TimePicker } from "antd"
 import { Modal } from "antd"
 import { Row, Col } from "antd"
 import { useState } from "react"
-import { Select, Spin } from "antd"
+import {  Spin } from "antd"
 import debounce from "lodash/debounce"
 import { DownOutlined } from "@ant-design/icons"
 import { DatePicker, Space } from "antd"
 import useFormHandler from "../../hooks/form/form-handler"
 import { addEventType } from "../../api"
+import { TextField, Select, FormControl, InputLabel } from '@material-ui/core';
 
 const { RangePicker } = DatePicker
 
@@ -49,7 +50,7 @@ const AddEvents = ({ refresh }) => {
 
   return (
     <div>
-      <Button type="primary" onClick={showModal}>
+      <Button type="primary" onClick={showModal} className="addBtn">
         Add Event
       </Button>
       <Modal
@@ -74,8 +75,9 @@ const AddEvents = ({ refresh }) => {
           <Row>
             <Col span={10}>
               <div className="formData">
-                <h5 className="formHeader"> Name</h5>
-                <Input placeholder="Event Name" onChange={handleInputChange} value={inputs.title} name="title" />
+                {/* <h5 className="formHeader"> Name</h5>
+                <Input placeholder="Event Name" onChange={handleInputChange} value={inputs.title} name="title" /> */}
+                <TextField id="outlined-size-small"  variant="outlined" size="small" label="Name" onChange={handleInputChange} value={inputs.title} name="title"/>
               </div>
             </Col>
             <Col span={10} offset={2}>
@@ -97,11 +99,28 @@ const AddEvents = ({ refresh }) => {
           <Row>
             <Col span={10}>
               <div className="formData">
-                <h5 className="formHeader">Category</h5>
+                {/* <h5 className="formHeader">Category</h5>
                 <Select style={{ width: 182 }} defaultValue="Prayer" onChange={(val) => UpdateFormValue("category", val)}>
                   <Option value="Prayer">Prayer</Option>
                   <Option value="Wedding">Wedding</Option>
-                </Select>
+                </Select> */}
+                <FormControl variant="outlined"  sx={{ m: 1, minWidth: 120 }} size="small">
+                      <InputLabel htmlFor="outlined-age-native-simple">Category</InputLabel>
+                      <Select
+                        native
+
+                        label="Category"
+                        inputProps={{
+                          name: 'age',
+                          id: 'outlined-age-native-simple',
+                        }}
+                      >
+                        <option aria-label="None" value="" />
+                        <option value={10}>Ten</option>
+                        <option value={20}>Twenty</option>
+                        <option value={30}>Thirty</option>
+                      </Select>
+                    </FormControl>
               </div>
             </Col>
           </Row>

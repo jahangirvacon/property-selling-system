@@ -5,12 +5,12 @@ import "./BookingForm.css"
 import { Button, Form, Input } from "antd"
 import { Modal } from "antd"
 import { Row, Col, Collapse, Switch } from "antd"
-import {  Select,Spin, DatePicker, TimePicker } from "antd"
+import { Spin, DatePicker, TimePicker } from "antd"
 import debounce from "lodash/debounce"
 import { CaretRightOutlined, CheckOutlined, CloseOutlined, CalendarOutlined } from "@ant-design/icons"
 import { addBooking, getGurdwaraList, getGurdwaraHalls, getHallEvents } from "../../api"
 import useFormHandler from "../../hooks/form/form-handler"
-import { TextField } from '@material-ui/core';
+import { TextField, Select, FormControl, InputLabel } from '@material-ui/core';
 
 
 
@@ -140,7 +140,7 @@ const BookingForm = () => {
 
   return (
     <div>
-      <Button type="" className="bookingBtn" onClick={showModal}>
+      <Button className="bookingBtn" onClick={showModal}>
         <CalendarOutlined className="calIcon" />
         <span className="bokBtn">Enter Booking</span>
       </Button>
@@ -159,8 +159,8 @@ const BookingForm = () => {
         ]}
       >
 
-      <form onSubmit={handleSubmit}>
-      
+        <form onSubmit={handleSubmit}>
+
           <Row>
             <Col span={12}>
               <h2 className="bookingFormHeading">Enter Booking</h2>
@@ -171,14 +171,14 @@ const BookingForm = () => {
               <div className="formData" >
                 {/* <h5 className="formHeader">Customer Name</h5> */}
                 {/* <Input  onChange={handleInputChange} value={inputs.guest} name="guest" placeholder="Customer Name" height={100}/> */}
-                <TextField id="outlined-size-small"  variant="outlined"  defaultValue="Small" size="small" label="Customer Name" onChange={handleInputChange} value={inputs.guest} name="guest"/>
-               </div>
+                <TextField id="outlined-size-small" variant="outlined" defaultValue="Small" size="small" label="Customer Name" onChange={handleInputChange} value={inputs.guest} name="guest" />
+              </div>
             </Col>
             <Col span={10} offset={2}>
               <div className="formData">
                 {/* <h5 className="formHeader">Post Code</h5> */}
                 {/* <Input placeholder="Post Code" onChange={handleInputChange} value={inputs.postCode} name="postCode" required  /> */}
-                <TextField id="outlined-size-small"  variant="outlined"  defaultValue="Small" size="small" label="Post Code" onChange={handleInputChange} value={inputs.postCode} name="postCode"  />
+                <TextField id="outlined-size-small" variant="outlined" defaultValue="Small" size="small" label="Post Code" onChange={handleInputChange} value={inputs.postCode} name="postCode" />
               </div>
             </Col>
           </Row>
@@ -187,7 +187,7 @@ const BookingForm = () => {
               <div className="formData">
                 {/* <h5 className="formHeader">Phone Number</h5>
                 <Input placeholder="Phone Number" onChange={handleInputChange} value={inputs.phoneNumber} name="phoneNumber" /> */}
-                <TextField id="outlined-size-small"  variant="outlined"  defaultValue="Small" size="small" label="Phone Number"  onChange={handleInputChange} value={inputs.phoneNumber} name="phoneNumber"/>
+                <TextField id="outlined-size-small" variant="outlined" defaultValue="Small" size="small" label="Phone Number" onChange={handleInputChange} value={inputs.phoneNumber} name="phoneNumber" />
 
               </div>
             </Col>
@@ -195,7 +195,7 @@ const BookingForm = () => {
               <div className="formData">
                 {/* <h5 className="formHeader">Mobile</h5>
                 <Input onChange={handleInputChange} value={inputs.mobileNumber} name="mobileNumber" placeholder="Mobile" /> */}
-                <TextField id="outlined-size-small"  variant="outlined"  defaultValue="Small" size="small"  label="Mobile" onChange={handleInputChange} value={inputs.mobileNumber} name="mobileNumber"/>
+                <TextField id="outlined-size-small" variant="outlined" defaultValue="Small" size="small" label="Mobile" onChange={handleInputChange} value={inputs.mobileNumber} name="mobileNumber" />
               </div>
             </Col>
           </Row>
@@ -204,7 +204,7 @@ const BookingForm = () => {
               <div className="formData">
                 {/* <h5 className="formHeader">Email</h5>
                 <Input onChange={handleInputChange} value={inputs.email} name="email" placeholder="Email" /> */}
-                <TextField id="outlined-size-small"  variant="outlined"  defaultValue="Small" size="small"  label="Email" onChange={handleInputChange} value={inputs.email} name="email" style={{width: "420px"}}/>
+                <TextField id="outlined-size-small" variant="outlined" defaultValue="Small" size="small" label="Email" onChange={handleInputChange} value={inputs.email} name="email" style={{ width: "420px" }} />
 
               </div>
             </Col>
@@ -212,7 +212,7 @@ const BookingForm = () => {
               <div className="formData">
                 {/* <h5 className="formHeader">Address</h5>
                 <Input onChange={handleInputChange} value={inputs.address} name="address" placeholder="Address" /> */}
-                <TextField id="outlined-size-small"  variant="outlined"  defaultValue="Small" size="small"  label="Address"  onChange={handleInputChange} value={inputs.address} name="address" style={{width: "420px"}}/>
+                <TextField id="outlined-size-small" variant="outlined" defaultValue="Small" size="small" label="Address" onChange={handleInputChange} value={inputs.address} name="address" style={{ width: "420px" }} />
 
               </div>
             </Col>
@@ -227,24 +227,57 @@ const BookingForm = () => {
               <Row>
                 <Col span={10}>
                   <div className="formData">
-                    <h5 className="formHeader">Gurdwara</h5>
-                     {/* <Input placeholder="Gurdwara" /> */}
-                     <Select style={{ width: "100%" }} onChange={populateHallList} value={inputs.gurdwara} name="gurdwara">
+                    {/* <h5 className="formHeader">Gurdwara</h5> */}
+                    {/* <Select style={{ width: "100%" }} onChange={populateHallList} value={inputs.gurdwara} name="gurdwara">
                      {gurdwaraListSelection.map((gurdwara) =>  (
                         <Option value={gurdwara.id}>{gurdwara.displayText}</Option>
                       ))}
-                    </Select>     
+                    </Select>      */}
+                    <FormControl variant="outlined"  sx={{ m: 1, minWidth: 120 }} size="small">
+                      <InputLabel htmlFor="outlined-age-native-simple">Gurdwara</InputLabel>
+                      <Select
+                        native
+
+                        label="Gurdwara"
+                        inputProps={{
+                          name: 'age',
+                          id: 'outlined-age-native-simple',
+                        }}
+                      >
+                        <option aria-label="None" value="" />
+                        <option value={10}>Ten</option>
+                        <option value={20}>Twenty</option>
+                        <option value={30}>Thirty</option>
+                      </Select>
+                    </FormControl>
                   </div>
                 </Col>
                 <Col span={10} offset={2}>
                   <div className="formData">
-                    <h5 className="formHeader">Hall</h5>
-                    {/* <Input placeholder="Hall" /> */}
-                    <Select style={{ width: "100%" }} onChange={populateEventTypeList} value={inputs.hall} name="hall">
+                    {/* <h5 className="formHeader">Hall</h5> */}
+                    {/* <Select style={{ width: "100%" }} onChange={populateEventTypeList} value={inputs.hall} name="hall">
                       {hallListSelection.map((hall) => (
                         <Option value={hall.id}>{hall.displayText}</Option>
                       ))}
-                    </Select>
+                    </Select> */}
+
+                    <FormControl variant="outlined"  sx={{ m: 1, minWidth: 120 }} size="small">
+                      <InputLabel htmlFor="outlined-age-native-simple">Hall</InputLabel>
+                      <Select
+                        native
+
+                        label="Hall"
+                        inputProps={{
+                          name: 'age',
+                          id: 'outlined-age-native-simple',
+                        }}
+                      >
+                        <option aria-label="None" value="" />
+                        <option value={10}>Ten</option>
+                        <option value={20}>Twenty</option>
+                        <option value={30}>Thirty</option>
+                      </Select>
+                    </FormControl>
                   </div>
                 </Col>
               </Row>
@@ -252,9 +285,8 @@ const BookingForm = () => {
               <Row>
                 <Col span={10}>
                   <div className="formData">
-                    <h5 className="formHeader">Event Type</h5>
-                    {/* <Input placeholder="Type" /> */}
-                    <Select
+                    {/* <h5 className="formHeader">Event Type</h5> */}
+                    {/* <Select
                       defaultValue="yiminghe"
                       style={{ width: "100%" }}
                       onChange={populateEventTypePrice}
@@ -264,7 +296,23 @@ const BookingForm = () => {
                       {eventTypeListSelection.map((eventType) => (
                         <Option value={eventType.id}>{eventType.displayText}</Option>
                       ))}
-                    </Select>
+                    </Select> */}
+                    <FormControl variant="outlined"size="small">
+                      <InputLabel htmlFor="outlined-age-native-simple">Event Type</InputLabel>
+                      <Select
+                        native
+                        label="Event Type"
+                        inputProps={{
+                          name: 'age',
+                          id: 'outlined-age-native-simple',
+                        }}
+                      >
+                        <option aria-label="None" value="" />
+                        <option value={10}>Ten</option>
+                        <option value={20}>Twenty</option>
+                        <option value={30}>Thirty</option>
+                      </Select>
+                    </FormControl>
                   </div>
                 </Col>
                 <Col span={10} offset={2}>
@@ -401,7 +449,7 @@ const BookingForm = () => {
               </Panel>
             )}
           </Collapse>
-          </form>
+        </form>
       </Modal>
     </div>
   )

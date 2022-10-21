@@ -51,21 +51,24 @@
 
 .navbarcolor {
     background-color: #f3f3f3;
+    max-height: 70px;
+  
 }
 
 .user {
-    padding-top: 15px;
+    padding-top: 5px;
     padding-bottom: 15px;
+   
 }
 
-.bookingBtn {
+/* .bookingBtn {
     background-color: #28e086 !important;
     height: 40px;
     border-radius: 5px;
     margin-bottom: 0;
     padding: 8px 10px 4px 10px;
     cursor: pointer!important;
-}
+} */
 
 .user {
     display: flex;
@@ -134,7 +137,8 @@
     min-height: 90vh !important;
     background-color: white;
     padding: 10px;
-    margin-top: 80px;
+    margin-top: 70px;
+    padding-top: 0px;
 }
 
 .ant-btn menu,
@@ -186,17 +190,14 @@
 .ant-menu-inline-collapsed {
     width: 100% !important;
 }
-/* 
-@media only screen and (max-width: 90px) {
+/* @media only screen and (max-width: 1000px) {
      .navbarcolor{
         height: 30px !important;
     }
-   
-.navbar-content {
-    display: flex;
-    justify-content: flex-start;
-    padding-top: 20px;
-    padding-bottom: 15px;
-    padding-left: 14px;
-}
+
 } */
+
+.ant-menu-horizontal > .ant-menu-item:hover, .ant-menu-horizontal > .ant-menu-submenu:hover, .ant-menu-horizontal > .ant-menu-item-active, .ant-menu-horizontal > .ant-menu-submenu-active, .ant-menu-horizontal > .ant-menu-item-open, .ant-menu-horizontal > .ant-menu-submenu-open, .ant-menu-horizontal > .ant-menu-item-selected, .ant-menu-horizontal > .ant-menu-submenu-selected {
+    color: none !important;
+    border-bottom: none !important;
+}
