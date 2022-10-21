@@ -3,17 +3,17 @@ import "./Hall.css"
 import { Button, Input } from "antd"
 import { Modal } from "antd"
 import { Row, Col } from "antd"
-import { Select, Spin, TimePicker } from "antd"
+import { Spin, TimePicker } from "antd"
 import debounce from "lodash/debounce"
 import { DownOutlined } from "@ant-design/icons"
 import { DatePicker, Space } from "antd"
 import useFormHandler from "../../hooks/form/form-handler"
 import { getEventList, getGurdwaraList, addHall } from "../../api"
+import { TextField, Select, FormControl, InputLabel } from '@material-ui/core';
 import moment from "moment"
 
 const { RangePicker } = DatePicker
 
-//
 const { Option } = Select
 
 function handleChange(value) {
@@ -99,19 +99,36 @@ const AddHalls = ({ refresh }) => {
           <Row>
             <Col span={10}>
               <div className="formData">
-                <h5 className="formHeader">Hall Name</h5>
-                <Input placeholder="Enter Name" onChange={handleInputChange} value={inputs.title} name="title" />
+                {/* <h5 className="formHeader">Hall Name</h5>
+                <Input placeholder="Enter Name" onChange={handleInputChange} value={inputs.title} name="title" /> */}
+                <TextField id="outlined-size-small" variant="outlined" defaultValue="Small" size="small" label="Hall Name" onChange={handleInputChange} value={inputs.title} name="title" />
               </div>
             </Col>
             <Col span={10} offset={2}>
               <div className="formData">
-                <h5 className="formHeader">Gurdwara</h5>
-                {/* <Input placeholder="Gurdwara" /> */}
+                {/* <h5 className="formHeader">Gurdwara</h5>
                 <Select style={{ width: 182 }} value={inputs.gurdwara} onChange={(val) => UpdateFormValue("gurdwara", val)}>
                   {gurdwaraListSelection.map((gurdwara) => (
                     <Option value={gurdwara.id}>{gurdwara.displayText}</Option>
                   ))}
-                </Select>
+                </Select> */}
+                  <FormControl variant="outlined"  sx={{ m: 1, minWidth: 120 }} size="small">
+                      <InputLabel htmlFor="outlined-age-native-simple">Gurdwara</InputLabel>
+                      <Select
+                        native
+
+                        label="Gurdwara"
+                        inputProps={{
+                          name: 'age',
+                          id: 'outlined-age-native-simple',
+                        }}
+                      >
+                        <option aria-label="None" value="" />
+                        <option value={10}>Ten</option>
+                        <option value={20}>Twenty</option>
+                        <option value={30}>Thirty</option>
+                      </Select>
+                    </FormControl>
               </div>
             </Col>
           </Row>
@@ -172,12 +189,29 @@ const AddHalls = ({ refresh }) => {
           <Row>
             <Col span={24}>
               <div className="formData">
-                <h5 className="formHeader">Event Type</h5>
+                {/* <h5 className="formHeader">Event Type</h5>
                 <Select mode="multiple" style={{ width: 418 }} onChange={(val) => UpdateFormValue("eventIds", val)}>
                   {eventTypeListSelection.map((event) => (
                     <Option value={event.id}>{event.displayText}</Option>
                   ))}
-                </Select>
+                </Select> */}
+                  <FormControl variant="outlined"  sx={{ m: 1, minWidth: 120 }} size="small">
+                      <InputLabel htmlFor="outlined-age-native-simple">Event Type</InputLabel>
+                      <Select
+                        native
+
+                        label="Event Type"
+                        inputProps={{
+                          name: 'age',
+                          id: 'outlined-age-native-simple',
+                        }}
+                      >
+                        <option aria-label="None" value="" />
+                        <option value={10}>Ten</option>
+                        <option value={20}>Twenty</option>
+                        <option value={30}>Thirty</option>
+                      </Select>
+                    </FormControl>
               </div>
             </Col>
           </Row>

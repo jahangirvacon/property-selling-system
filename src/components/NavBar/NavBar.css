@@ -51,10 +51,12 @@
 
 .navbarcolor {
     background-color: #f3f3f3;
+    max-height: 70px;
+  
 }
 
 .user {
-    padding-top: 15px;
+    padding-top: 5px;
     padding-bottom: 15px;
 }
 
@@ -134,7 +136,8 @@
     min-height: 90vh !important;
     background-color: white;
     padding: 10px;
-    margin-top: 80px;
+    margin-top: 70px;
+    padding-top: 0px;
 }
 
 .ant-btn menu,
@@ -186,17 +189,9 @@
 .ant-menu-inline-collapsed {
     width: 100% !important;
 }
-/* 
-@media only screen and (max-width: 90px) {
+/* @media only screen and (max-width: 1000px) {
      .navbarcolor{
         height: 30px !important;
     }
-   
-.navbar-content {
-    display: flex;
-    justify-content: flex-start;
-    padding-top: 20px;
-    padding-bottom: 15px;
-    padding-left: 14px;
-}
+
 } */
