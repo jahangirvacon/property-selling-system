@@ -58,14 +58,14 @@
     padding-bottom: 15px;
 }
 
-.bookingBtn {
+/* .bookingBtn {
     background-color: #28e086 !important;
     height: 40px;
     border-radius: 5px;
     margin-bottom: 0;
     padding: 8px 10px 4px 10px;
     cursor: pointer!important;
-}
+} */
 
 .user {
     display: flex;

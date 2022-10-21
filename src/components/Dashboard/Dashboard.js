@@ -129,10 +129,10 @@ const Dashboard = () => {
     while (moment(counter).isBefore(endDate)) {
       function preserver(counter) {
         view.push(
-          <span className="block" onClick={(event) => setSelectedDate(counter)}>
+          <span className="block"  onClick={(event) => setSelectedDate(counter)}>
             <p className="month-indicator">{moment(counter).format("D") == 1 || moment(counter).format("D") == 16 ? moment(counter).format("MMMM") : ''}</p>
-            <p>{moment(counter).format("DD")}</p>
-            <p>{moment(counter).format("dd")}</p>
+            <p style={{color: `${moment(counter).format("dd") == "Sa" || moment(counter).format("dd") == "Su" ? "blue":""}`}}>{moment(counter).format("DD")}</p>
+            <p style={{color: `${moment(counter).format("dd") == "Sa" || moment(counter).format("dd") == "Su" ? "blue":""}`}}>{moment(counter).format("dd")}</p>
             {/* <Badge style={{ backgroundColor: "#1890ff" }} count={filtered.length}></Badge> */}
           </span>
         )
@@ -156,9 +156,8 @@ const Dashboard = () => {
         const filtered = bookingList.filter((booking) => moment(counter).isSame(booking.bookingDate, "day") && hall.id === booking.hallId)
         view.push(
           <span className={`block ${filtered.length > 0 ? 'booked' : ''}`} onClick={(event) => setSelectedDate(counter)}>
-            <p>{index % 2 == 1 ? moment(counter).format("DD") : moment(counter).format("dd")}</p>
-            {/* <p>{moment(counter).format("dd")}</p> */}
-            {/* <Badge style={{ backgroundColor: "#1890ff" }} count={filtered.length}></Badge> */}
+            <p style={{color: `${moment(counter).format("dd") == "Sa" || moment(counter).format("dd") == "Su" ? "blue":""}`}}>{index % 2 == 1 ? moment(counter).format("DD") : moment(counter).format("dd")}</p>
+           
           </span>
         )
       }
@@ -192,7 +191,7 @@ const Dashboard = () => {
             <Calendar
               headerRender={({ value, type, onChange, onTypeChange }) => {
                 return (
-                  <Title style={{ textAlign: "center" }} level={4}>
+                  <Title style={{ textAlign: "center" }} level={4} >
                     {moment(value).format("MMMM YY")}
                   </Title>
                 )

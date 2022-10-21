@@ -74,7 +74,7 @@ const AddHalls = ({ refresh }) => {
 
   return (
     <div>
-      <Button type="primary" onClick={showModal}>
+      <Button type="primary" onClick={showModal} className="addBtn">
         Add Hall
       </Button>
       <Modal

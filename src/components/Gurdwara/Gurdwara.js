@@ -48,7 +48,7 @@ const columns = (removeGurdwara) => [
         {/* <Button type="warn" size="small">
           Update
         </Button> */}
-        <Button type="danger" size="small" onClick={() => removeGurdwara(id)} className="dltBtn">
+        <Button type="danger" size="small" onClick={() => removeGurdwara(id)}>
           Delete
         </Button>
       </Space>

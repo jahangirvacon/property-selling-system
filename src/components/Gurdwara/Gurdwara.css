@@ -17,6 +17,10 @@
     width: 100%!important
 }
 
-.dltBtn {
-    width: 100;
+.addBtn{
+    border: 1px solid blue;
+    background-color: white;
+    color: blue;
+    width: 50%!important
 }
+

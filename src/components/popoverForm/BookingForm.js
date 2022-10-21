@@ -140,7 +140,7 @@ const BookingForm = () => {
 
   return (
     <div>
-      <Button type="" className="bookingBtn" onClick={showModal}>
+      <Button className="bookingBtn" onClick={showModal}>
         <CalendarOutlined className="calIcon" />
         <span className="bokBtn">Enter Booking</span>
       </Button>
