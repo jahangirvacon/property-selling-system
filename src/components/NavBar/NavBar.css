@@ -51,9 +51,15 @@
 
 .navbarcolor {
     background-color: #f3f3f3;
-    max-height: 70px;
   
 }
+@media only screen and (max-width: 3000px) and (min-width: 992px)  {
+    .navbarcolor {
+    max-height: 70px;
+      
+    }
+}
+
 
 .user {
     padding-top: 5px;
@@ -144,7 +150,7 @@
 .ant-btn menu,
 .ant-btn-primary,
 .ant-btn-icon-only {
-    margin-top: 15px !important;
+    margin-top: 10px !important;
     height: 50px;
     width: 50px;
     background: #f3f3f3;
@@ -182,9 +188,10 @@
 }
 
 .ant-drawer-body {
-    margin-top: 15px;
+    /* margin-top: 15px; */
     padding-left: 0;
     padding-right: 0;
+    padding-top: 0;
 }
 
 .ant-menu-inline-collapsed {

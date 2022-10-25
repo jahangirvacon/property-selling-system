@@ -248,9 +248,8 @@ const Dashboard = () => {
         </Col>
 
           <Row className="">
-            <Col lg={7}   md={24} sm={24}>
-              <div className="site-card-border-less-wrapper">
-                {/* title="Card Nights / Portal"  */}
+            <Col lg={7} style={{width:"100%"}}    md={24} sm={24}>
+              <div  className="site-card-border-less-wrapper">
                 <Card className="chart-card" bordered={false}>
                   <h1>Nights / Portal</h1>
                   <img src={pics1} className="graphtable  dashboard-imgs" alt="" />
@@ -258,7 +257,7 @@ const Dashboard = () => {
               </div>
             </Col>
 
-            <Col lg={7}   md={24} sm={24} >
+            <Col lg={7} style={{width:"100%"}}    md={24} sm={24} >
               <div className="site-card-border-less-wrapper">
                 <Card className="chart-card" bordered={false} >
                   <h1 >Occupancy</h1>
@@ -269,7 +268,7 @@ const Dashboard = () => {
                 </Card>
               </div>
             </Col>
-            <Col lg={10}   md={24} sm={24} >
+            <Col lg={10} style={{width:"100%"}}    md={24} sm={24} >
               <div className="site-card-border-less-wrapper">
                 <Card className="chart-card" bordered={false}>
                   <h1>Occupancy & Revenue</h1>
