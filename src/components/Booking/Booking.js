@@ -1,15 +1,35 @@
 import React, { useState, useEffect } from "react"
 import { useSelector, useDispatch } from "react-redux"
 import { fetchBookingList } from "../../redux/thunk"
-import { Row, Col } from "antd"
+import { Row, Col, Dropdown, Menu } from "antd"
 import "./booking.css"
 import { Input, Space, Typography, Button } from "antd"
-import { AudioOutlined } from "@ant-design/icons"
+import { AudioOutlined,DownOutlined } from "@ant-design/icons"
 import { Table } from "antd"
 import { getBookingList, deleteBooking } from "../../api"
 import { useNavigate } from "react-router-dom"
 import moment from "moment"
-
+const menu = (
+  <Menu
+    items={[
+      {
+        label: <a href="https://www.antgroup.com">1st menu item</a>,
+        key: '0',
+      },
+      {
+        label: <a href="https://www.aliyun.com">2nd menu item</a>,
+        key: '1',
+      },
+      {
+        type: 'divider',
+      },
+      {
+        label: '3rd menu item',
+        key: '3',
+      },
+    ]}
+  />
+);
 const { Text } = Typography
 
 const { Search } = Input
@@ -81,15 +101,17 @@ const columns = (removeBooking, navigateToDetails) => [
     dataIndex: "createdAt",
   },
   {
-    title: "Status",
+    title:<div >Status<DownOutlined style={{marginLeft: "5px"}}/></div>,
     dataIndex: "status",
     render: (statusText) => (
+      
       <Space size="middle">
         <Button type="primary" size="small">
-          {" "}
-          {statusText}{" "}
-        </Button>{" "}
+          {statusText}
+        </Button>
       </Space>
+      
+      
     ),
   },
   {
@@ -113,6 +135,7 @@ function onChange(pagination, filters, sorter, extra) {
 }
 
 const Booking = () => {
+
   const navigate = useNavigate()
 
   const [bookingList, setBookingList] = useState([])
@@ -180,6 +203,7 @@ const Booking = () => {
           <Table columns={columns(removeBooking, navigateToDetails)} dataSource={bookingList} onChange={onChange} loading={isLoading}  scroll={{
       x: 1100,
     }}/>
+ 
         </Col>{" "}
       </Row>{" "}
     </div>

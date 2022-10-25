@@ -49,4 +49,14 @@ border-color: blue;
     color: blue!important;
     border-color: blue;
     }
-   
+.ant-table-thead > tr > th{
+        background: white !important;
+        border-bottom: 1px solid #bbb !important;
+    }
+ .anticon svg{
+        height: 10px !important;
+        width: 10px !important;
+    }  
+ .ant-typography mark{
+    font-size: small !important;
+ }    
