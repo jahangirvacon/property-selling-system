@@ -30,9 +30,10 @@
     font-size: 20px!important;
 }
 .saveBtn{
-    float: left;
+    
     background:#28e086;
     border-color: #28e086;
+    
 
 }
 .saveBtn:hover{
@@ -40,7 +41,7 @@
     background: blue;
 }
 .discardBtn{
-margin-right: 10px;
+margin-right: 10px !important;
 color: blue!important;
 border-color: blue;
 }
@@ -48,4 +49,4 @@ border-color: blue;
     color: blue!important;
     border-color: blue;
     }
-  
+   

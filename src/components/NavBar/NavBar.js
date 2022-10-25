@@ -32,13 +32,14 @@ const NavBar = ({ menu, onUpdate, update }) => {
 
     <nav className="navbar" >
 
-
+    
       <Drawer
-        title="Topics"
+        title="Topics"  
         placement="left"
         onClose={() => setVisible(false)}
         visible={visible}
-      >
+      >  
+       <img src={logoOne} width={40} height={40} style={{marginLeft: "100px"}}/>
         {menu}
       </Drawer>
 

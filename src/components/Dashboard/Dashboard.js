@@ -8,7 +8,7 @@ import { getGurdwaraList, getGurdwaraHalls } from "../../api"
 import pics1 from "../../Assets/pics1.PNG"
 import chart2 from "../../Assets/chart2.PNG"
 import chart3 from "../../Assets/chart3.PNG"
-import { HomeOutlined, InteractionOutlined } from "@ant-design/icons"
+import { HomeOutlined, InteractionOutlined,CalendarOutlined } from "@ant-design/icons"
 
 const { Title } = Typography
 const { Option } = Select
@@ -69,7 +69,7 @@ const Dashboard = () => {
 
   const filterHallBookings = (hallId) => {
     let filteredBookings = bookings
-    if (hallId !== "ALL") {
+    if (hallId !== "ALL" ) {
       filteredBookings = bookings.filter((booking) => booking.hallEvent.hall._id === hallId)
     }
     getData(filteredBookings)
@@ -113,12 +113,14 @@ const Dashboard = () => {
   }
 
   const operations = (
-    <Select style={{ width: 200 }} onChange={filterHallBookings} defaultValue="ALL">
+    <div><CalendarOutlined />
+     <Select style={{ width: 200, marginLeft: "10px" }} onChange={filterHallBookings} defaultValue="ALL">
       <Option value="ALL">All</Option>
-      {hallListSelection.map((hall) => (
-        <Option value={hall.id}>{hall.displayText}</Option>
-      ))}
-    </Select>
+       {hallListSelection.map((hall) => (
+         <Option value={hall.id}>{hall.displayText}</Option>
+       ))}
+     </Select>
+    </div> 
   )
 
   const getHallDetailedViewHeader = () => {
@@ -214,7 +216,7 @@ const Dashboard = () => {
       return (
         <List
           className="multi-list"
-          itemLayout="horizontal"
+          itemLayout="horizontal "
           dataSource={[{ displayText: "", id: 0 }, ...hallListSelection]}
           loading={isLoading}
           renderItem={(hall, index) => (

@@ -275,11 +275,11 @@ h4.ant-typography,
 .ant-picker-calendar-full .ant-picker-panel .ant-picker-body th{
     height: 30px;
     line-height: 18px;
-    padding: 0px 12px 20px 0;
+    padding: 0px 12px 5px 0;
 }
 .ant-picker-calendar-date-content{
-    height: 20px !important;
-    padding: 5px 0px 20px 0;
+    height: 10px !important;
+    padding: 5px 0px 0px 0;
     border-bottom: 0.2px solid gray;
 }
 @media only screen and (max-width: 800px) {
