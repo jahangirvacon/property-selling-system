@@ -38,7 +38,8 @@ const NavBar = ({ menu, onUpdate, update }) => {
 
       <Row justify="space-between" className="navbarStyling navbarcolor">
           <div
-            style={{ width: `${update ? "61px" : "190px"}` }}
+            style={{ width: `${update ? "61px" : "190px"}`, height:"70px"}}
+            height={0}
             className="logoStyling"
           >
             <Row align="center" onClick={() => onUpdate()}>
@@ -121,7 +122,7 @@ const NavBar = ({ menu, onUpdate, update }) => {
             <Menu mode="horizontal">
               <Menu.SubMenu
                 key="SubMenu"
-                title={window.innerWidth > 980 ? "Balwinder Singh" : ""}
+                title={window.innerWidth > 980 ? <span className="bSingh">Balwinder Singh</span> : ""}
                 icon={
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -164,3 +165,5 @@ const NavBar = ({ menu, onUpdate, update }) => {
 };
 
 export default NavBar;
+
+

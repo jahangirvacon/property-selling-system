@@ -149,13 +149,15 @@ const BookingForm = () => {
         onOk={handleOk}
         onCancel={handleCancel}
         footer={[
-          // <Button key="back" onClick={handleCancel} className="discardBtn" >
-          //   Return
-          // </Button>,
-          <Button key="back" onClick={handleCancel} className="discardBtn">Discard</Button>,
-          <Button key="submit" htmlType="submit" onClick={handleSubmit} className="saveBtn" >
-            Save
-          </Button>,
+          <Row justify="space-around" align="start">
+            <Col span={12}>  
+            <Button key="back" onClick={handleCancel} className="discardBtn">Discard</Button>
+            </Col>
+   
+          <Col span={12}>
+          <Button key="submit" htmlType="submit" onClick={handleSubmit} className="saveBtn btnTwo" >Save</Button>
+          </Col>
+          </Row>
         ]}
       >
 

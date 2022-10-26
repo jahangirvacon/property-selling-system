@@ -33,6 +33,7 @@
     
     background:#28e086;
     border-color: #28e086;
+    position: absolute;
     
 
 }
@@ -41,22 +42,32 @@
     background: blue;
 }
 .discardBtn{
-margin-right: 10px !important;
+
 color: blue!important;
 border-color: blue;
+position: absolute !important;
+
 }
 .discardBtn:hover{
     color: blue!important;
     border-color: blue;
+  
     }
 .ant-table-thead > tr > th{
         background: white !important;
         border-bottom: 1px solid #bbb !important;
     }
- .anticon svg{
-        height: 10px !important;
-        width: 10px !important;
-    }  
+
  .ant-typography mark{
     font-size: small !important;
  }    
+ .ant-modal-footer {
+    padding: 16px 160px !important;
+ }
+ .ant-modal-content{
+    height: 430px !important;
+ }
+ .saveBtn, .btnTwo{
+    margin-left: 10px;
+ }
+ 

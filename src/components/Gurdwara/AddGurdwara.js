@@ -61,7 +61,7 @@ const AddGurdwara = ({refresh}) => {
       onOk={handleOk} 
       onCancel={handleCancel}
       footer={[
-        <Button key="back" onClick={handleCancel}>
+        <Button key="back" onClick={handleCancel} className="returnBtn">
           Return
         </Button>,
         <Button key="submit" type="primary" onClick={handleOk}>

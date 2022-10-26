@@ -31,6 +31,7 @@
     background-color: #fff!important;
     font-family: system-ui;
     padding-left: 6px;
+    
 }
 
 .logoStyling {
@@ -211,4 +212,9 @@
 .ant-menu-inline-collapsed > .ant-menu-item, .ant-menu-inline-collapsed > .ant-menu-item-group > .ant-menu-item-group-list > .ant-menu-item, .ant-menu-inline-collapsed > .ant-menu-item-group > .ant-menu-item-group-list > .ant-menu-submenu > .ant-menu-submenu-title, .ant-menu-inline-collapsed > .ant-menu-submenu > .ant-menu-submenu-title {
     padding: 0 !important;
     padding-left: 15px !important;
+}
+.bSingh{
+position: relative !important;
+right: -4px !important;
+top: -7px !important;
 }

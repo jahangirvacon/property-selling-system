@@ -1,0 +1,11 @@
+.addEvent{
+    border: 1px solid blue;
+    background-color: white;
+    color: blue;
+    width: 27%!important;
+    border-radius: 5px;
+    font-size: 15px;
+    height: 35px;
+    margin-right: 60px;
+    padding-left: 13px !important ;
+}

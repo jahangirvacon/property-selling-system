@@ -50,7 +50,7 @@ const AddEvents = ({ refresh }) => {
 
   return (
     <div>
-      <Button type="primary" onClick={showModal} className="addBtn">
+      <Button type="primary" onClick={showModal} className="addEvent">
         Add Event
       </Button>
       <Modal
