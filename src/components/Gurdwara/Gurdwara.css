@@ -29,7 +29,7 @@
    
 }
 
-.returnBtn{
+/* .returnBtn{
     height: 35px;
     width: 100px !important;
     padding-right: 20px;
@@ -46,7 +46,7 @@ border-color: blue;
     position: absolute;
     color: black;
    
-}
+} */
 
 @media only screen and (max-width: 1200px){
     .addBtn{

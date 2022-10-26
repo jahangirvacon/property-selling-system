@@ -10,7 +10,7 @@ import debounce from "lodash/debounce"
 import { CaretRightOutlined, CheckOutlined, CloseOutlined, CalendarOutlined } from "@ant-design/icons"
 import { addBooking, getGurdwaraList, getGurdwaraHalls, getHallEvents } from "../../api"
 import useFormHandler from "../../hooks/form/form-handler"
-import { TextField, Select, FormControl, InputLabel } from '@material-ui/core';
+import { TextField, Select, FormControl, InputLabel, colors } from '@material-ui/core';
 
 
 
@@ -149,15 +149,31 @@ const BookingForm = () => {
         onOk={handleOk}
         onCancel={handleCancel}
         footer={[
-          <Row justify="space-around" align="start">
-            <Col span={12}>  
-            <Button key="back" onClick={handleCancel} className="discardBtn">Discard</Button>
+
+          <Row  align="start">
+            <Col md={5} sm={5} xs={5}>
+            <Button key="submit" htmlType="submit" onClick={handleSubmit} style={{background: "#28e086" ,color: "black", borderColor: "#28e086" }}>Save</Button>
             </Col>
-   
-          <Col span={12}>
-          <Button key="submit" htmlType="submit" onClick={handleSubmit} className="saveBtn btnTwo" >Save</Button>
-          </Col>
+          <Col md={1}></Col>
+            <Col md={5} sm={5} xs={5}>
+            <Button key="back" onClick={handleCancel} style={{background: "white" ,color: "blue", borderColor: "blue" }}>Discard</Button>
+            </Col>  
           </Row>
+
+          // <Row >
+          //   <Col md={24}>
+          //    <Row>
+          //   <Col md={6} sm={12} xs={12}>  
+          //   <Button key="back" onClick={handleCancel} style={{background: "white" ,color: "blue", borderColor: "blue" }}>Discard</Button>
+          //   </Col>
+          //   </Row> 
+          // <Row>
+          // <Col md={6} sm={12} xs={12}>
+          // <Button key="submit" htmlType="submit" onClick={handleSubmit} style={{background: "#28e086" ,color: "black", borderColor: "#28e086" }}>Save</Button>
+          // </Col>
+          // </Row>
+          // </Col>
+          // </Row>
         ]}
       >
 
