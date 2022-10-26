@@ -52,19 +52,21 @@ const AddGurdwara = ({refresh}) => {
   return (
     
     <div>
-    
-      <Button type="primary" onClick={showModal} className="addBtn">
+  
+       
+        <Button type="primary" onClick={showModal} className="addBtn">
         Add Gurdwara
       </Button>
+      
       <Modal 
       visible={isModalVisible} 
       onOk={handleOk} 
       onCancel={handleCancel}
       footer={[
-        <Button key="back" onClick={handleCancel} className="returnBtn">
+         <Button key="back" onClick={handleCancel} className="returnBtn">
           Return
         </Button>,
-        <Button key="submit" type="primary" onClick={handleOk}>
+        <Button key="submit" type="primary" onClick={handleOk} className="gurSaveBtn gurSaveBtnTwo">
           Save
         </Button>,
       ]}

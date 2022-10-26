@@ -9,3 +9,23 @@
     margin-right: 60px;
     padding-left: 13px !important ;
 }
+@media only screen and (max-width: 1200px){
+    .addEvent{
+        width: 50% !important;
+      
+    }
+}
+@media only screen and (max-width: 650px ){
+    .addEvent{
+        width: 100% !important;
+        padding-left: 0px;
+    }
+}
+@media only screen and (max-width: 300px ){
+    .addEvent{
+        width: 100% !important;
+        padding-left: 10px;
+        font-size: 15px;
+       
+    }
+}

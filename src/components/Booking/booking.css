@@ -34,11 +34,10 @@
     background:#28e086;
     border-color: #28e086;
     position: absolute;
-    
+    color: black;
 
 }
 .saveBtn:hover{
-    color: white;
     background: blue;
 }
 .discardBtn{

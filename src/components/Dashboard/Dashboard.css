@@ -44,7 +44,7 @@
     width: 35px;
     text-decoration: none;
     font-family: proxima-nova sans-serif;
-    letter-spacing: 0.8px;
+
  
 }
 
@@ -225,7 +225,7 @@ h4.ant-typography,
 .hall-heading {
     position: sticky;
     padding-top: 15px;
-    height: 35px;
+    height: 50px;
     padding-left: 8px;
     margin-bottom: 0!important;
     white-space: nowrap;
@@ -239,7 +239,7 @@ h4.ant-typography,
 .first-heading {
     border-left: unset;
     background-color: white !important;
-    height: 70px;
+    height: 120px;
 }
 
 .ant-list {
@@ -252,6 +252,7 @@ h4.ant-typography,
     font-style: normal;
     font-size: 1rem;
     line-height: 2px;
+    padding-top: 15px;
     /* opacity: 0.8; */
 }
 
