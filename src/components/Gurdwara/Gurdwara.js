@@ -27,18 +27,22 @@ const columns = (removeGurdwara) => [
   {
     title: "Name",
     dataIndex: "title",
+    sorter: (a, b) => a.title - b.title,
   },
   {
     title: "Address",
     dataIndex: "location",
+    sorter: (a, b) => a.location - b.location,
   },
   {
     title: "Contact",
     dataIndex: "contact",
+    sorter: (a, b) => a.contact - b.contact,
   },
   {
     title: "Email",
     dataIndex: "email",
+    sorter: (a, b) => a.email - b.email,
   },
   {
     title: "Action",

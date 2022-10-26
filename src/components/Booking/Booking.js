@@ -9,6 +9,7 @@ import { Table } from "antd"
 import { getBookingList, deleteBooking } from "../../api"
 import { useNavigate } from "react-router-dom"
 import moment from "moment"
+import { withWidth } from "@material-ui/core"
 const menu = (
   <Menu
     items={[
@@ -50,43 +51,43 @@ const columns = (removeBooking, navigateToDetails) => [
   {
     title: "Arrival",
     dataIndex: "bookingDate",
+    sorter: (a, b) => a.bookingDate - b.bookingDate,
   },
   {
     title: "Slot",
     dataIndex: "slot",
-    // sorter: {
-    //   compare: (a, b) => a.chinese - b.chinese,
-    //   multiple: 3,
-    // },
+    sorter: (a, b) => a.slot - b.slot,
   },
   {
     title: "Name",
     dataIndex: "name",
+    sorter: (a, b) => a.name - b.name,
   },
   {
     title: "Guest",
     dataIndex: "guestCount",
+    sorter: (a, b) => a.guestCount - b.guestCount,
     render: (guest) => (
       <Space size="middle">
-        <a> {guest} </a>{" "}
+        <a> {guest} </a>
       </Space>
     ),
   },
   {
-    title: "Portal",
+    title: <div >Portal<DownOutlined style={{marginLeft: "5px"}}/></div>,
     dataIndex: "portal",
     render: (portal) => (
       <Space size="middle">
-        <Text className="td-portal" mark>
-          {" "}
-          {portal}{" "}
-        </Text>{" "}
+        <Text className="td-portal" mark >
+          {portal}
+        </Text>
       </Space>
     ),
   },
   {
     title: "Event",
     dataIndex: "event",
+    sorter: (a, b) => a.event - b.event,
     render: (event) => (
       <Space size="middle">
         <Text className="td-event" mark>
@@ -97,7 +98,7 @@ const columns = (removeBooking, navigateToDetails) => [
     ),
   },
   {
-    title: "Created",
+    title: <div >Portal<DownOutlined style={{marginLeft: "5px"}}/></div>,
     dataIndex: "createdAt",
   },
   {
@@ -106,7 +107,7 @@ const columns = (removeBooking, navigateToDetails) => [
     render: (statusText) => (
       
       <Space size="middle">
-        <Button type="primary" size="small">
+        <Button type="primary" size="small" style={{height: "20px" ,width: "10px"}}>
           {statusText}
         </Button>
       </Space>

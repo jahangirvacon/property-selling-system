@@ -27,14 +27,17 @@ const columns = removeHall => [
   {
     title: "Hall Name",
     dataIndex: "hallName",
+    sorter: (a, b) => a.hallName - b.hallName,
   },
   {
     title: "Gurdwara",
     dataIndex: "gurdwara",
+    sorter: (a, b) => a.gurdwara - b.gurdwara,
   },
   {
     title: "Working Hours",
     dataIndex: "duration",
+    sorter: (a, b) => a.duration - b.duration,
   },
   {
     title: "Action",
