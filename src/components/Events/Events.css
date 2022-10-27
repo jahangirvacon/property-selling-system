@@ -1,0 +1,31 @@
+.addEvent{
+    border: 1px solid blue;
+    background-color: white;
+    color: blue;
+    width: 27%!important;
+    border-radius: 5px;
+    font-size: 15px;
+    height: 35px;
+    margin-right: 60px;
+    padding-left: 13px !important ;
+}
+@media only screen and (max-width: 1200px){
+    .addEvent{
+        width: 50% !important;
+      
+    }
+}
+@media only screen and (max-width: 650px ){
+    .addEvent{
+        width: 100% !important;
+        padding-left: 0px;
+    }
+}
+@media only screen and (max-width: 300px ){
+    .addEvent{
+        width: 100% !important;
+        padding-left: 10px;
+        font-size: 15px;
+       
+    }
+}

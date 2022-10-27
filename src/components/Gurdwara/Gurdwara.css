@@ -21,7 +21,56 @@
     border: 1px solid blue;
     background-color: white;
     color: blue;
-    width: 50%!important;
+    width: 32%!important;
     border-radius: 5px;
+    font-size: 15px;
+    height: 35px;
+    padding-left: 6px;
+   
 }
+
+/* .returnBtn{
+    height: 35px;
+    width: 100px !important;
+    padding-right: 20px;
+    color: blue!important;
+border-color: blue;
+  margin-top: 10px !important;
+}
+.gurSaveBtn{
+    height: 35px;
+    width: 100px !important;
+    padding-right: 20px;
+    background:#28e086;
+    border-color: #28e086;
+    position: absolute;
+    color: black;
+   
+} */
+
+@media only screen and (max-width: 1200px){
+    .addBtn{
+        width: 50% !important;
+      
+    }
+}
+@media only screen and (max-width: 650px ){
+    .addBtn{
+        width: 100% !important;
+        padding-left: 0px;
+    }
+}
+@media only screen and (max-width: 300px ){
+    .addBtn{
+        width: 100% !important;
+        padding-left: 0px;
+        font-size: 10px;
+       
+    }
+}
+
+
+
+
+
 

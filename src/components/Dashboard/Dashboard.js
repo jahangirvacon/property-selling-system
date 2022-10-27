@@ -8,7 +8,7 @@ import { getGurdwaraList, getGurdwaraHalls } from "../../api"
 import pics1 from "../../Assets/pics1.PNG"
 import chart2 from "../../Assets/chart2.PNG"
 import chart3 from "../../Assets/chart3.PNG"
-import { HomeOutlined, InteractionOutlined } from "@ant-design/icons"
+import { HomeOutlined, InteractionOutlined,CalendarOutlined } from "@ant-design/icons"
 
 const { Title } = Typography
 const { Option } = Select
@@ -69,7 +69,7 @@ const Dashboard = () => {
 
   const filterHallBookings = (hallId) => {
     let filteredBookings = bookings
-    if (hallId !== "ALL") {
+    if (hallId !== "ALL" ) {
       filteredBookings = bookings.filter((booking) => booking.hallEvent.hall._id === hallId)
     }
     getData(filteredBookings)
@@ -113,12 +113,14 @@ const Dashboard = () => {
   }
 
   const operations = (
-    <Select style={{ width: 200 }} onChange={filterHallBookings} defaultValue="ALL">
+    <div><CalendarOutlined />
+     <Select style={{ width: 200, marginLeft: "10px" }} onChange={filterHallBookings} defaultValue="ALL">
       <Option value="ALL">All</Option>
-      {hallListSelection.map((hall) => (
-        <Option value={hall.id}>{hall.displayText}</Option>
-      ))}
-    </Select>
+       {hallListSelection.map((hall) => (
+         <Option value={hall.id}>{hall.displayText}</Option>
+       ))}
+     </Select>
+    </div> 
   )
 
   const getHallDetailedViewHeader = () => {
@@ -214,7 +216,7 @@ const Dashboard = () => {
       return (
         <List
           className="multi-list"
-          itemLayout="horizontal"
+          itemLayout="horizontal "
           dataSource={[{ displayText: "", id: 0 }, ...hallListSelection]}
           loading={isLoading}
           renderItem={(hall, index) => (
@@ -246,9 +248,8 @@ const Dashboard = () => {
         </Col>
 
           <Row className="">
-            <Col lg={7}   md={24} sm={24}>
-              <div className="site-card-border-less-wrapper">
-                {/* title="Card Nights / Portal"  */}
+            <Col lg={7} style={{width:"100%"}}    md={24} sm={24}>
+              <div  className="site-card-border-less-wrapper">
                 <Card className="chart-card" bordered={false}>
                   <h1>Nights / Portal</h1>
                   <img src={pics1} className="graphtable  dashboard-imgs" alt="" />
@@ -256,7 +257,7 @@ const Dashboard = () => {
               </div>
             </Col>
 
-            <Col lg={7}   md={24} sm={24} >
+            <Col lg={7} style={{width:"100%"}}    md={24} sm={24} >
               <div className="site-card-border-less-wrapper">
                 <Card className="chart-card" bordered={false} >
                   <h1 >Occupancy</h1>
@@ -267,7 +268,7 @@ const Dashboard = () => {
                 </Card>
               </div>
             </Col>
-            <Col lg={10}   md={24} sm={24} >
+            <Col lg={10} style={{width:"100%"}}    md={24} sm={24} >
               <div className="site-card-border-less-wrapper">
                 <Card className="chart-card" bordered={false}>
                   <h1>Occupancy & Revenue</h1>
@@ -296,7 +297,7 @@ const Dashboard = () => {
       </Row>
       {/* Arrival And Departer Fields  */}
       <Row justify="space-around" className="DepartureHeader">
-        <Col lg={11} md={20} sm={20} className="cardWrapper">
+        <Col lg={11} md={20} sm={22} xs={22}  className="cardWrapper">
           <div className="site-card-border-less-wrapper">
             <Card title="Next Arrivals / Departures" className="card asdasd" bordered={false}>
               <div className={`cardcontent ${selectedDateBookings.length === 0 ? "empty-card" : ""}`}>
@@ -316,7 +317,7 @@ const Dashboard = () => {
           </div>
         </Col>
 
-        <Col lg={11} md={20} sm={20} className="cardWrapper">
+        <Col lg={11} md={20} sm={22} xs={22} className="cardWrapper">
           <div className="site-card-border-less-wrapper">
             <Card title="Activity Feed" className="card asdasd" bordered={false}>
               <div className={`cardcontent ${selectedDateBookings.length === 0 ? "empty-card" : ""}`}>

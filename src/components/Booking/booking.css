@@ -29,23 +29,47 @@
     color: blue!important;
     font-size: 20px!important;
 }
-.saveBtn{
-    float: left;
+.ant-table-thead > tr > th{
+    background: white !important;
+    border-bottom: 1px solid #bbb !important;
+}
+.ant-typography mark{
+    font-size: smaller !important;
+ }  
+
+/* .saveBtn{
+    
     background:#28e086;
     border-color: #28e086;
+    position: absolute;
+    color: black;
 
 }
 .saveBtn:hover{
-    color: white;
     background: blue;
 }
 .discardBtn{
-margin-right: 10px;
+
 color: blue!important;
 border-color: blue;
+position: absolute !important;
+
 }
 .discardBtn:hover{
     color: blue!important;
     border-color: blue;
-    }
   
+    }
+
+  
+ .ant-modal-footer {
+    padding: 40px 160px !important;
+ }
+ .ant-modal-content{
+    height: 100% !important;
+ }
+ .saveBtn, .btnTwo{
+    margin-left: 10px;
+ } */
+ 
+ 

@@ -50,7 +50,7 @@ const AddEvents = ({ refresh }) => {
 
   return (
     <div>
-      <Button type="primary" onClick={showModal} className="addBtn">
+      <Button type="primary" onClick={showModal} className="addEvent">
         Add Event
       </Button>
       <Modal
@@ -58,12 +58,15 @@ const AddEvents = ({ refresh }) => {
         onOk={handleOk}
         onCancel={handleCancel}
         footer={[
-          <Button key="back" onClick={handleCancel}>
-            Return
-          </Button>,
-          <Button key="submit" type="primary" onClick={handleOk}>
-            Save
-          </Button>,
+          <Row align="start">
+           <Col md={5}  sm={5} xs={5}>
+             <Button key="submit" onClick={handleOk} style={{ background: "#28e086", color: "black", borderColor: "#28e086" }}>Save</Button>
+           </Col>
+           <Col md={1}></Col>
+           <Col md={5}  sm={5} xs={5}>
+             <Button key="back" onClick={handleCancel} style={{ background: "white", color: "blue", borderColor: "blue" }}>Return</Button>
+           </Col>
+         </Row>
         ]}
       >
         <form onSubmit={handleSubmit}>

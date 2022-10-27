@@ -1,15 +1,36 @@
 import React, { useState, useEffect } from "react"
 import { useSelector, useDispatch } from "react-redux"
 import { fetchBookingList } from "../../redux/thunk"
-import { Row, Col } from "antd"
+import { Row, Col, Dropdown, Menu } from "antd"
 import "./booking.css"
 import { Input, Space, Typography, Button } from "antd"
-import { AudioOutlined } from "@ant-design/icons"
+import { AudioOutlined,DownOutlined } from "@ant-design/icons"
 import { Table } from "antd"
 import { getBookingList, deleteBooking } from "../../api"
 import { useNavigate } from "react-router-dom"
 import moment from "moment"
-
+import { withWidth } from "@material-ui/core"
+const menu = (
+  <Menu
+    items={[
+      {
+        label: <a href="https://www.antgroup.com">1st menu item</a>,
+        key: '0',
+      },
+      {
+        label: <a href="https://www.aliyun.com">2nd menu item</a>,
+        key: '1',
+      },
+      {
+        type: 'divider',
+      },
+      {
+        label: '3rd menu item',
+        key: '3',
+      },
+    ]}
+  />
+);
 const { Text } = Typography
 
 const { Search } = Input
@@ -30,43 +51,43 @@ const columns = (removeBooking, navigateToDetails) => [
   {
     title: "Arrival",
     dataIndex: "bookingDate",
+    sorter: (a, b) => a.bookingDate - b.bookingDate,
   },
   {
     title: "Slot",
     dataIndex: "slot",
-    // sorter: {
-    //   compare: (a, b) => a.chinese - b.chinese,
-    //   multiple: 3,
-    // },
+    sorter: (a, b) => a.slot - b.slot,
   },
   {
     title: "Name",
     dataIndex: "name",
+    sorter: (a, b) => a.name - b.name,
   },
   {
     title: "Guest",
     dataIndex: "guestCount",
+    sorter: (a, b) => a.guestCount - b.guestCount,
     render: (guest) => (
       <Space size="middle">
-        <a> {guest} </a>{" "}
+        <a> {guest} </a>
       </Space>
     ),
   },
   {
-    title: "Portal",
+    title: <div >Portal<DownOutlined style={{marginLeft: "5px"}}/></div>,
     dataIndex: "portal",
     render: (portal) => (
       <Space size="middle">
-        <Text className="td-portal" mark>
-          {" "}
-          {portal}{" "}
-        </Text>{" "}
+        <Text className="td-portal" mark >
+          {portal}
+        </Text>
       </Space>
     ),
   },
   {
     title: "Event",
     dataIndex: "event",
+    sorter: (a, b) => a.event - b.event,
     render: (event) => (
       <Space size="middle">
         <Text className="td-event" mark>
@@ -77,19 +98,21 @@ const columns = (removeBooking, navigateToDetails) => [
     ),
   },
   {
-    title: "Created",
+    title: <div >Portal<DownOutlined style={{marginLeft: "5px"}}/></div>,
     dataIndex: "createdAt",
   },
   {
-    title: "Status",
+    title:<div >Status<DownOutlined style={{marginLeft: "5px"}}/></div>,
     dataIndex: "status",
     render: (statusText) => (
+      
       <Space size="middle">
-        <Button type="primary" size="small">
-          {" "}
-          {statusText}{" "}
-        </Button>{" "}
+        <Button type="primary" size="small" style={{height: "20px" ,width: "10px"}}>
+          {statusText}
+        </Button>
       </Space>
+      
+      
     ),
   },
   {
@@ -113,6 +136,7 @@ function onChange(pagination, filters, sorter, extra) {
 }
 
 const Booking = () => {
+
   const navigate = useNavigate()
 
   const [bookingList, setBookingList] = useState([])
@@ -180,6 +204,7 @@ const Booking = () => {
           <Table columns={columns(removeBooking, navigateToDetails)} dataSource={bookingList} onChange={onChange} loading={isLoading}  scroll={{
       x: 1100,
     }}/>
+ 
         </Col>{" "}
       </Row>{" "}
     </div>

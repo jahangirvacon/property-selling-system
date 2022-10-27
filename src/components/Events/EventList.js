@@ -28,14 +28,17 @@ const columns = [
   {
     title: "Event Name",
     dataIndex: "name",
+    sorter: (a, b) => a.name - b.name,
   },
   {
     title: "Event Category",
     dataIndex: "category",
+    sorter: (a, b) => a.category - b.category,  
   },
   {
     title: "Event Duration",
     dataIndex: "duration",
+    sorter: (a, b) => a.duration - b.duration, 
   },
   // {
   //   title: "Action",
