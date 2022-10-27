@@ -22,7 +22,7 @@ const { Option } = Select
 const { Panel } = Collapse
 
 const BookingForm = () => {
-  debugger
+  
   const [gurdwaraListSelection, setGurdwaraListSelection] = useState([])
   const [hallListSelection, setHallListSelection] = useState([])
   const [eventTypeListSelection, setEventTypeListSelection] = useState([])
