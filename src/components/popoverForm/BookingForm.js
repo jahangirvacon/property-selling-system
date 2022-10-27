@@ -22,7 +22,7 @@ const { Option } = Select
 const { Panel } = Collapse
 
 const BookingForm = () => {
-  
+  debugger
   const [gurdwaraListSelection, setGurdwaraListSelection] = useState([])
   const [hallListSelection, setHallListSelection] = useState([])
   const [eventTypeListSelection, setEventTypeListSelection] = useState([])
@@ -176,7 +176,7 @@ const BookingForm = () => {
               <div className="formData" >
                 {/* <h5 className="formHeader">Customer Name</h5> */}
                 {/* <Input  onChange={handleInputChange} value={inputs.guest} name="guest" placeholder="Customer Name" height={100}/> */}
-                <TextField  id="guest" variant="outlined"  size="small" label="Customer Name" onChange={handleInputChange} value={inputs.guest} name="guest" 
+                <TextField  error={inputs.name===""?true:false}  id="outlined-size-small" variant="outlined"  size="small" label="Customer Name" onChange={handleInputChange} value={inputs.guest} name="guest" 
           />
                    
                 
