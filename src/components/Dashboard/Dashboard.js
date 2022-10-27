@@ -297,7 +297,7 @@ const Dashboard = () => {
       </Row>
       {/* Arrival And Departer Fields  */}
       <Row justify="space-around" className="DepartureHeader">
-        <Col lg={11} md={20} sm={20} className="cardWrapper">
+        <Col lg={11} md={20} sm={22} xs={22}  className="cardWrapper">
           <div className="site-card-border-less-wrapper">
             <Card title="Next Arrivals / Departures" className="card asdasd" bordered={false}>
               <div className={`cardcontent ${selectedDateBookings.length === 0 ? "empty-card" : ""}`}>
@@ -317,7 +317,7 @@ const Dashboard = () => {
           </div>
         </Col>
 
-        <Col lg={11} md={20} sm={20} className="cardWrapper">
+        <Col lg={11} md={20} sm={22} xs={22} className="cardWrapper">
           <div className="site-card-border-less-wrapper">
             <Card title="Activity Feed" className="card asdasd" bordered={false}>
               <div className={`cardcontent ${selectedDateBookings.length === 0 ? "empty-card" : ""}`}>

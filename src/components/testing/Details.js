@@ -59,10 +59,9 @@ const Details = () => {
       </Row>
       <Row>
         <Col span={10}>
-          <Card title="" bordered={false}>
+          <Card title="" bordered={false} style={{border: "1px solid  #bbb", borderRadius: "0.5rem"}}>
             <h1>
-              {" "}
-              <strong>Customer Details</strong>{" "}
+              <strong>Customer Details</strong>
             </h1>
             <Row>
               <Col span={8}>
@@ -75,6 +74,7 @@ const Details = () => {
                   <p>Address</p>
                 </div>
               </Col>
+            
               <Col span={10} offset={4}>
                 <div className="site-card-border-less-wrapper">
                   <p>{bookingDetails.guest} </p>
@@ -104,9 +104,10 @@ const Details = () => {
       {/* Row 2 */}
       <Row className="placeDetails">
         <Col span={10}>
-          <Card title="" bordered={false}>
+          <Card title="" bordered={false} style={{border: "1px solid  #bbb", borderRadius: "0.5rem"
+ }}>
             <h1>
-              <strong>Venue</strong>{" "}
+              <strong>Venue</strong>
             </h1>
             <Row>
               <Col span={8}>
@@ -180,6 +181,7 @@ const Details = () => {
           </Col>
         </Row>
       )}
+      
     </div>
   )
 }

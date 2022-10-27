@@ -10,7 +10,8 @@ import debounce from "lodash/debounce"
 import { CaretRightOutlined, CheckOutlined, CloseOutlined, CalendarOutlined } from "@ant-design/icons"
 import { addBooking, getGurdwaraList, getGurdwaraHalls, getHallEvents } from "../../api"
 import useFormHandler from "../../hooks/form/form-handler"
-import { TextField, Select, FormControl, InputLabel, colors } from '@material-ui/core';
+import { TextField, Select, FormControl, InputLabel, FormHelperText } from '@material-ui/core';
+
 
 
 
@@ -21,6 +22,7 @@ const { Option } = Select
 const { Panel } = Collapse
 
 const BookingForm = () => {
+  debugger
   const [gurdwaraListSelection, setGurdwaraListSelection] = useState([])
   const [hallListSelection, setHallListSelection] = useState([])
   const [eventTypeListSelection, setEventTypeListSelection] = useState([])
@@ -159,21 +161,6 @@ const BookingForm = () => {
             <Button key="back" onClick={handleCancel} style={{background: "white" ,color: "blue", borderColor: "blue" }}>Discard</Button>
             </Col>  
           </Row>
-
-          // <Row >
-          //   <Col md={24}>
-          //    <Row>
-          //   <Col md={6} sm={12} xs={12}>  
-          //   <Button key="back" onClick={handleCancel} style={{background: "white" ,color: "blue", borderColor: "blue" }}>Discard</Button>
-          //   </Col>
-          //   </Row> 
-          // <Row>
-          // <Col md={6} sm={12} xs={12}>
-          // <Button key="submit" htmlType="submit" onClick={handleSubmit} style={{background: "#28e086" ,color: "black", borderColor: "#28e086" }}>Save</Button>
-          // </Col>
-          // </Row>
-          // </Col>
-          // </Row>
         ]}
       >
 
@@ -189,7 +176,11 @@ const BookingForm = () => {
               <div className="formData" >
                 {/* <h5 className="formHeader">Customer Name</h5> */}
                 {/* <Input  onChange={handleInputChange} value={inputs.guest} name="guest" placeholder="Customer Name" height={100}/> */}
-                <TextField id="outlined-size-small" variant="outlined" defaultValue="Small" size="small" label="Customer Name" onChange={handleInputChange} value={inputs.guest} name="guest" />
+                <TextField  id="guest" variant="outlined"  size="small" label="Customer Name" onChange={handleInputChange} value={inputs.guest} name="guest" 
+          />
+                   
+                
+                
               </div>
             </Col>
             <Col span={10} offset={2}>
